@@ -1,7 +1,6 @@
 #include "Cat.h"
 
-Cat::Cat() {
-}
+Cat::Cat(int col, int row) : Moving_object (cat, col, row) {}
 
 Cat::~Cat() {
 

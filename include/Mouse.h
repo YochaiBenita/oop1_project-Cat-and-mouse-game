@@ -4,7 +4,7 @@
 
 class Mouse:public Moving_object {
 public:
-	Mouse();
+	Mouse(int, int);
 	virtual ~Mouse();
 	virtual void draw(sf::RenderWindow&);
 	virtual void move();

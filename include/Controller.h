@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <fstream>
 #include "Level.h"
 
 
@@ -9,7 +10,6 @@ class Controller {
 public:
 	Controller();
 	~Controller();
-	Controller& operator=(const GameController&) = default;
 
 private:
 	int m_life = 3;
@@ -18,6 +18,4 @@ private:
 
 	Level* m_currLevel;
 	const std::vector<std::string> m_levels_name;
-
-	//void printValues() const;
 };
