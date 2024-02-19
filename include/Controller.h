@@ -20,7 +20,7 @@ class Controller {
 public:
 	Controller();
 	~Controller();
-	void play();
+	void run();
 
 	
 
@@ -28,6 +28,7 @@ private:
 	int m_life = 3;
 	int m_score = 0;
 	int m_levelNumber = 0;
+	bool m_to_exit = false;
 
 	Level* m_currLevel;
 	const std::vector<std::string> m_levels_name;

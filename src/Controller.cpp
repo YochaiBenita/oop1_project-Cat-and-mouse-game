@@ -1,5 +1,6 @@
 #pragma once
 #include "Controller.h"
+#include "Menu.h"
 #include <SFML/Graphics.hpp>
 
 
@@ -40,26 +41,32 @@ Controller::~Controller()
 
 }
 
-void Controller::play()
+void Controller::run()
 {
-	while (m_life > 0 && m_levelNumber < m_levels_name.size())
-	{
-		if (m_currLevel == nullptr) {
-			m_currLevel = new Level(m_levels_name[m_levelNumber]);
-		}
+	while (!m_to_exit) {
 
-		if (m_currLevel->play())
+		//menu
+
+
+		while (m_life > 0 && m_levelNumber < m_levels_name.size())
 		{
-			delete m_currLevel;
-			m_currLevel = nullptr;
-			m_levelNumber++;
+			if (m_currLevel == nullptr) {
+				m_currLevel = new Level(m_levels_name[m_levelNumber]);
+			}
+
+			if (m_currLevel->play())
+			{
+				delete m_currLevel;
+				m_currLevel = nullptr;
+				m_levelNumber++;
+			}
+			else
+			{
+				m_life--;
+				m_currLevel->reset_locations();
+			}
+			//exiting a level?
 		}
-		else
-		{
-			m_life--;
-			m_currLevel->reset_locations();
-		}
-		//exiting a level?
 	}
 }
 
