@@ -6,7 +6,7 @@ class Static_object :public Object {
 public:
 	Static_object();
 	virtual ~Static_object();
-	virtual void draw(sf::RenderWindow&);
+	virtual void draw(sf::RenderWindow&)=0;
 
 private:
 
