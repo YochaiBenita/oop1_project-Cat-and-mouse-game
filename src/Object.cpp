@@ -20,3 +20,13 @@ void Object::draw(sf::RenderWindow& window)
 {
 	window.draw(m_sp);
 }
+
+void Object::set_position(sf::Vector2f v2p)
+{
+	m_sp.setPosition(v2p);
+}
+
+sf::Vector2f Object::get_position() const
+{
+	return m_sp.getPosition();
+}

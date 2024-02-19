@@ -64,6 +64,7 @@ bool Level::play()
 			if (event.type == sf::Event::Closed)
 			{
 				window.close();
+				break;
 			}
 		}
 
@@ -74,6 +75,14 @@ bool Level::play()
 		}
 
 		window.display();
+	}
+}
+
+void Level::reset_locations()
+{
+	for (int i = 0; i < m_movings.size(); i++)
+	{
+		m_movings[i]->reset_location();
 	}
 }
 
