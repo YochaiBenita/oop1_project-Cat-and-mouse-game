@@ -52,6 +52,7 @@ bool Level::play()
 	
 	while (window.isOpen())
 	{
+		sf::Clock clock;
 		window.clear(sf::Color::White);
 
 		for (int i = 0; i < m_statics.size(); i++)
@@ -68,9 +69,11 @@ bool Level::play()
 			}
 		}
 
+		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
-			m_movings[i]->move();
+			deltaTime.asSeconds();
+			m_movings[i]->move(deltaTime.asSeconds());
 			m_movings[i]->draw(window);
 		}
 

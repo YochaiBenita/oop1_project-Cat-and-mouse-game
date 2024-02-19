@@ -30,3 +30,8 @@ sf::Vector2f Object::get_position() const
 {
 	return m_sp.getPosition();
 }
+
+void Object::move(sf::Vector2f v2d)
+{
+	m_sp.move(v2d);
+}

@@ -12,7 +12,17 @@ Moving_object::~Moving_object()
 {
 }
 
+void Moving_object::draw(sf::RenderWindow& wind)
+{
+	Object::draw(wind);
+}
+
 void Moving_object::reset_location()
 {
 	set_position(m_original_loc);
+}
+
+void Moving_object::move(sf::Vector2f v2d)
+{
+	Object::move(v2d);
 }
