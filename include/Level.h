@@ -18,10 +18,11 @@ class Level{
 public:
 	Level(std::string fileName);
 	bool play();
+	void reset_locations();
 
 private:
-	int m_keys;
-	int m_num_of_cheeses;
+	int m_keys = 0;
+	int m_num_of_cheeses = 0;
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;
 	std::vector <std::unique_ptr<Static_object>> m_statics;

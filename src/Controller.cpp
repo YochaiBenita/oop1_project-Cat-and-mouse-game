@@ -29,7 +29,7 @@ sf::Texture* readTextures()
 	return texures;
 }
 
-
+//------------
 Controller::Controller() : 
 	m_currLevel(nullptr),
 	m_levels_name(readLevelNames()),
@@ -57,10 +57,9 @@ void Controller::play()
 		else
 		{
 			m_life--;
-			m_currLevel.reset_locations();
-
+			m_currLevel->reset_locations();
 		}
-
+		//exiting a level?
 	}
 }
 

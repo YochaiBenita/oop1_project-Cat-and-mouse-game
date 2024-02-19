@@ -8,7 +8,8 @@ public:
 	virtual ~Moving_object();
 	virtual void draw(sf::RenderWindow&) = 0;
 	virtual void move() = 0;
+	void reset_location();
 
 private:
-
+	sf::Vector2f m_original_loc;
 };
