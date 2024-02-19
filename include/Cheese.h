@@ -1,13 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Static_object.h"
+#include "Cat.h"
+#include "Mouse.h"
+#include "Resources.h"
 
-class Cheese:public Static_object
+class Cheese :public Static_object
 {
 public:
-	Cheese(int, int);
+	Cheese(int col, int row) : Static_object(cheese, col, row) {};
 	virtual ~Cheese();
-	virtual void draw(sf::RenderWindow&)const override;
+
+	void handleCollision(Object& obj) { obj.handleCollision(*this); }
+	void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
+	void handleCollision(Mouse& mousePlayer) { mousePlayer.handleCollision(*this); }
 
 private:
 

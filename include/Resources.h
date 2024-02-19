@@ -3,8 +3,8 @@
 #include <string>
 
 enum object_code {
-	mouse, cat, chease,
-	door, gift, key, wall
+	mouse, cat, cheese,
+	door, gift, freeze, life, time, key, wall
 };
 
 const int NUM_OF_TEXTURES = 10;

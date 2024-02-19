@@ -3,13 +3,13 @@
 #include "Static_object.h"
 #include "Cat.h"
 #include "Mouse.h"
+#include "Resources.h"
 
 class Door :public Static_object
 {
 public:
 	Door(int col, int row) :Static_object(door, col, row) {};
 	virtual ~Door();
-	virtual void draw(sf::RenderWindow&)const override;
 
 	void handleCollision(Object& obj) { obj.handleCollision(*this); }
 	void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
