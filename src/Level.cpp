@@ -30,7 +30,7 @@ Level::Level(std::string fileName)
 				}
 				else		//for mouse
 				{
-					m_movings.insert(m_movings.begin(),0);
+					m_movings.insert(m_movings.begin(),temp);
 				}
 			}
 			else

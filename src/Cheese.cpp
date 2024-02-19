@@ -1,3 +1,1 @@
-int main()
-{
-}
+#include "Cheese.h"
