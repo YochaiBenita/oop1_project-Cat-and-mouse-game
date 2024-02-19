@@ -2,6 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
+enum object_code {
+	mouse, cat, chease,
+	door, gift, key, wall
+};
+
 const int NUM_OF_TEXTURES = 10;
 const int NUM_OF_SOUNDES = 10;
 const int NUM_OF_FONTS = 10;
