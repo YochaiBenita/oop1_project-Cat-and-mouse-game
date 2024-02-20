@@ -3,7 +3,8 @@
 #include "Menu.h"
 #include <SFML/Graphics.hpp>
 
-static Resources m_resources = Resources();
+//static Resources m_resources = Resources();
+const class Resources Controller::m_resources;//chat gpt
 
 Controller::Controller() : 
 	m_currLevel(nullptr)

@@ -101,16 +101,16 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 	switch (c)
 	{
 	case '#':
-//		return std::make_unique<Wall>(col, row);
+		return std::make_unique<Wall>(col, row);
 	case 'F':
-//		return std::make_unique<Key>(col, row);
+		return std::make_unique<Key>(col, row);
 	case '*':
-//		return std::make_unique<Cheese>(col, row);
-	case '$':
-		//return std::make_unique<Gift>(col, row);
+		return std::make_unique<Cheese>(col, row);
+	//case '$':
+	//	//return std::make_unique<Gift>(col, row);
 	case 'D':
-//		return std::make_unique<Door>(col, row);
-	{}
-	return std::make_unique<Static_object>(1, col, row);
+		return std::make_unique<Door>(col, row);
+	//{}
+	//return std::make_unique<Static_object>(1, col, row);
 	}
 }
