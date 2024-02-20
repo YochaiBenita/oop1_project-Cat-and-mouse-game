@@ -10,7 +10,7 @@ const int NUM_OF_TEXTURES = 7;
 enum object_code {
 	mouse_t, cat_t, cheese_t,
 	door_t, gift_t, key_t, wall_t,
-	Gfreeze_t, Glife_t, Gtime_t
+	Gfreeze_t, Glife_t, Gtime_t, Gkill_t
 };
 
 
