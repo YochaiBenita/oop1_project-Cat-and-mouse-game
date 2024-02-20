@@ -4,42 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 
-//global func
-const std::vector <std::string> readLevelNames()
-{
-	std::vector<std::string> levelsName;
-	std::string line;
-	auto playList = std::ifstream("playlist.txt");
 
-	while (playList >> line)
-	{
-		levelsName.push_back(line);
-	}
-
-	return levelsName;
-}
-
-sf::Texture* readTextures()
-{
-	sf::Texture* texures = new sf::Texture[NUM_OF_TXTR];
-
-	for (int i = 0; i < NUM_OF_TXTR; i++)
-	{
-		texures[i].loadFromFile(FileNames[i]);
-	}
-	return texures;
-}
-
-//------------
 Controller::Controller() : 
 	m_currLevel(nullptr),
-	m_levels_name(readLevelNames()),
-	m_texures(readTextures()) {}
+	m_resources(Resources())
+{}
 
-Controller::~Controller()
-{
-
-}
+Controller::~Controller() {}
 
 void Controller::run()
 {
@@ -48,10 +19,10 @@ void Controller::run()
 		//menu
 
 
-		while (m_life > 0 && m_levelNumber < m_levels_name.size())
+		while (m_life > 0 && m_levelNumber < m_resources.numOfLevels() )
 		{
 			if (m_currLevel == nullptr) {
-				m_currLevel = new Level(m_levels_name[m_levelNumber]);
+				m_currLevel = new Level(m_resources.getLevelNameAt(m_levelNumber));
 			}
 
 			if (m_currLevel->play())

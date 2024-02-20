@@ -1,7 +1,8 @@
 ﻿#configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+#pics
 configure_file ("cat.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("chease.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("cheese.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("delete.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("door.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -10,6 +11,8 @@ configure_file ("mouse.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("newfile.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+#text
 configure_file ("playlist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level001.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level002.txt" ${CMAKE_BINARY_DIR} COPYONLY)

@@ -35,8 +35,10 @@ Level::Level(std::string fileName)
 			}
 			else
 			{
-				auto temp = new_static(c, col, row);
-				m_statics.push_back(temp);
+				//static objects
+				
+				//auto temp = new_static(c, col, row);
+				//m_statics.push_back(temp);
 			}
 		}
 		col++;		
@@ -73,7 +75,7 @@ bool Level::play()
 		for (int i = 0; i < m_movings.size(); i++)
 		{
 			deltaTime.asSeconds();
-			m_movings[i]->move(deltaTime.asSeconds());
+			//m_movings[i]->move(deltaTime.asSeconds());
 			m_movings[i]->draw(window);
 		}
 
