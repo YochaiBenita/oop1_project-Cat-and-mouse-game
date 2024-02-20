@@ -21,7 +21,7 @@ public:
 	Object(const sf::Texture&, int, int);
 	virtual ~Object();
 
-	virtual void handleCollision(Object&) = 0;
+	//virtual void handleCollision(Object&) = 0;
 	virtual void handleCollision(Mouse&) = 0;
 	virtual void handleCollision(Cat&) = 0;
 	virtual void handleCollision(Cheese&) = 0;

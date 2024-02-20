@@ -1,13 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Static_object.h"
+#include "Gift.h"
 #include "Resources.h"
 
-class Door :public Static_object
+class Gkill :public Gift
 {
 public:
-	Door(int col, int row) :Static_object(door, col, row) {};
-	virtual ~Door();
+	Gkill(int col, int row) : Gift (kill, col, row) {};
+	//virtual ~Gkill();
 
 	//void handleCollision(Object& obj) { obj.handleCollision(*this); }
 	void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
