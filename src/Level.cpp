@@ -23,14 +23,14 @@ Level::Level(std::string fileName)
 		{
 			if (c == '%' || c == '^')
 			{
-				auto temp = new_moving(c, col, row);
+				//auto temp = new_moving(c, col, row);
 				if (c == '^')
 				{
-					m_movings.push_back(temp);
+					m_movings.push_back(new_moving(c, col, row));
 				}
 				else		//for mouse
 				{
-					m_movings.insert(m_movings.begin(),temp);
+					m_movings.insert(m_movings.begin(), new_moving(c, col, row));
 				}
 			}
 			else
@@ -57,10 +57,10 @@ bool Level::play()
 		sf::Clock clock;
 		window.clear(sf::Color::White);
 
-		for (int i = 0; i < m_statics.size(); i++)
+		/*for (int i = 0; i < m_statics.size(); i++)
 		{
 			m_statics[i]->draw(window);
-		}
+		}*/
 		
 		if (auto event = sf::Event(); window.pollEvent(event))
 		{
@@ -74,13 +74,13 @@ bool Level::play()
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
-			deltaTime.asSeconds();
 			//m_movings[i]->move(deltaTime.asSeconds());
 			m_movings[i]->draw(window);
 		}
 
 		window.display();
 	}
+	return true;
 }
 
 void Level::reset_locations()
@@ -95,21 +95,24 @@ std::unique_ptr <Moving_object> Level::new_moving(char c, int col, int row)
 {
 	if (c == '^')
 	{
-		auto cat = Cat(col, row);
-		return std::make_unique<Moving_object>(Cat(col, row));
+		//auto cat = Cat(col, row);
+		//return std::make_unique<Cat>((col, row));
+		return std::make_unique<Cat>(col, row);
 	}
-	auto mouse = Mouse(col, row);
-	return std::make_unique<Moving_object>(mouse);
+	//auto mouse = Mouse(col, row);
+	//return std::make_unique<Mouse>((col, row));
+	return std::make_unique<Mouse>(col, row);
 }
 
-std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
-{
-	if (c == '*')
+//std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
+//{
+	//return  std::make_unique<Static_object>();
+	/*if (c == '*')
 	{
 		auto cheese = Cheese(col, row);
 		return std::make_unique<Static_object>(cheese);
 	}
 
 	auto mouse = Mouse(col, row);
-	return std::make_unique<Static_object>(mouse);
-}
+	return std::make_unique<Static_object>(mouse);*/
+//}
