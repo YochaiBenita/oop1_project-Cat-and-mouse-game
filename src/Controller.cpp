@@ -3,11 +3,10 @@
 #include "Menu.h"
 #include <SFML/Graphics.hpp>
 
-
+static Resources m_resources = Resources();
 
 Controller::Controller() : 
-	m_currLevel(nullptr),
-	m_resources(Resources())
+	m_currLevel(nullptr)
 {}
 
 Controller::~Controller() {}
@@ -39,6 +38,11 @@ void Controller::run()
 			//exiting a level?
 		}
 	}
+}
+
+sf::Texture Controller::getTexutre(int index)
+{
+	return m_resources.getTextureAt(index);
 }
 
 

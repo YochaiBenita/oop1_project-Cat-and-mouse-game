@@ -11,6 +11,7 @@ public:
 	Controller();
 	~Controller();
 	void run();
+	static sf::Texture getTexutre(int);
 
 	
 
@@ -21,7 +22,7 @@ private:
 	bool m_to_exit = false;
 
 	Level* m_currLevel;
-	const Resources m_resources;
+	const static Resources m_resources;
 	//const std::vector<std::string> m_levels_name;
 	//const sf::Texture* m_texures;
 };

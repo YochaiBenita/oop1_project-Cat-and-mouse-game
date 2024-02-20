@@ -11,7 +11,7 @@ public:
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f, 0.f);
-	float speedForSeconds = 20;
+	float speedForSeconds = 30;
 
 	sf::Vector2f choose_diraction();
 };

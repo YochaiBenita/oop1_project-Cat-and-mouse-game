@@ -4,7 +4,7 @@
 #include <memory>
 #include <fstream>
 #include "Moving_object.h"
-#include "Static_object.h"
+//#include "Static_object.h"
 #include "Cat.h"
 #include "Mouse.h"
 #include "Cheese.h"
@@ -12,7 +12,7 @@
 #include "Gift.h"
 #include "Key.h"
 
-
+class Static_object;
 
 class Level{
 public:

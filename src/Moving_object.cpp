@@ -1,8 +1,9 @@
 #include "Moving_object.h"
+#include "Controller.h"
 
 
 Moving_object::Moving_object(object_code obj, int col, int row) 
-	: Object(/*m_texurs[obj]*/, int col, int row)
+	: Object(Controller::getTexutre(obj), col, row)
 {
 	m_original_loc = get_position();
 }

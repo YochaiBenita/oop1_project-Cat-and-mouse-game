@@ -8,9 +8,9 @@
 const int NUM_OF_TXTR = 7;
 
 enum object_code {
-	mouse, cat, cheese,
-	door, gift, key, wall,
-	freeze, life, time
+	mouse_t, cat_t, cheese_t,
+	door_t, gift_t, key_t, wall_t,
+	Gfreeze_t, Glife_t, Gtime_t
 };
 
 const std::string FileNames[NUM_OF_TXTR] = {

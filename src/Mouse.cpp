@@ -1,6 +1,6 @@
 #include "Mouse.h"
 
-Mouse::Mouse(int col, int row) : Moving_object(mouse, col, row) {
+Mouse::Mouse(int col, int row) : Moving_object(mouse_t, col, row) {
 }
 
 Mouse::~Mouse() {

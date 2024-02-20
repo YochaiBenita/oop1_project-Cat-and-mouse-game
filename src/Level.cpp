@@ -96,7 +96,7 @@ std::unique_ptr <Moving_object> Level::new_moving(char c, int col, int row)
 	if (c == '^')
 	{
 		auto cat = Cat(col, row);
-		return std::make_unique<Moving_object>(cat);
+		return std::make_unique<Moving_object>(Cat(col, row));
 	}
 	auto mouse = Mouse(col, row);
 	return std::make_unique<Moving_object>(mouse);

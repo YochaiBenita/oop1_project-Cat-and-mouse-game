@@ -33,7 +33,7 @@ std::string Resources::getLevelNameAt(int index) const
 
 int Resources::numOfLevels() const
 {
-	return m_levels_name.size();
+	return (int)m_levels_name.size();
 }
 
 
