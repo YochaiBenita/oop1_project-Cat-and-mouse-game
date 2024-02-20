@@ -5,7 +5,7 @@
 #include <string>
 
 
-const int NUM_OF_TXTR = 7;
+const int NUM_OF_TEXTURES = 7;
 
 enum object_code {
 	mouse_t, cat_t, cheese_t,
@@ -13,7 +13,7 @@ enum object_code {
 	Gfreeze_t, Glife_t, Gtime_t
 };
 
-const std::string FileNames[NUM_OF_TXTR] = {
+const std::string FileNames[] = {
 	"mouse",
 	"cat",
 	"cheese",
@@ -23,7 +23,6 @@ const std::string FileNames[NUM_OF_TXTR] = {
 	"wall"
 };
 
-const int NUM_OF_TEXTURES = 7;
 //const int NUM_OF_SOUNDES = 10;
 //const int NUM_OF_FONTS = 10;
 

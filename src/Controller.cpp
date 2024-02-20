@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 //static Resources m_resources = Resources();
-const Resources Controller::m_resources = Resources();//chat gpt
+Resources Controller::m_resources = Resources();//chat gpt
 
 Controller::Controller() : 
 	m_currLevel(nullptr)
