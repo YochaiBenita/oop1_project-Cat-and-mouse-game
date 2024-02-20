@@ -1,12 +1,14 @@
 #include "Object.h"
+#include <iostream>
+#include "Controller.h"
 
 Object::Object(const sf::Texture& txtr, int col, int row) 
 {
 	m_sp.setTexture(txtr);
 	
 	auto v2p = sf::Vector2f(col, row);
-	v2p.x += TOPLEFT.x;
-	v2p.y += TOPLEFT.y;
+	//v2p.x += TOPLEFT.x;
+	//v2p.y += TOPLEFT.y;
 	v2p *= IMAGESIZE;
 
 	m_sp.setPosition(v2p);

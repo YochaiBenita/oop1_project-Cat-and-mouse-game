@@ -7,9 +7,9 @@ Mouse::~Mouse() {
 
 }
 
-void Mouse::draw(sf::RenderWindow&) {
-
-}
+//void Mouse::draw(sf::RenderWindow&) {
+//
+//}
 
 void Mouse::move(float seconds) 
 {

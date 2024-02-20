@@ -21,16 +21,21 @@ Level::Level(std::string fileName)
 		
 		if (c != ' ')
 		{
-			if (c == '%' || c == '^')
+			if (c == '^')
 			{
-				if (c == '^')
-				{
-					m_movings.push_back(new_moving(c, col, row));
-				}
-				else		//for mouse
-				{
-					m_movings.insert(m_movings.begin(), new_moving(c, col, row));
-				}
+				m_movings.push_back(new_moving(c, col, row));
+				////debug
+				//{
+				//	auto w = sf::RenderWindow(sf::VideoMode(300, 300), "test");
+				//	m_movings[0]->draw(w);
+				//	w.display();
+				//	int a;
+				//	std::cin >> a;
+				//}
+			}
+			else if(c=='%')		//for mouse
+			{
+				m_movings.insert(m_movings.begin(), new_moving(c, col, row));
 			}
 			else
 			{
@@ -46,12 +51,13 @@ Level::Level(std::string fileName)
 
 bool Level::play()
 {
-	sf::RenderWindow window(sf::VideoMode(300, 300), "mouse and cat");
-	
+	sf::RenderWindow window(sf::VideoMode(900, 900), "mouse and cat");
+	sf::Clock clock;
+
 	while (window.isOpen())
 	{
-		sf::Clock clock;
-		window.clear(sf::Color::White);
+		
+		window.clear(sf::Color::Blue);
 
 		for (int i = 0; i < m_statics.size(); i++)
 		{
@@ -63,6 +69,7 @@ bool Level::play()
 			if (event.type == sf::Event::Closed)
 			{
 				window.close();
+				m_exit = true;
 				break;
 			}
 		}
@@ -71,10 +78,13 @@ bool Level::play()
 		for (int i = 0; i < m_movings.size(); i++)
 		{
 			//m_movings[i]->move(deltaTime.asSeconds());
-			//m_movings[i]->draw(window);
+			m_movings[i]->draw(window);
 		}
 
 		window.display();
+
+		int a;
+		std::cin >> a;
 	}
 	return true;
 }
@@ -83,8 +93,13 @@ void Level::reset_locations()
 {
 	for (int i = 0; i < m_movings.size(); i++)
 	{
-		//m_movings[i]->reset_location();
+		m_movings[i]->reset_location();
 	}
+}
+
+bool Level::to_exit() const
+{
+	return m_exit;
 }
 
 std::unique_ptr <Moving_object> Level::new_moving(char c, int col, int row)

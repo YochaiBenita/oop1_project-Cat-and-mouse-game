@@ -6,7 +6,7 @@ class Mouse:public Moving_object {
 public:
 	Mouse(int, int);
 	virtual ~Mouse();
-	virtual void draw(sf::RenderWindow&);
+	//virtual void draw(sf::RenderWindow&);
 	void move(float);
 
 	//virtual void handleCollision(Object&) = 0;

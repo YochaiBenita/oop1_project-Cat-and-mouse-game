@@ -6,9 +6,9 @@ Cat::~Cat() {
 
 }
 
-void Cat::draw(sf::RenderWindow& wind) {
-	Moving_object::draw(wind);
-}
+//void Cat::draw(sf::RenderWindow& wind) {
+//	Moving_object::draw(wind);
+//}
 
 void Cat::move(float seconds) {
 	m_diraction = choose_diraction();
