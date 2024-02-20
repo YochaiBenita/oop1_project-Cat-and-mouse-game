@@ -11,14 +11,6 @@ Object::Object(const sf::Texture* txtr, int col, int row) :
 	v2p *= IMAGESIZE;
 
 	m_sp.setPosition(v2p);
-
-	//auto w = sf::RenderWindow(sf::VideoMode(300, 300), " ");
-	//w.clear(sf::Color::Cyan);
-	//w.draw(m_sp);
-	//w.display();
-	//
-	//int a;
-	//std::cin >> a;
 }
 
 Object::~Object() {

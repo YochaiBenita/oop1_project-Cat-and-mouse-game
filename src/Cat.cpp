@@ -2,12 +2,9 @@
 #include <iostream>
 
 Cat::Cat(int col, int row) : Moving_object (cat_t, col, row) 
-{
-}
+{}
 
-Cat::~Cat() {
-
-}
+Cat::~Cat() {}
 
 void Cat::move(float seconds) {
 	m_diraction = choose_diraction();

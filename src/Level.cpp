@@ -45,7 +45,7 @@ Level::Level(std::string fileName)
 
 bool Level::play()
 {
-	sf::RenderWindow window(sf::VideoMode(900, 900), "mouse and cat");
+	sf::RenderWindow window(sf::VideoMode(m_width*IMAGESIZE, m_hight*IMAGESIZE), "mouse and cat");
 	sf::Clock clock;
 
 	while (window.isOpen())
@@ -71,14 +71,11 @@ bool Level::play()
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
-			//m_movings[i]->move(deltaTime.asSeconds());
+			m_movings[i]->move(deltaTime.asSeconds());
 			m_movings[i]->draw(window);
 		}
 
 		window.display();
-
-		int a;
-		std::cin >> a;
 	}
 	return true;
 }
