@@ -11,7 +11,7 @@ public:
 	virtual void draw(sf::RenderWindow&);
 	virtual void move(sf::Vector2f) {};
 
-	virtual void handleCollision(Object&) = 0;
+	//virtual void handleCollision(Object&) = 0;
 	virtual void handleCollision(Mouse&) = 0;
 	virtual void handleCollision(Cat&) = 0;
 	virtual void handleCollision(Cheese&) {};

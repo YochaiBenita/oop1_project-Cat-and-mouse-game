@@ -1,17 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Static_object.h"
-#include "Cat.h"
-#include "Mouse.h"
+#include "Gift.h"
 #include "Resources.h"
 
-class Glife :public Static_object
+class Glife :public Gift
 {
 public:
-	Glife(int col, int row) : Static_object(life, col, row) {};
+	Glife(int col, int row) : Gift(life, col, row) {};
 	virtual ~Glife();
 
-	void handleCollision(Object& obj) { obj.handleCollision(*this); }
+	//void handleCollision(Object& obj) { obj.handleCollision(*this); }
 	void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
 	void handleCollision(Mouse& mousePlayer) { mousePlayer.handleCollision(*this); }
 
