@@ -19,7 +19,9 @@ include (cmake/Zip.cmake)
 set (SFML_LOCATION "C:/SFML/SFML-2.6.0")
 set (SFML_DIR "${SFML_LOCATION}/lib/cmake/SFML")
 
-find_package (SFML 2.6 COMPONENTS graphics REQUIRED)
+find_package (SFML 2.6 COMPONENTS graphics audio REQUIRED)
+
+configure_file (C:/SFML/SFML-2.6.0/bin/openal32.dll ${CMAKE_BINARY_DIR} COPYONLY)
 
 set_target_properties (sfml-main sfml-system sfml-window sfml-graphics sfml-audio sfml-network PROPERTIES MAP_IMPORTED_CONFIG_RELWITHDEBINFO RELEASE)
 

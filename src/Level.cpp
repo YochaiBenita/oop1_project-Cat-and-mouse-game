@@ -23,7 +23,6 @@ Level::Level(std::string fileName)
 		{
 			if (c == '%' || c == '^')
 			{
-				//auto temp = new_moving(c, col, row);
 				if (c == '^')
 				{
 					m_movings.push_back(new_moving(c, col, row));
@@ -35,10 +34,7 @@ Level::Level(std::string fileName)
 			}
 			else
 			{
-				//static objects
-				
-				//auto temp = new_static(c, col, row);
-				//m_statics.push_back(temp);
+				m_statics.push_back(new_static(c, col, row));
 			}
 		}
 		col++;		
@@ -57,10 +53,10 @@ bool Level::play()
 		sf::Clock clock;
 		window.clear(sf::Color::White);
 
-		/*for (int i = 0; i < m_statics.size(); i++)
+		for (int i = 0; i < m_statics.size(); i++)
 		{
-			m_statics[i]->draw(window);
-		}*/
+			//m_statics[i]->draw(window);
+		}
 		
 		if (auto event = sf::Event(); window.pollEvent(event))
 		{
@@ -75,7 +71,7 @@ bool Level::play()
 		for (int i = 0; i < m_movings.size(); i++)
 		{
 			//m_movings[i]->move(deltaTime.asSeconds());
-			m_movings[i]->draw(window);
+			//m_movings[i]->draw(window);
 		}
 
 		window.display();
@@ -87,7 +83,7 @@ void Level::reset_locations()
 {
 	for (int i = 0; i < m_movings.size(); i++)
 	{
-		m_movings[i]->reset_location();
+		//m_movings[i]->reset_location();
 	}
 }
 
@@ -95,24 +91,26 @@ std::unique_ptr <Moving_object> Level::new_moving(char c, int col, int row)
 {
 	if (c == '^')
 	{
-		//auto cat = Cat(col, row);
-		//return std::make_unique<Cat>((col, row));
 		return std::make_unique<Cat>(col, row);
 	}
-	//auto mouse = Mouse(col, row);
-	//return std::make_unique<Mouse>((col, row));
 	return std::make_unique<Mouse>(col, row);
 }
 
-//std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
-//{
-	//return  std::make_unique<Static_object>();
-	/*if (c == '*')
+std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
+{ 
+	switch (c)
 	{
-		auto cheese = Cheese(col, row);
-		return std::make_unique<Static_object>(cheese);
+	case '#':
+//		return std::make_unique<Wall>(col, row);
+	case 'F':
+//		return std::make_unique<Key>(col, row);
+	case '*':
+//		return std::make_unique<Cheese>(col, row);
+	case '$':
+		//return std::make_unique<Gift>(col, row);
+	case 'D':
+//		return std::make_unique<Door>(col, row);
+	{}
+	return std::make_unique<Static_object>(1, col, row);
 	}
-
-	auto mouse = Mouse(col, row);
-	return std::make_unique<Static_object>(mouse);*/
-//}
+}
