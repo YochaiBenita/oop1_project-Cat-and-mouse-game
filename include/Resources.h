@@ -13,15 +13,7 @@ enum object_code {
 	Gfreeze_t, Glife_t, Gtime_t
 };
 
-const std::string FileNames[] = {
-	"mouse",
-	"cat",
-	"cheese",
-	"door",
-	"gift",
-	"key",
-	"wall"
-};
+
 
 //const int NUM_OF_SOUNDES = 10;
 //const int NUM_OF_FONTS = 10;
@@ -40,5 +32,15 @@ private:
 	//sf::Font m_fonts[NUM_OF_SOUNDES];
 	std::vector<std::string> m_levels_name;
 	//sf::SoundBuffer[];
+
+	std::string m_FileNames[NUM_OF_TEXTURES] = {
+	"mouse.png",
+	"cat.png",
+	"cheese.png",
+	"door.png",
+	"gift.png",
+	"key.png",
+	"wall.png"
+	};
 
 };

@@ -14,7 +14,7 @@ Resources::Resources()
 
 	for (int i = 0; i < NUM_OF_TEXTURES; i++)
 	{
-		m_texures[i].loadFromFile(FileNames[i] + ".png");
+		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
 	
 	//sound \ font reading loop
