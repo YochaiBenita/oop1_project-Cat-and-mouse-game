@@ -22,9 +22,9 @@ Resources::Resources()
 
 }
 
-sf::Texture Resources::getTextureAt(int index) const
+sf::Texture* Resources::getTextureAt(int index)
 {
-	return m_texures[index];
+	return &(m_texures[index]);
 }
 
 std::string Resources::getLevelNameAt(int index) const

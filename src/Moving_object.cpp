@@ -12,11 +12,6 @@ Moving_object::Moving_object(object_code obj, int col, int row)
 Moving_object::~Moving_object()
 {
 }
-//
-//void Moving_object::draw(sf::RenderWindow& wind)
-//{
-//	Object::draw(wind);
-//}
 
 void Moving_object::reset_location()
 {

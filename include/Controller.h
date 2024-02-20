@@ -11,7 +11,7 @@ public:
 	Controller();
 	~Controller();
 	void run();
-	static sf::Texture getTexutre(int);
+	static sf::Texture* getTexutre(int);
 
 	
 

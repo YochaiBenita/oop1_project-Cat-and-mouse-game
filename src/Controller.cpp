@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 //static Resources m_resources = Resources();
-Resources Controller::m_resources = Resources();//chat gpt
+Resources Controller::m_resources;//chat gpt
 
 Controller::Controller() : 
 	m_currLevel(nullptr)
@@ -14,10 +14,10 @@ Controller::~Controller() {}
 
 void Controller::run()
 {
-	while (!m_to_exit) {
+	//while (!m_to_exit) 
+	{
 
 		//menu
-
 
 		while (m_life > 0 && m_levelNumber < m_resources.numOfLevels() )
 		{
@@ -42,7 +42,7 @@ void Controller::run()
 	}
 }
 
-sf::Texture Controller::getTexutre(int index)
+sf::Texture* Controller::getTexutre(int index)
 {
 	return m_resources.getTextureAt(index);
 }

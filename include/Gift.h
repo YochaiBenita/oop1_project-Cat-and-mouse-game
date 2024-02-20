@@ -13,5 +13,5 @@ public:
 	virtual void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
 	virtual void handleCollision(Mouse& mousePlayer) { mousePlayer.handleCollision(*this); }
 
-	virtual void 
+	//virtual void 
 };

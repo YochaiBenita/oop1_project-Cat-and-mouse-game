@@ -27,6 +27,8 @@ private:
 	int m_keys = 0;
 	int m_num_of_cheeses = 0;
 	bool m_exit = false;
+	int m_hight = 0;
+	int m_width = 0;
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;
 	std::vector <std::unique_ptr<Static_object>> m_statics;

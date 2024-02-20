@@ -22,7 +22,7 @@ class Resources
 {
 public:
 	Resources();
-	sf::Texture getTextureAt(int) const;
+	sf::Texture* getTextureAt(int);
 	// get sound at
 	std::string getLevelNameAt(int) const;
 	int numOfLevels() const;

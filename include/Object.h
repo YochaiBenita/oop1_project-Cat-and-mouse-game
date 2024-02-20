@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
 const auto TOPLEFT = sf::Vector2f (0.f, 0.f);
 const float IMAGESIZE = 30.f;
 
@@ -18,7 +19,7 @@ class Wall;
 class Object 
 {
 public:
-	Object(const sf::Texture&, int, int);
+	Object(const sf::Texture*, int, int);
 	virtual ~Object();
 
 	//virtual void handleCollision(Object&) = 0;

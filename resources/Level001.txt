@@ -1,6 +1,6 @@
 ^^^^^^^^^^
-%
-FFFFFFFFFF
-DDDDDDDDDD
-**********
+%     ##  
+FFF      F
+D D D  D D
+**   * ***
 

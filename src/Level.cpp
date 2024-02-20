@@ -14,6 +14,7 @@ Level::Level(std::string fileName)
 	{
 		if (c == '\n')
 		{
+			m_width = col;
 			col = 0;
 			row++;
 			continue;
@@ -24,14 +25,6 @@ Level::Level(std::string fileName)
 			if (c == '^')
 			{
 				m_movings.push_back(new_moving(c, col, row));
-				////debug
-				//{
-				//	auto w = sf::RenderWindow(sf::VideoMode(300, 300), "test");
-				//	m_movings[0]->draw(w);
-				//	w.display();
-				//	int a;
-				//	std::cin >> a;
-				//}
 			}
 			else if(c=='%')		//for mouse
 			{
@@ -44,6 +37,7 @@ Level::Level(std::string fileName)
 		}
 		col++;		
 	}
+	m_hight = row;
 
 }
 
@@ -57,11 +51,11 @@ bool Level::play()
 	while (window.isOpen())
 	{
 		
-		window.clear(sf::Color::Blue);
+		window.clear(sf::Color::White);
 
 		for (int i = 0; i < m_statics.size(); i++)
 		{
-			//m_statics[i]->draw(window);
+			m_statics[i]->draw(window);
 		}
 		
 		if (auto event = sf::Event(); window.pollEvent(event))

@@ -1,14 +1,13 @@
 #include "Cat.h"
+#include <iostream>
 
-Cat::Cat(int col, int row) : Moving_object (cat_t, col, row) {}
+Cat::Cat(int col, int row) : Moving_object (cat_t, col, row) 
+{
+}
 
 Cat::~Cat() {
 
 }
-
-//void Cat::draw(sf::RenderWindow& wind) {
-//	Moving_object::draw(wind);
-//}
 
 void Cat::move(float seconds) {
 	m_diraction = choose_diraction();
