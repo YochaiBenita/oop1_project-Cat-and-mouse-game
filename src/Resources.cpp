@@ -1,5 +1,6 @@
 #include "Resources.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 Resources::Resources()
 {

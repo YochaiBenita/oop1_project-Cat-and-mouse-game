@@ -27,6 +27,7 @@ void Controller::run()
 
 			if (m_currLevel->play())
 			{
+				m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
 				m_currLevel = nullptr;
 				m_levelNumber++;
@@ -36,7 +37,7 @@ void Controller::run()
 				m_life--;
 				m_currLevel->reset_locations();
 			}
-			//exiting a level?
+			
 		}
 	}
 }

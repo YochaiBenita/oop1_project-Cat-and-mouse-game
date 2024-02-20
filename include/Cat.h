@@ -6,7 +6,7 @@ class Cat :public Moving_object {
 public:
 	Cat(int, int);
 	virtual ~Cat();
-	virtual void draw(sf::RenderWindow&);
+	//virtual void draw(sf::RenderWindow&);
 	void move(float);
 
 	////virtual void handleCollision(Object&) = 0;

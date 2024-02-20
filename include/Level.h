@@ -12,6 +12,7 @@
 #include "Gift.h"
 #include "Key.h"
 #include "Wall.h"
+#include <iostream>
 
 class Static_object;
 
@@ -20,10 +21,12 @@ public:
 	Level(std::string fileName);
 	bool play();
 	void reset_locations();
+	bool to_exit() const;
 
 private:
 	int m_keys = 0;
 	int m_num_of_cheeses = 0;
+	bool m_exit = false;
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;
 	std::vector <std::unique_ptr<Static_object>> m_statics;

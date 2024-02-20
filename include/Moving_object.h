@@ -7,7 +7,7 @@ class Moving_object :public Object {
 public:
 	Moving_object(object_code, int, int);
 	virtual ~Moving_object();
-	virtual void draw(sf::RenderWindow&);
+	//virtual void draw(sf::RenderWindow&);
 	virtual void move(float) {};//=0
 	void reset_location();
 	virtual void move(sf::Vector2f);
