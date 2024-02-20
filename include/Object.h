@@ -13,6 +13,7 @@ public:
 	virtual void draw(sf::RenderWindow&);
 	void set_position(sf::Vector2f);
 	sf::Vector2f get_position() const;
+	void move(sf::Vector2f);
 
 private:
 	sf::Sprite m_sp;
