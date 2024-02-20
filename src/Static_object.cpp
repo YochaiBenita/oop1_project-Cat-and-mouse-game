@@ -1,8 +1,9 @@
 #include "Static_object.h"
+#include "Controller.h"
 
 
 Static_object::Static_object(object_code obj, int col, int row)
-	: Object(m_texures[obj], col, row)
+	: Object(Controller::getTexutre(obj), col, row)
 {
 }
 
