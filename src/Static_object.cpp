@@ -11,7 +11,7 @@ Static_object::~Static_object()
 {
 }
 
-void Static_object::draw(sf::RenderWindow& wind)
-{
-	Object::draw(wind);
-}
+//void Static_object::draw(sf::RenderWindow& wind)
+//{
+//	Object::draw(wind);
+//}

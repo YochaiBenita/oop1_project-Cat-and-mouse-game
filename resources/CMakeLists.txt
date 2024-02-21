@@ -11,6 +11,10 @@ configure_file ("mouse.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("newfile.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("backgroundgame.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("backgroundmenu.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 #text
 configure_file ("playlist.txt" ${CMAKE_BINARY_DIR} COPYONLY)

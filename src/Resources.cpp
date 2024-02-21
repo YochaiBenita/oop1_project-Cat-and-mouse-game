@@ -17,6 +17,11 @@ Resources::Resources()
 	{
 		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		m_backgroungs[i].loadFromFile("backgroundmenu.png");
+	}
 	
 	//sound \ font reading loop
 
@@ -25,6 +30,11 @@ Resources::Resources()
 sf::Texture* Resources::getTextureAt(int index)
 {
 	return &(m_texures[index]);
+}
+
+sf::Texture* Resources::getBackground(int index)
+{
+	return &(m_backgroungs[index]);
 }
 
 std::string Resources::getLevelNameAt(int index) const
