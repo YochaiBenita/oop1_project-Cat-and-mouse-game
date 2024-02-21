@@ -23,12 +23,14 @@ class Resources
 public:
 	Resources();
 	sf::Texture* getTextureAt(int);
+	sf::Texture* getBackground(int);
 	// get sound at
 	std::string getLevelNameAt(int) const;
 	int numOfLevels() const;
 
 private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
+	sf::Texture m_backgroungs[2];
 	//sf::Font m_fonts[NUM_OF_SOUNDES];
 	std::vector<std::string> m_levels_name;
 	//sf::SoundBuffer[];

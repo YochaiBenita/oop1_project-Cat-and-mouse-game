@@ -2,6 +2,7 @@
 #include "Controller.h"
 #include "Menu.h"
 #include <SFML/Graphics.hpp>
+#include "Menu.h"
 
 //static Resources m_resources = Resources();
 Resources Controller::m_resources;//chat gpt
@@ -16,8 +17,8 @@ void Controller::run()
 {
 	//while (!m_to_exit) 
 	{
-
-		//menu
+		auto m = Menu();
+		m.show_menu();
 
 		while (m_life > 0 && m_levelNumber < m_resources.numOfLevels() )
 		{
@@ -46,7 +47,10 @@ sf::Texture* Controller::getTexutre(int index)
 {
 	return m_resources.getTextureAt(index);
 }
-
+sf::Texture* Controller::getBackground(int index)
+{
+	return m_resources.getBackground(index);
+}
 
 
 

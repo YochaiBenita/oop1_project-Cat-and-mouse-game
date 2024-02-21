@@ -12,7 +12,7 @@ public:
 	~Controller();
 	void run();
 	static sf::Texture* getTexutre(int);
-
+	static sf::Texture* getBackground(int);
 	
 
 private:

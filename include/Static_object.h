@@ -9,7 +9,7 @@ public:
 	Static_object() = default;
 	virtual ~Static_object();
 
-	virtual void draw(sf::RenderWindow&);
+	//virtual void draw(sf::RenderWindow&);
 	//virtual void move(sf::Vector2f) {};
 
 	//virtual void handleCollision(Object&) = 0;

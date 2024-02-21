@@ -7,10 +7,6 @@ Mouse::~Mouse() {
 
 }
 
-//void Mouse::draw(sf::RenderWindow&) {
-//
-//}
-
 void Mouse::move(float seconds) 
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -29,7 +25,7 @@ void Mouse::move(float seconds)
 	{
 		m_diraction = sf::Vector2f(0.f, 1.f);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	else //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
 		m_diraction = sf::Vector2f(0.f, 0.f);
 	}
