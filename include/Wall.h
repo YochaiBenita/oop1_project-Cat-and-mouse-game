@@ -7,7 +7,7 @@ class Wall :public Static_object
 {
 public:
 	Wall(int col, int row) : Static_object(wall_t, col, row) {};
-	virtual ~Wall() = default;
+	//virtual ~Wall() = default;
 
 	//void handleCollision(Object& obj) { obj.handleCollision(*this); }
 	virtual void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }

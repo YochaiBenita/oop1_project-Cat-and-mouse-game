@@ -26,11 +26,11 @@ Level::Level(std::string fileName)
 			{
 				m_movings.push_back(new_moving(c, col, row));
 			}
-			else if(c=='%')		//for mouse
+			else if(c=='%')
 			{
 				m_movings.insert(m_movings.begin(), new_moving(c, col, row));
 			}
-			else
+			else if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#')
 			{
 				m_statics.push_back(new_static(c, col, row));
 			}
@@ -113,10 +113,8 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 	case '*':
 		return std::make_unique<Cheese>(col, row);
 	//case '$':
-	//	//return std::make_unique<Gift>(col, row);
+	//	return std::make_unique<Gift>(col, row);
 	case 'D':
 		return std::make_unique<Door>(col, row);
-	//{}
-	//return std::make_unique<Static_object>(1, col, row);
 	}
 }

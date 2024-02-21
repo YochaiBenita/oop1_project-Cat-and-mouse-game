@@ -7,7 +7,7 @@ class Cheese :public Static_object
 {
 public:
 	Cheese(int col, int row) : Static_object(cheese_t, col, row) {};
-	virtual ~Cheese() {};
+	//virtual ~Cheese() {};
 
 	//void handleCollision(Object& obj) { obj.handleCollision(*this); }
 	virtual void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
