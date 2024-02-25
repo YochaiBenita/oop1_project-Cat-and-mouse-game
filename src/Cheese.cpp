@@ -1,5 +1,5 @@
 #pragma once
-#include "Chesse.h"
+#include "Cheese.h"
 
 Cheese::Cheese(int col, int row) : Static_object(cheese_t, col, row) 
 {
