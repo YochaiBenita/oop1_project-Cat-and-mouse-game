@@ -23,7 +23,9 @@ public:
 	virtual void collision(Gtime&) {};
 	virtual void collision(Key&) {};
 	virtual void collision(Wall&) {};
+	
+	void to_delete();
 
-private:
-
+protected:
+	bool m_to_delete = false;
 };

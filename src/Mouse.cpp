@@ -70,7 +70,9 @@ void Mouse::collision(Cat& cat)
 
 void Mouse::collision(Cheese& cheese)
 {
-	cheese.collision(*this);
+	cheese.to_delete();
+	//score+
+	
 }
 
 void Mouse::collision(Door& door)

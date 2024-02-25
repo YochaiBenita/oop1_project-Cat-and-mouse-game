@@ -11,6 +11,11 @@ Static_object::~Static_object()
 {
 }
 
+void Static_object::to_delete()
+{
+	m_to_delete = true;
+}
+
 //void Static_object::draw(sf::RenderWindow& wind)
 //{
 //	Object::draw(wind);

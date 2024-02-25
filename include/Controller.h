@@ -17,7 +17,7 @@ public:
 
 private:
 	int m_life = 3;
-	int m_score = 0;
+	static int m_score;
 	int m_levelNumber = 0;
 	bool m_to_exit = false;
 
