@@ -7,19 +7,20 @@ public:
 	Cat(int, int);
 	virtual ~Cat();
 	//virtual void draw(sf::RenderWindow&);
+	//virtual void set_direction();
 	void move(float);
 
-	////virtual void handleCollision(Object&) = 0;
-	//virtual void handleCollision(Mouse&) {};
-	//virtual void handleCollision(Cat&) {};
-	//virtual void handleCollision(Cheese&) {};
-	//virtual void handleCollision(Door&) {};
-	//virtual void handleCollision(Gfreeze&) {};
-	//virtual void handleCollision(Gift&) {};
-	//virtual void handleCollision(Glife&) {};
-	//virtual void handleCollision(Gtime&) {};
-	//virtual void handleCollision(Key&) {};
-	//virtual void handleCollision(Wall&) {};
+	virtual void collision(Object&) {};
+	virtual void collision(Mouse&) {};
+	virtual void collision(Cat&) {};
+	virtual void collision(Cheese&) {};
+	virtual void collision(Door&) {};
+	virtual void collision(Gfreeze&) {};
+	virtual void collision(Gift&) {};
+	virtual void collision(Gkill&) {};
+	virtual void collision(Glife&) {};
+	virtual void collision(Gtime&) {};
+	virtual void collision(Key&) {};
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f, 0.f);

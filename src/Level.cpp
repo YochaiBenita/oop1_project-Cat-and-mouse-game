@@ -71,7 +71,31 @@ bool Level::play()
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
+			/*
+			m_moving[i]->set_direction(m_moving[0]);
+			for (int x=0; x<m_static.size(); x++)
+			{
+				if (m_moving[i].checkcollision(m_static[i]))
+				{
+					
+				}
+				//עוד לולאה לחיות
+
+			}
+
 			m_movings[i]->move(deltaTime.asSeconds());
+			m_movings[i]->draw(window);
+			*/
+
+
+			//destenation
+			//for (collision?)
+	//		{
+
+//			}
+
+			m_movings[i]->move(deltaTime.asSeconds());
+			handleCollision(*(m_movings[i]));
 			m_movings[i]->draw(window);
 		}
 
@@ -118,3 +142,24 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 		return std::make_unique<Door>(col, row);
 	}
 }
+
+void Level::handleCollision(Moving_object& obj)
+{
+	for (int i = 0; i < m_movings.size(); ++i)  //collision between players
+	{
+		if (obj.checkCollision(*m_movings[i]))
+		{
+			obj.collision(*m_movings[i]);
+		}
+	}
+	for (int i = 0; i < m_statics.size(); ++i) //collision between player and static object
+	{
+		if (obj.checkCollision(*m_statics[i]))
+		{
+			obj.collision(*m_statics[i]);
+		}
+	}
+
+	//m_board.collision(gameObject, *this);
+}
+

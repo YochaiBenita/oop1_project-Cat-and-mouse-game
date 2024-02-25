@@ -9,9 +9,9 @@ public:
 	Gtime(int col, int row) : Gift (time, col, row) {};
 	virtual ~Gtime() = default;
 
-	//void handleCollision(Object& obj) { obj.handleCollision(*this); }
-	virtual void handleCollision(Cat& catPlayer) { catPlayer.handleCollision(*this); }
-	virtual void handleCollision(Mouse& mousePlayer) { mousePlayer.handleCollision(*this); }
+	virtual void collision(Object& obj) { obj.collision(*this); }
+	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
+	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
 
 private:
 

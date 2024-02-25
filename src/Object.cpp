@@ -17,6 +17,15 @@ Object::~Object() {
 
 }
 
+bool Object::checkCollision(Object& obj) const
+{
+	if (&obj == this)
+	{
+		return false;
+	}
+	return m_sp.getGlobalBounds().intersects(obj.m_sp.getGlobalBounds());
+}
+
 void Object::draw(sf::RenderWindow& window)
 {
 	window.draw(m_sp);

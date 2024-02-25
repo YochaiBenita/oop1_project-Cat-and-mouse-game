@@ -12,17 +12,17 @@ public:
 	//virtual void draw(sf::RenderWindow&);
 	//virtual void move(sf::Vector2f) {};
 
-	//virtual void handleCollision(Object&) = 0;
-	virtual void handleCollision(Mouse&) = 0;
-	virtual void handleCollision(Cat&) = 0;
-	virtual void handleCollision(Cheese&) {};
-	virtual void handleCollision(Door&) {};
-	virtual void handleCollision(Gfreeze&) {};
-	virtual void handleCollision(Gift&) {};
-	virtual void handleCollision(Glife&) {};
-	virtual void handleCollision(Gtime&) {};
-	virtual void handleCollision(Key&) {};
-	virtual void handleCollision(Wall&) {};
+	virtual void collision(Object&) = 0;
+	virtual void collision(Mouse&) = 0;
+	virtual void collision(Cat&) = 0;
+	virtual void collision(Cheese&) {};
+	virtual void collision(Door&) {};
+	virtual void collision(Gfreeze&) {};
+	virtual void collision(Gift&) {};
+	virtual void collision(Glife&) {};
+	virtual void collision(Gtime&) {};
+	virtual void collision(Key&) {};
+	virtual void collision(Wall&) {};
 
 private:
 

@@ -36,6 +36,7 @@ private:
 	std::unique_ptr <Moving_object> new_moving(char, int, int);
 	std::unique_ptr <Static_object> new_static(char, int, int);
 	
+	void handleCollision(Moving_object& obj);
 };
 
 
