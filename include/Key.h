@@ -9,9 +9,9 @@ public:
 	Key(int col, int row);
 	//virtual ~Key() = default;
 
-	virtual bool collision(Object& obj);
-	virtual bool collision(Cat& catPlayer);
-	virtual bool collision(Mouse& mousePlayer);
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 
 	//virtual void to_delete() {m_to_delete = true;}
 private:

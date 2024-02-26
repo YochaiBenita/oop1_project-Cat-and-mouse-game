@@ -13,7 +13,7 @@ public:
 	void reset_location();
 	virtual void move(sf::Vector2f);
 	void set_prev_loc(sf::Vector2f);
-
+	sf::Vector2f get_previous_loc()const;
 
 
 	virtual bool collision(Object&){}
