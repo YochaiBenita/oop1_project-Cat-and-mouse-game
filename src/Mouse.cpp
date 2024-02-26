@@ -38,7 +38,7 @@ void Mouse::move(float seconds, Moving_object* mouse)
 	
 	set_prev_loc(get_position());
 	
-	Object::move(m_diraction * seconds * speedForSeconds);
+	Object::move(m_diraction * seconds * speedForSecondsM);
 }
 
 //void Mouse::set_direction()
@@ -130,10 +130,10 @@ bool Mouse::collision(Key& key)
 	return true;
 }
 
-bool Mouse::collision(Wall&)
-{
-	set_position(get_previous_loc());
-
-	return false;
-}
+//bool Mouse::collision(Wall&)
+//{
+//	set_position(get_previous_loc());
+//
+//	return false;
+//}
 

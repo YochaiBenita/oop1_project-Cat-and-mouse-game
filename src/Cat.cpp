@@ -27,16 +27,36 @@ void Cat::move(float seconds, Moving_object* mouse)
 	}
 
 	//m_diraction = choose_diraction();
-
+	set_prev_loc(get_position());
 	Object::move(m_diraction * speedForSeconds * seconds);
 }
 
-bool Cat::collision(Wall&)
+bool Cat::collision(Object& obj)
+{
+	return obj.collision(*this);
+	std::cout << "obj\n";
+	return false;
+}
+
+bool Cat::collision(Mouse&)
+{
+	///std::cout << "kill the mouse\n";
+	return true;
+}
+
+bool Cat::collision(Cat&)
 {
 	set_position(get_previous_loc());
 
 	return false;
 }
+
+//bool Cat::collision(Wall&)
+//{
+//	set_position(get_previous_loc());
+//
+//	return false;
+//}
 
 sf::Vector2f Cat::choose_diraction()
 {

@@ -26,7 +26,7 @@ bool Cheese::collision(Object& obj)
 
 bool Cheese::collision(Cat& catPlayer)
 {
-	return catPlayer.collision(*this);
+	return false;
 }
 
 bool Cheese::collision(Mouse& mousePlayer)

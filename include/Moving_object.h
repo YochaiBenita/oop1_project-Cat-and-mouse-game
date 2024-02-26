@@ -5,6 +5,8 @@
 
 class Moving_object :public Object {
 public:
+	
+
 	Moving_object(object_code, int, int);
 	virtual ~Moving_object();
 	//virtual void draw(sf::RenderWindow&);
@@ -27,7 +29,12 @@ public:
 	//virtual bool collision(Gtime&)	{ return false; }
 	//virtual bool collision(Gkill&)	{ return false; }
 	virtual bool collision(Key&)	{ return false; }
-	virtual bool collision(Wall&) =0;
+	virtual bool collision(Wall&) 
+	{
+		set_position(get_previous_loc());
+
+		return false;
+	};
 
 private:
 	sf::Vector2f m_original_loc;

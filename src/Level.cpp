@@ -84,8 +84,12 @@ bool Level::play()
 		{
 			m_movings[i]->move(deltaTime.asSeconds(), m_movings[0].get());
 
-			handleCollision(*m_movings[i]);
-			
+			if (handleCollision(*m_movings[i]))
+			{
+				//std::cout << "colli\n";
+				return false;
+			}
+
 			m_movings[i]->draw(window);
 		}
 
@@ -133,7 +137,7 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 	}
 }
 
-void Level::handleCollision(Moving_object& obj)
+bool Level::handleCollision(Moving_object& obj)
 {
 	for (int j = 0; j < m_statics.size(); j++)
 	{
@@ -142,7 +146,6 @@ void Level::handleCollision(Moving_object& obj)
 			bool to_delete = m_statics[j]->collision(obj);
 			if (to_delete)
 			{
-				std::cout<<"erase\n";
 				m_statics.erase(m_statics.begin() + j);
 			}
 			break;
@@ -156,11 +159,12 @@ void Level::handleCollision(Moving_object& obj)
 			bool kill = m_movings[j]->collision(obj);
 			if (kill)
 			{
-				//return false;
+				return true;
 				//kill mouse
 			}
 			break;
 		}
 	}
+	return false;
 }
 
