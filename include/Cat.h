@@ -10,7 +10,7 @@ public:
 	//virtual void set_direction();
 	void move(float);
 
-	virtual bool collision(Object&) ;
+	virtual bool collision(Object&);
 	virtual bool collision(Mouse&);
 	//virtual bool collision(Cat&);
 	//virtual bool collision(Cheese&) ;

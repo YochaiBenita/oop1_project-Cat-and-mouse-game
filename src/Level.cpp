@@ -73,22 +73,8 @@ bool Level::play()
 		{
 			m_movings[i]->move(deltaTime.asSeconds());
 
-			for (int j = 0; j < m_statics.size(); j++)
-			{
-				if (m_statics[j]->checkCollision(*m_movings[i]))
-				{
-					m_statics[j]->collision(*m_movings[i]);
-					break;
-				}
-			}
-			for (int j = 0; j < m_movings.size(); j++)
-			{
-				if (m_movings[j]->checkCollision(*m_movings[i]))
-				{
-					m_movings[j]->collision(*m_movings[i]);
-					break;
-				}
-			}
+			handleCollision(*m_movings[i]);
+			
 			m_movings[i]->draw(window);
 		}
 
@@ -138,24 +124,21 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 
 void Level::handleCollision(Moving_object& obj)
 {
-	for (int i = 0; i < m_movings.size(); ++i)  //collision between players
+	for (int j = 0; j < m_statics.size(); j++)
 	{
-		if (obj.checkCollision(*m_movings[i]))
+		if (m_statics[j]->checkCollision(obj))
 		{
-			obj.collision(*m_movings[i]);
+			m_statics[j]->collision(obj);
+			break;
 		}
 	}
-	for (int i = 0; i < m_statics.size(); ++i) //collision between player and static object
+	for (int j = 0; j < m_movings.size(); j++)
 	{
-		if (obj.checkCollision(*m_statics[i]))
+		if (m_movings[j]->checkCollision(obj))
 		{
-			obj.collision(*m_statics[i]);
-			if ((*m_statics[i]).to_erase())
-			{
-				//מחיקה
-			}
+			m_movings[j]->collision(obj);
+			break;
 		}
 	}
-	//m_board.collision(gameObject, *this);
 }
 
