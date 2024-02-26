@@ -22,7 +22,6 @@ bool Wall::collision(Cat& catPlayer)
 
 bool Wall::collision(Mouse& mousePlayer)
 {
-	std::cout << "blabla\n";
 	return mousePlayer.collision(*this);
 }
 

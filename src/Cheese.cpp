@@ -13,6 +13,10 @@ Cheese::~Cheese()
 {
 	m_count--;
 }
+int Cheese::get_cheese_num()
+{
+	return m_count;
+}
 ;
 
 bool Cheese::collision(Object& obj)

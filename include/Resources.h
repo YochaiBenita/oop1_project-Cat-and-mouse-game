@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 
-
 const int NUM_OF_TEXTURES = 7;
 
 enum object_code {

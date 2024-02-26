@@ -49,7 +49,7 @@ bool Level::play()
 	sf::RenderWindow window(sf::VideoMode(m_width*IMAGESIZE, m_hight*IMAGESIZE), "mouse and cat");
 	sf::Clock clock;
 
-	while (window.isOpen())
+	while (window.isOpen() && Cheese::get_cheese_num()>0)
 	{
 		
 		window.clear(sf::Color::White);

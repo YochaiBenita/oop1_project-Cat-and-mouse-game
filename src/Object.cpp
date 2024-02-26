@@ -23,7 +23,18 @@ bool Object::checkCollision(Object& obj) const
 	{
 		return false;
 	}
-	return m_sp.getGlobalBounds().intersects(obj.m_sp.getGlobalBounds());
+
+	sf::FloatRect overlapRect;
+
+	if (m_sp.getGlobalBounds().intersects(obj.m_sp.getGlobalBounds(), overlapRect))
+	{
+		if (overlapRect.height > 3 && overlapRect.width > 3 )
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void Object::draw(sf::RenderWindow& window)

@@ -10,6 +10,7 @@ class Cheese :public Static_object
 public:
 	Cheese(int, int);
 	virtual ~Cheese();
+	static int get_cheese_num();
 
 	virtual bool collision(Object&);
 	virtual bool collision(Cat& cat);
