@@ -16,18 +16,18 @@ public:
 	sf::Vector2f get_previous_loc()const;
 
 
-	virtual bool collision(Object&)	{}
-	virtual bool collision(Mouse&)	{}
-	virtual bool collision(Cat&)	{}
-	virtual bool collision(Cheese&)	{}
+	virtual bool collision(Object&) =0;// { return false; }
+	virtual bool collision(Mouse&) =0;//	{ return false; }
+	virtual bool collision(Cat&) =0;// { return false; }
+	virtual bool collision(Cheese&)	{ return false; }
 	virtual bool collision(Door&);
-	virtual bool collision(Gfreeze&){}
-	virtual bool collision(Gift&)	{}
-	virtual bool collision(Glife&)	{}
-	virtual bool collision(Gtime&)	{}
-	virtual bool collision(Gkill&)	{}
-	virtual bool collision(Key&)	{}
-	virtual bool collision(Wall&);
+	//virtual bool collision(Gfreeze&){ return false; }
+	virtual bool collision(Gift&)	{ return false; }
+	//virtual bool collision(Glife&)	{ return false; }
+	//virtual bool collision(Gtime&)	{ return false; }
+	//virtual bool collision(Gkill&)	{ return false; }
+	virtual bool collision(Key&)	{ return false; }
+	virtual bool collision(Wall&) =0;
 
 private:
 	sf::Vector2f m_original_loc;

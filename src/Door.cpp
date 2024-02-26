@@ -1,9 +1,10 @@
+#include "Door.h"
 #pragma once
 #include "Door.h"
 #include "Mouse.h"
 #include "Cat.h"
 
-Door(int col, int row) 
+Door::Door(int col, int row) 
 	:Static_object(door_t, col, row) 
 {
 }

@@ -3,6 +3,8 @@
 #include "Mouse.h"
 #include "Cat.h"
 
+int Cheese::m_count = 0;
+
 Cheese::Cheese(int col, int row) : Static_object(cheese_t, col, row) 
 {
 	m_count++;

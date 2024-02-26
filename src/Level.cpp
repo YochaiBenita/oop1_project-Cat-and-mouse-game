@@ -1,5 +1,6 @@
 #pragma once
 #include "Level.h"
+#include <iostream>
 
 
 
@@ -115,8 +116,8 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 		return std::make_unique<Key>(col, row);
 	case '*':
 		return std::make_unique<Cheese>(col, row);
-	case '$':
-		return std::make_unique<Gift>(col, row);
+	//case '$':
+		//return std::make_unique<Gift>(col, row);
 	case 'D':
 		return std::make_unique<Door>(col, row);
 	}
@@ -131,11 +132,13 @@ void Level::handleCollision(Moving_object& obj)
 			bool to_delete = m_statics[j]->collision(obj);
 			if (to_delete)
 			{
+				std::cout<<"erase\n";
 				m_statics.erase(m_statics.begin() + j);
 			}
 			break;
 		}
 	}
+
 	for (int j = 0; j < m_movings.size(); j++)
 	{
 		if (m_movings[j]->checkCollision(obj))

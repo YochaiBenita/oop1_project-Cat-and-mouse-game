@@ -14,6 +14,13 @@ void Cat::move(float seconds) {
 	Moving_object::move(m_diraction * speedForSeconds * seconds);
 }
 
+bool Cat::collision(Wall&)
+{
+	set_position(get_previous_loc());
+
+	return false;
+}
+
 sf::Vector2f Cat::choose_diraction()
 {
 	switch (rand() % 4) {
@@ -26,6 +33,7 @@ sf::Vector2f Cat::choose_diraction()
 	case 3:
 		return sf::Vector2f(0.f, 1.f);
 	}
+	return sf::Vector2f(0.f, 1.f);//stam
 }
 
 

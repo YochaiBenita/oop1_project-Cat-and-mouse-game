@@ -2,6 +2,8 @@
 #include "Controller.h"
 
 
+
+
 Moving_object::Moving_object(object_code obj, int col, int row) 
 	: Object(Controller::getTexutre(obj), col, row)
 {
@@ -41,8 +43,9 @@ sf::Vector2f Moving_object::get_previous_loc() const
 	return m_previous_loc;
 }
 
-bool Moving_object::collision(Wall& wall)
-{
-	set_position(m_previous_loc);
-	return false;
-}
+//bool Moving_object::collision(Wall& wall)
+//{
+//	set_position(m_previous_loc);
+//
+//	return false;
+//}

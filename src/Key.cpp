@@ -3,8 +3,8 @@
 #include "Mouse.h"
 #include "Cat.h"
 
-Key(int col, int row)
-	:Static_object(Key_t, col, row)
+Key::Key(int col, int row)
+	:Static_object(key_t, col, row)
 {
 }
 

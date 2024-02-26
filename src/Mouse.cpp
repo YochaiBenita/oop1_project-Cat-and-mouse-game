@@ -70,6 +70,11 @@ bool Mouse::collision(Object& object)
 	return object.collision(*this);
 }
 
+bool Mouse::collision(Mouse&)
+{
+	return false;
+}
+
 bool Mouse::collision(Cat& cat)
 {
 	return cat.collision(*this);
@@ -123,3 +128,11 @@ bool Mouse::collision(Key& key)
 	m_num_of_keys++;
 	return true;
 }
+
+bool Mouse::collision(Wall&)
+{
+	set_position(get_previous_loc());
+
+	return false;
+}
+

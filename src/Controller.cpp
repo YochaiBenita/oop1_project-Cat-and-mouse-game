@@ -6,6 +6,7 @@
 
 //static Resources m_resources = Resources();
 Resources Controller::m_resources;//chat gpt
+int Controller::m_score = 0;
 
 Controller::Controller() : 
 	m_currLevel(nullptr)
