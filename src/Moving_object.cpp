@@ -30,6 +30,12 @@ void Moving_object::set_prev_loc(sf::Vector2f data)
 	m_previous_loc = data;
 }
 
+bool Moving_object::collision(Door&)
+{
+	set_position(m_previous_loc);
+	return false;
+}
+
 bool Moving_object::collision(Wall& wall)
 {
 	set_position(m_previous_loc);

@@ -16,17 +16,17 @@ public:
 
 
 
-	virtual bool collision(Object&){}
-	virtual bool collision(Mouse&) {}
-	virtual bool collision(Cat&) {}
-	virtual bool collision(Cheese&) {}
-	virtual bool collision(Door&) {}
-	virtual bool collision(Gfreeze&) {}
-	virtual bool collision(Gift&) {}
-	virtual bool collision(Glife&) {}
-	virtual bool collision(Gtime&) {}
-	virtual bool collision(Gkill&) {}
-	virtual bool collision(Key&) {}
+	virtual bool collision(Object&)	{}
+	virtual bool collision(Mouse&)	{}
+	virtual bool collision(Cat&)	{}
+	virtual bool collision(Cheese&)	{}
+	virtual bool collision(Door&);
+	virtual bool collision(Gfreeze&){}
+	virtual bool collision(Gift&)	{}
+	virtual bool collision(Glife&)	{}
+	virtual bool collision(Gtime&)	{}
+	virtual bool collision(Gkill&)	{}
+	virtual bool collision(Key&)	{}
 	virtual bool collision(Wall&);
 
 private:

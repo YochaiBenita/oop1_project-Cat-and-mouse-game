@@ -12,7 +12,7 @@ public:
 
 	virtual bool collision(Object&);
 	virtual bool collision(Mouse&);
-	//virtual bool collision(Cat&);
+	//virtual bool collision(Cat&);  //mybe later
 	//virtual bool collision(Cheese&) ;
 	//virtual bool collision(Door&) ;
 	//virtual bool collision(Gfreeze&) ;
