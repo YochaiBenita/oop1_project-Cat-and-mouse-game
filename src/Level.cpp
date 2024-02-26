@@ -71,31 +71,24 @@ bool Level::play()
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
-			/*
-			m_moving[i]->set_direction(m_moving[0]);
-			for (int x=0; x<m_static.size(); x++)
+			m_movings[i]->move(deltaTime.asSeconds());
+
+			for (int j = 0; j < m_statics.size(); j++)
 			{
-				if (m_moving[i].checkcollision(m_static[i]))
+				if (m_statics[j]->checkCollision(*m_movings[i]))
 				{
-					
+					m_statics[j]->collision(*m_movings[i]);
+					break;
 				}
-				//עוד לולאה לחיות
-
 			}
-
-			m_movings[i]->move(deltaTime.asSeconds());
-			m_movings[i]->draw(window);
-			*/
-
-
-			//destenation
-			//for (collision?)
-	//		{
-
-//			}
-
-			m_movings[i]->move(deltaTime.asSeconds());
-			handleCollision(*(m_movings[i]));
+			for (int j = 0; j < m_movings.size(); j++)
+			{
+				if (m_movings[j]->checkCollision(*m_movings[i]))
+				{
+					m_movings[j]->collision(*m_movings[i]);
+					break;
+				}
+			}
 			m_movings[i]->draw(window);
 		}
 

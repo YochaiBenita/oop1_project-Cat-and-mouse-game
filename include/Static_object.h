@@ -13,21 +13,21 @@ public:
 	//virtual void draw(sf::RenderWindow&);
 	//virtual void move(sf::Vector2f) {};
 
-	virtual void collision(Object&) = 0;
-	virtual void collision(Mouse&) = 0;
-	virtual void collision(Cat&) = 0;
-	virtual void collision(Cheese&) {};
-	virtual void collision(Door&) {};
-	virtual void collision(Gfreeze&) {};
-	virtual void collision(Gift&) {};
-	virtual void collision(Glife&) {};
-	virtual void collision(Gtime&) {};
-	virtual void collision(Key&) {};
-	virtual void collision(Wall&) {};
+	virtual bool collision(Object&) = 0;
+	virtual bool collision(Mouse&) = 0;
+	virtual bool collision(Cat&) = 0;
+	//virtual bool collision(Cheese&) {};
+	//virtual bool collision(Door&) {};
+	//virtual bool collision(Gfreeze&) {};
+	//virtual bool collision(Gift&) {};
+	//virtual bool collision(Glife&) {};
+	//virtual bool collision(Gtime&) {};
+	//virtual bool collision(Key&) {};
+	//virtual bool collision(Wall&) {};
 	
-	virtual void to_delete() = 0;
-	bool to_erase();
+	//virtual void to_delete() = 0;
+	//bool to_erase();
 
 protected:
-	bool m_to_delete = false;
+	//bool m_to_delete = false;
 };

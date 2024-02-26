@@ -9,9 +9,9 @@ public:
 	Gkill(int col, int row) : Gift (Gkill_t, col, row) {};
 	virtual ~Gkill() = default;
 
-	virtual void collision(Object& obj) { obj.collision(*this); }
-	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object& obj) { obj.collision(*this); }
+	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
+	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
 
 private:
 

@@ -6,14 +6,14 @@
 class Key :public Static_object
 {
 public:
-	Key(int col, int row) : Static_object(key_t, col, row) {};
+	Key(int col, int row);
 	//virtual ~Key() = default;
 
-	virtual void collision(Object& obj) { obj.collision(*this); }
-	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object& obj);
+	virtual bool collision(Cat& catPlayer);
+	virtual bool collision(Mouse& mousePlayer);
 
-	virtual void to_delete() {m_to_delete = true;}
+	//virtual void to_delete() {m_to_delete = true;}
 private:
 
 };

@@ -33,6 +33,7 @@ void Mouse::move(float seconds)
 		m_diraction = sf::Vector2f(0.f, 0.f);
 	}
 	//שמירת מיקום ישן או משהו כזה
+	set_prev_loc(get_position());
 	Moving_object::move(m_diraction * seconds * speedForSeconds);
 }
 

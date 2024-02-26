@@ -7,10 +7,7 @@ Cat::Cat(int col, int row) : Moving_object (cat_t, col, row)
 
 Cat::~Cat() {}
 
-//void Cat::set_direction(/*mouse*/)
-//{
-//
-//}
+
 void Cat::move(float seconds) {
 	m_diraction = choose_diraction();
 
@@ -30,3 +27,5 @@ sf::Vector2f Cat::choose_diraction()
 		return sf::Vector2f(0.f, 1.f);
 	}
 }
+
+

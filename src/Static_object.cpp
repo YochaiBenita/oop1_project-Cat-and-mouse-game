@@ -16,10 +16,10 @@ Static_object::~Static_object()
 //	m_to_delete = true;
 //}
 
-bool Static_object::to_erase()
-{
-	return m_to_delete;
-}
+//bool Static_object::to_erase()
+//{
+//	return m_to_delete;
+//}
 
 //void Static_object::draw(sf::RenderWindow& wind)
 //{

@@ -9,9 +9,9 @@ public:
 	Gfreeze(int col, int row) : Gift (Gfreeze_t, col, row) {};
 	virtual ~Gfreeze() = default;
 
-	virtual void collision(Object& obj) { obj.collision(*this); }
-	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object& obj) { obj.collision(*this); }
+	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
+	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
 
 private:
 

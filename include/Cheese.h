@@ -11,10 +11,10 @@ public:
 	Cheese(int, int);
 	virtual ~Cheese();
 
-	virtual void collision(Object&);
-	virtual void collision(Cat&);//אולי לעשות רק למובינג אובגקט
-	virtual void collision(Mouse&);
-	virtual void to_delete();
+	virtual bool collision(Object&);
+	virtual bool collision(Cat& cat);
+	virtual bool collision(Mouse&);
+	//virtual void to_delete();
 
 
 private:

@@ -13,17 +13,17 @@ public:
 	void move(float);
 
 
-	virtual void collision(Object&);
-	//virtual void collision(Mouse&);
-	virtual void collision(Cat&);
-	virtual void collision(Cheese&);
-	virtual void collision(Door&);
-	virtual void collision(Gfreeze&);
-	virtual void collision(Gift&);
-	virtual void collision(Glife&);
-	virtual void collision(Gkill&);
-	virtual void collision(Gtime&);
-	virtual void collision(Key&);
+	virtual bool collision(Object&);
+	//virtual bool collision(Mouse&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Cheese&);
+	virtual bool collision(Door&);
+	virtual bool collision(Gfreeze&);
+	virtual bool collision(Gift&);
+	virtual bool collision(Glife&);
+	virtual bool collision(Gkill&);
+	virtual bool collision(Gtime&);
+	virtual bool collision(Key&);
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);

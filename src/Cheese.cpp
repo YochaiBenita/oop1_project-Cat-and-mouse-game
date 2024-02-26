@@ -1,5 +1,7 @@
 #pragma once
 #include "Cheese.h"
+#include "Mouse.h"
+#include "Cat.h"
 
 Cheese::Cheese(int col, int row) : Static_object(cheese_t, col, row) 
 {
@@ -11,22 +13,22 @@ Cheese::~Cheese()
 }
 ;
 
-void Cheese::collision(Object& obj)
+bool Cheese::collision(Object& obj)
 {
-	obj.collision(*this);
+	return obj.collision(*this);
 }
 
-void Cheese::collision(Cat& catPlayer)
+bool Cheese::collision(Cat& catPlayer)
 {
-	catPlayer.collision(*this);
+	return catPlayer.collision(*this);
 }
 
-void Cheese::collision(Mouse& mousePlayer)
+bool Cheese::collision(Mouse& mousePlayer)
 {
-	mousePlayer.collision(*this);
+	return mousePlayer.collision(*this);
 }
 
-void Cheese::to_delete()
-{
-	m_to_delete = true;
-}
+//void Cheese::to_delete()
+//{
+//	m_to_delete = true;
+//}

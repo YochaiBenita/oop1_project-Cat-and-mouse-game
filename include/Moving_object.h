@@ -12,22 +12,24 @@ public:
 	//virtual void set_direction()=0;
 	void reset_location();
 	virtual void move(sf::Vector2f);
+	void set_prev_loc(sf::Vector2f);
 
 
 
-	virtual void collision(Object&) = 0;
-	virtual void collision(Mouse&) = 0;
-	virtual void collision(Cat&) = 0;
-	virtual void collision(Cheese&) = 0;
-	virtual void collision(Door&) = 0;
-	virtual void collision(Gfreeze&) = 0;;
-	virtual void collision(Gift&) = 0;
-	virtual void collision(Glife&) = 0;
-	virtual void collision(Gtime&) = 0;
-	virtual void collision(Gkill&) = 0;
-	virtual void collision(Key&) = 0;
-	virtual void collision(Wall&);
+	virtual bool collision(Object&){}
+	virtual bool collision(Mouse&) {}
+	virtual bool collision(Cat&) {}
+	virtual bool collision(Cheese&) {}
+	virtual bool collision(Door&) {}
+	virtual bool collision(Gfreeze&) {}
+	virtual bool collision(Gift&) {}
+	virtual bool collision(Glife&) {}
+	virtual bool collision(Gtime&) {}
+	virtual bool collision(Gkill&) {}
+	virtual bool collision(Key&) {}
+	virtual bool collision(Wall&);
 
 private:
 	sf::Vector2f m_original_loc;
+	sf::Vector2f m_previous_loc;
 };

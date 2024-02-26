@@ -25,18 +25,18 @@ public:
 
 	bool checkCollision(Object& obj) const;
 
-	virtual void collision(Object&) = 0;
-	virtual void collision(Mouse&) = 0;
-	virtual void collision(Cat&) = 0;
-	virtual void collision(Cheese&) = 0;
-	virtual void collision(Door&) = 0;
-	virtual void collision(Gfreeze&) = 0;
-	virtual void collision(Gift&) = 0;
-	virtual void collision(Glife&) = 0;
-	virtual void collision(Gkill&) = 0;
-	virtual void collision(Gtime&) = 0;
-	virtual void collision(Key&) = 0;
-	virtual void collision(Wall&) = 0;
+	virtual bool collision(Object&) = 0;
+	virtual bool collision(Mouse&) = 0;
+	virtual bool collision(Cat&) = 0;
+	//virtual bool collision(Cheese&) = 0;
+	//virtual bool collision(Door&) = 0;
+	//virtual bool collision(Gfreeze&) = 0;
+	//virtual bool collision(Gift&) = 0;
+	//virtual bool collision(Glife&) = 0;
+	//virtual bool collision(Gkill&) = 0;
+	//virtual bool collision(Gtime&) = 0;
+	//virtual bool collision(Key&) = 0;
+	//virtual bool collision(Wall&) = 0;
 
 	virtual void draw(sf::RenderWindow&);
 	void set_position(sf::Vector2f);

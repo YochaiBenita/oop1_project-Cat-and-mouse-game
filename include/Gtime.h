@@ -9,9 +9,9 @@ public:
 	Gtime(int col, int row) : Gift (time, col, row) {};
 	virtual ~Gtime() = default;
 
-	virtual void collision(Object& obj) { obj.collision(*this); }
-	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object& obj) { obj.collision(*this); }
+	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
+	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
 
 private:
 
