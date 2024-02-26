@@ -2,6 +2,9 @@
 #include "Mouse.h"
 #include "Key.h"
 #include "Door.h"
+#include "Cat.h"
+#include "Cheese.h"
+#include "Controller.h"
 
 Mouse::Mouse(int col, int row) : Moving_object(mouse_t, col, row) {
 }
@@ -62,63 +65,61 @@ void Mouse::move(float seconds)
 //}
 
 //--------------------------------------------------------------------------
-void Mouse::collision(Object& object)
+bool Mouse::collision(Object& object)
 {
-	object.collision(*this);
+	return object.collision(*this);
 }
 
-void Mouse::collision(Cat& cat)
+bool Mouse::collision(Cat& cat)
 {
-	cat.collision(*this);
+	return cat.collision(*this);
 }
 
-void Mouse::collision(Cheese& cheese)
+bool Mouse::collision(Cheese& cheese)
 {
-	cheese.to_delete();
-	//score+
 	Controller::add_score(SCORE_OF_CHEESE);
-	
+	return true;
 }
 
-void Mouse::collision(Door& door)
+bool Mouse::collision(Door& door)
 {
 	if (m_num_of_keys > 0)
 	{
-		door.to_delete();
 		Controller::add_score(SCORE_OF_DOOR);
 		m_num_of_keys--;
+		return true;
 	}
-	door.collision(*this);
+	set_position(get_previous_loc());
+	return false;
 }
 
-void Mouse::collision(Gfreeze& gift)
+bool Mouse::collision(Gift& gift)
 {
-	gift.collision(*this);
+	Controller::add_score(SCORE_OF_GIFT);
+	return true;
 }
 
-void Mouse::collision(Gift& gift)
-{
-	gift.collision(*this);
-}
+//bool Mouse::collision(Gfreeze& gift)
+//{
+//	gift.collision(*this);
+//}
+//bool Mouse::collision(Glife& gift)
+//{
+//	gift.collision(*this);
+//}
+//
+//bool Mouse::collision(Gkill& gift)
+//{
+//	gift.collision(*this);
+//}
+//
+//bool Mouse::collision(Gtime& gift)
+//{
+//	gift.collision(*this);
+//}
 
-void Mouse::collision(Glife& gift)
-{
-	gift.collision(*this);
-}
-
-void Mouse::collision(Gkill& gift)
-{
-	gift.collision(*this);
-}
-
-void Mouse::collision(Gtime& gift)
-{
-	gift.collision(*this);
-}
-
-void Mouse::collision(Key& key)
+bool Mouse::collision(Key& key)
 {
 	m_num_of_keys++;
-	key.to_delete();
-	//key.collision(*this);
+	return true;
 }

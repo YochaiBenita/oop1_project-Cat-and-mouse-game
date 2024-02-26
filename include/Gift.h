@@ -4,15 +4,18 @@
 #include "Cat.h"
 #include "Mouse.h"
 
+const int SCORE_OF_GIFT = 5;
+
+
 class Gift : public Static_object
 {
 public:
 	Gift(object_code obj, int col, int row);
 	virtual ~Gift() = default;
 
-	virtual bool collision(Object& obj) { obj.collision(*this); }
-	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 
 	//virtual void 
 };

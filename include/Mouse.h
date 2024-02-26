@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "Moving_object.h"
 //#include "Controller.h";
-#include "Cheese.h"
 
 class Mouse:public Moving_object {
 public:
