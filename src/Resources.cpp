@@ -22,6 +22,8 @@ Resources::Resources()
 	{
 		m_backgroungs[i].loadFromFile("backgroundmenu.png");
 	}
+	m_backgroungs[2].loadFromFile("icons8-rhombus-80.png");
+	m_backgroungs[2].setRepeated(true);
 	
 	//sound \ font reading loop
 

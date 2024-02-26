@@ -1,6 +1,8 @@
 #pragma once
 #include "Level.h"
 #include <iostream>
+#include "Resources.h"
+#include "Controller.h"
 
 
 
@@ -47,12 +49,20 @@ Level::Level(std::string fileName)
 bool Level::play()
 {
 	sf::RenderWindow window(sf::VideoMode(m_width*IMAGESIZE, m_hight*IMAGESIZE), "mouse and cat");
+
+	//move to resources
+	auto backgraund = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE, m_hight * IMAGESIZE));
+	backgraund.setTexture(Controller::getBackground(2));
+	backgraund.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE, m_hight * IMAGESIZE));
+	//end
+	
 	sf::Clock clock;
 
 	while (window.isOpen() && Cheese::get_cheese_num()>0)
 	{
 		
 		window.clear(sf::Color::White);
+		window.draw(backgraund);
 
 		for (int i = 0; i < m_statics.size(); i++)
 		{
@@ -72,7 +82,7 @@ bool Level::play()
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
-			m_movings[i]->move(deltaTime.asSeconds());
+			m_movings[i]->move(deltaTime.asSeconds(), m_movings[0].get());
 
 			handleCollision(*m_movings[i]);
 			

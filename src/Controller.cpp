@@ -29,7 +29,7 @@ void Controller::run()
 
 			if (m_currLevel->play())
 			{
-				m_to_exit = m_currLevel->to_exit();
+				//m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
 				m_currLevel = nullptr;
 				m_levelNumber++;

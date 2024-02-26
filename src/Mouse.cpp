@@ -13,7 +13,7 @@ Mouse::~Mouse() {
 
 }
 
-void Mouse::move(float seconds) 
+void Mouse::move(float seconds, Moving_object* mouse)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
@@ -35,9 +35,10 @@ void Mouse::move(float seconds)
 	{
 		m_diraction = sf::Vector2f(0.f, 0.f);
 	}
-	//שמירת מיקום ישן או משהו כזה
+	
 	set_prev_loc(get_position());
-	Moving_object::move(m_diraction * seconds * speedForSeconds);
+	
+	Object::move(m_diraction * seconds * speedForSeconds);
 }
 
 //void Mouse::set_direction()

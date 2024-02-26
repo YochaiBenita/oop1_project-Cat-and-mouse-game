@@ -8,7 +8,7 @@ public:
 	virtual ~Cat();
 	//virtual void draw(sf::RenderWindow&);
 	//virtual void set_direction();
-	void move(float);
+	void move(float, Moving_object*);
 
 	virtual bool collision(Object&) { return false; };
 	virtual bool collision(Mouse&) { return false; };

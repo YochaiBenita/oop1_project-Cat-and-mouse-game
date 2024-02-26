@@ -8,10 +8,10 @@ public:
 	Moving_object(object_code, int, int);
 	virtual ~Moving_object();
 	//virtual void draw(sf::RenderWindow&);
-	virtual void move(float) {};//=0
+	virtual void move(float, Moving_object*) {};//=0
 	//virtual void set_direction()=0;
 	void reset_location();
-	virtual void move(sf::Vector2f);
+	//virtual void move(sf::Vector2f);
 	void set_prev_loc(sf::Vector2f);
 	sf::Vector2f get_previous_loc()const;
 

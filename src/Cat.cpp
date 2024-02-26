@@ -1,6 +1,7 @@
 #pragma once
 #include "Cat.h"
 #include <iostream>
+#include <cmath>
 
 Cat::Cat(int col, int row) : Moving_object (cat_t, col, row) 
 {}
@@ -8,10 +9,26 @@ Cat::Cat(int col, int row) : Moving_object (cat_t, col, row)
 Cat::~Cat() {}
 
 
-void Cat::move(float seconds) {
-	m_diraction = choose_diraction();
+void Cat::move(float seconds, Moving_object* mouse)
+{
+	auto catloc = this->get_position();
+	auto mouseloc = mouse->get_position();
 
-	Moving_object::move(m_diraction * speedForSeconds * seconds);
+	float Dx = (mouseloc.x - catloc.x);
+	float Dy = (mouseloc.y - catloc.y);
+
+	if (abs(Dx) > abs(Dy))
+	{
+		m_diraction = (Dx > 0) ? sf::Vector2f(1, 0) : sf::Vector2f(-1, 0);
+	}
+	else
+	{
+		m_diraction = (Dy > 0) ? sf::Vector2f(0, 1) : sf::Vector2f(0, -1);
+	}
+
+	//m_diraction = choose_diraction();
+
+	Object::move(m_diraction * speedForSeconds * seconds);
 }
 
 bool Cat::collision(Wall&)

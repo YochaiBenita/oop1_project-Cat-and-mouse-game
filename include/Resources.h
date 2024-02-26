@@ -29,7 +29,7 @@ public:
 
 private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
-	sf::Texture m_backgroungs[2];
+	sf::Texture m_backgroungs[3];
 	//sf::Font m_fonts[NUM_OF_SOUNDES];
 	std::vector<std::string> m_levels_name;
 	//sf::SoundBuffer[];

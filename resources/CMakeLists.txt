@@ -13,7 +13,7 @@ configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundgame.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundmenu.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("icons8-rhombus-80.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 #text

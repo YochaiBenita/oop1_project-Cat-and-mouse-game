@@ -12,7 +12,7 @@ public:
 	virtual ~Mouse();
 	//virtual void draw(sf::RenderWindow&);
 	//virtual void set_direction();
-	void move(float);
+	void move(float, Moving_object*);
 	
 
 	virtual bool collision(Object&);
