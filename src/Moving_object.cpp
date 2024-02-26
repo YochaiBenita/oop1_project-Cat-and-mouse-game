@@ -24,3 +24,7 @@ void Moving_object::move(sf::Vector2f v2d)
 	Object::move(v2d);
 }
 
+void Moving_object::collision(Wall& wall)
+{
+	change_direction();
+}

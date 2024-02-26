@@ -25,3 +25,8 @@ void Cheese::collision(Mouse& mousePlayer)
 {
 	mousePlayer.collision(*this);
 }
+
+void Cheese::to_delete()
+{
+	m_to_delete = true;
+}

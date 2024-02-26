@@ -13,7 +13,7 @@ public:
 	void run();
 	static sf::Texture* getTexutre(int);
 	static sf::Texture* getBackground(int);
-	
+	static void add_score(int);
 
 private:
 	int m_life = 3;

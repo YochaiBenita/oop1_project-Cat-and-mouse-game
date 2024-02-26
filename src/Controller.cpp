@@ -52,6 +52,11 @@ sf::Texture* Controller::getBackground(int index)
 	return m_resources.getBackground(index);
 }
 
+void Controller::add_score(int score)
+{
+	m_score += score;;
+}
+
 
 
 

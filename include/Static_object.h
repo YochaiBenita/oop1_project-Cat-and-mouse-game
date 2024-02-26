@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "Resources.h"
 
+
 class Static_object :public Object {
 public:
 	Static_object(object_code, int, int);
@@ -24,7 +25,8 @@ public:
 	virtual void collision(Key&) {};
 	virtual void collision(Wall&) {};
 	
-	void to_delete();
+	virtual void to_delete() = 0;
+	bool to_erase();
 
 protected:
 	bool m_to_delete = false;

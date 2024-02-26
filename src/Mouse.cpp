@@ -1,4 +1,7 @@
+#pragma once
 #include "Mouse.h"
+#include "Key.h"
+#include "Door.h"
 
 Mouse::Mouse(int col, int row) : Moving_object(mouse_t, col, row) {
 }
@@ -72,11 +75,18 @@ void Mouse::collision(Cheese& cheese)
 {
 	cheese.to_delete();
 	//score+
+	Controller::add_score(SCORE_OF_CHEESE);
 	
 }
 
 void Mouse::collision(Door& door)
 {
+	if (m_num_of_keys > 0)
+	{
+		door.to_delete();
+		Controller::add_score(SCORE_OF_DOOR);
+		m_num_of_keys--;
+	}
 	door.collision(*this);
 }
 
@@ -107,5 +117,7 @@ void Mouse::collision(Gtime& gift)
 
 void Mouse::collision(Key& key)
 {
-	key.collision(*this);
+	m_num_of_keys++;
+	key.to_delete();
+	//key.collision(*this);
 }

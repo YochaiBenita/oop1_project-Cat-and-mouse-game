@@ -13,6 +13,7 @@ public:
 	virtual void collision(Cat& catPlayer) { catPlayer.collision(*this); }
 	virtual void collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
 
+	virtual void to_delete() {m_to_delete = true;}
 private:
 
 };

@@ -157,9 +157,12 @@ void Level::handleCollision(Moving_object& obj)
 		if (obj.checkCollision(*m_statics[i]))
 		{
 			obj.collision(*m_statics[i]);
+			if ((*m_statics[i]).to_erase())
+			{
+				//מחיקה
+			}
 		}
 	}
-
 	//m_board.collision(gameObject, *this);
 }
 

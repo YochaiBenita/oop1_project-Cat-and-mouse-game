@@ -13,6 +13,7 @@
 #include "Key.h"
 #include "Wall.h"
 #include <iostream>
+#include "Controller.h"//מייצר אינקלוד מעגלי
 
 class Static_object;
 

@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Moving_object.h"
+//#include "Controller.h";
+#include "Cheese.h"
 
 class Mouse:public Moving_object {
 public:
@@ -9,7 +11,6 @@ public:
 	//virtual void draw(sf::RenderWindow&);
 	//virtual void set_direction();
 	void move(float);
-
 
 
 	virtual void collision(Object&);
@@ -27,4 +28,5 @@ public:
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);
 	float speedForSeconds = 20;
+	int m_num_of_keys = 0;
 };

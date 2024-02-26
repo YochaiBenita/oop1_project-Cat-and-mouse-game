@@ -3,6 +3,8 @@
 #include "Static_object.h"
 //#include "Resources.h"
 
+const int SCORE_OF_CHEESE = 10;
+
 class Cheese :public Static_object
 {
 public:
@@ -12,6 +14,8 @@ public:
 	virtual void collision(Object&);
 	virtual void collision(Cat&);//אולי לעשות רק למובינג אובגקט
 	virtual void collision(Mouse&);
+	virtual void to_delete();
+
 
 private:
 	static int m_count;
