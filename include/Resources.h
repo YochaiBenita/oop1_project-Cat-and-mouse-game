@@ -27,6 +27,8 @@ public:
 	sf::Texture* getTextureAt(int);
 	sf::Texture* getDataTexure(int);
 	sf::Texture* getBackground(int);
+	sf::SoundBuffer* getSoundBuffer(int);
+
 	sf::Font* getFont();
 	// get sound at
 	std::string getLevelNameAt(int) const;
@@ -36,7 +38,7 @@ private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
 	sf::Texture m_data_texures[4];
 	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
-	sf::SoundBuffer m_sound[NUM_OF_SOUNDES];
+	sf::SoundBuffer m_sound_buffer[NUM_OF_SOUNDES];
 	sf::Font m_font;
 	std::vector<std::string> m_levels_name;
 
@@ -64,12 +66,12 @@ private:
 	};
 
 	std::string m_SoundNames[NUM_OF_SOUNDES] = {
+	"success.ogg",
 	"loss.ogg",
 	"bite.ogg",
-	"door collision.ogg",
 	"door open.ogg",
 	"gift.ogg",
 	"collect key.ogg",
-	"success.ogg"
+	"door collision.ogg"	
 	};
 };

@@ -78,6 +78,11 @@ sf::Texture* Controller::getDataTexure(int index)
 	return m_resources.getDataTexure(index);
 }
 
+sf::SoundBuffer* Controller::getSoundBuffer(int index)
+{
+	return m_resources.getSoundBuffer(index);
+}
+
 
 void Controller::add_score(int score)
 {

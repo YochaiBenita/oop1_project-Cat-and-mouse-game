@@ -15,6 +15,7 @@ public:
 	static sf::Texture* getTexutre(int);
 	static sf::Texture* getBackground(int);
 	static sf::Texture* getDataTexure(int);
+	static sf::SoundBuffer* getSoundBuffer(int);
 	static void add_score(int);
 	static sf::Font* getFont();
 	static void draw_data(sf::RenderWindow&);
