@@ -188,7 +188,7 @@ void Level::check_move(Moving_object & player)
 {
 	sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
 	if (playerBounds.top < 0 || playerBounds.left < TOPLEFT.x
-		|| (playerBounds.left) / IMAGESIZE > m_width
+		|| (playerBounds.left)-TOPLEFT.x / IMAGESIZE > m_width
 		|| (playerBounds.top) / IMAGESIZE > m_hight)
 	{
 		player.set_position(player.get_previous_loc());
