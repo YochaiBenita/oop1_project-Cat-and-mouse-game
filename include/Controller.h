@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <fstream>
 #include "Level.h"
 #include "Resources.h"
@@ -29,6 +30,7 @@ private:
 	int m_levelNumber = 0;
 	bool m_to_exit = false;
 	static Menu m_menu;
+	sf::Music m_music;
 	//static sf::Text m_text;
 	//static sf::Sprite m_dataSP[3];
 

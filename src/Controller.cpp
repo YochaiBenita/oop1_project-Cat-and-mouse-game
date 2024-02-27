@@ -15,7 +15,10 @@ Menu Controller::m_menu;
 
 Controller::Controller()
 {
-
+	m_music.openFromFile("game music.ogg");
+	m_music.setVolume(50);
+	m_music.setLoop(true);
+	//m_music.set
 
 }
 
@@ -23,6 +26,7 @@ Controller::~Controller() {}
 
 void Controller::run()
 {
+	m_music.play();
 	while (!m_to_exit) 
 	{
 		m_menu.show_menu();
@@ -37,12 +41,12 @@ void Controller::run()
 			{
 				m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
-				m_currLevel = nullptr;
-				m_levelNumber++;
-
 				if (m_to_exit) {
 					break;
 				}
+				m_currLevel = nullptr;
+				m_levelNumber++;
+				//add_score();
 
 			}
 			else
@@ -61,6 +65,8 @@ void Controller::run()
 			//m_menu losser
 		}
 	}
+	m_music.stop();
+	m_music.~Music();
 }
 
 sf::Texture* Controller::getTexutre(int index)

@@ -46,6 +46,7 @@ void Menu::show_menu()
 			{
 			case sf::Event::Closed:
 				m_wind.close();
+				exit(EXIT_SUCCESS);
 				break;
 			case sf::Event::MouseButtonReleased:
 			{
