@@ -57,3 +57,8 @@ void Object::move(sf::Vector2f v2d)
 {
 	m_sp.move(v2d);
 }
+
+sf::Sprite Object::get_sprite() const
+{
+	return m_sp;
+}

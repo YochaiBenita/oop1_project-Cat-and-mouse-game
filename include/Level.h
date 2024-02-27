@@ -26,6 +26,8 @@ public:
 	static void add_key();
 	static void use_key();
 	static int get_keys();
+	void check_move(Moving_object&);
+
 
 private:
 	static int m_keys;
