@@ -24,7 +24,7 @@ Resources::Resources()
 	}
 	m_backgroungs[2].setRepeated(true);
 
-	m_font.loadFromFile("RuthlessWreckin2.ttf");
+	m_font.loadFromFile("LoveDays-2v7Oe.ttf");
 
 	for (int i = 0; i < 4; i++)
 	{

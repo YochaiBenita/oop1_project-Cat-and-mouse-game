@@ -15,10 +15,10 @@ Menu::Menu() : m_data()
 		m_button[i].setPosition(sf::Vector2f(100, 70 + (100*i)));
 	}
 
-	m_data[0].src = Controller::get_score();
-	m_data[1].src = Controller::get_score();
+	m_data[0].src = Controller::get_score(); //time
+	m_data[1].src = Controller::get_score(); //life
 	m_data[2].src = Controller::get_score();
-	m_data[3].src = Controller::get_score();
+	m_data[3].src = Controller::get_score(); //keys
 
 }
 
@@ -129,32 +129,16 @@ void Data::update_data()
 }
 
 
-//void Controller::draw_data(sf::RenderWindow& wind)
-//{
-//	std::ostringstream a;
-//	for (int i = 0; i < 3; i++)
-//	{
-//		std::ostringstream a;
-//		a << (m_currLevel->get_keys());
-//		m_text.setString(a.str());
-//
-//		m_text.setPosition(m_dataSP[i].getPosition() + sf::Vector2f(30, 0));
-//
-//		wind.draw(m_dataSP[i]);
-//		wind.draw(m_text);
-//	}
-//
-//
-//}
-
 Data::Data()
 {
 	m_text.setFillColor(sf::Color::Black);
-	m_text.setCharacterSize(24);
+	m_text.setCharacterSize(30);
 	m_text.setFont(*Controller::getFont());
 
 	m_data.setTexture(*Controller::getDataTexure(num_of_data));
 	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
+
+	m_text.setPosition(m_data.getPosition());
 
 	num_of_data++;
 }
