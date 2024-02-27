@@ -11,9 +11,16 @@ configure_file ("mouse.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("newfile.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("backgroundgame.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("backgroundgame.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundmenu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundtile.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("aid.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("clock-30.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("clock-60.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("freeze.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("heart.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("help.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("star.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 #text
@@ -23,3 +30,14 @@ configure_file ("Level002.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level003.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("RuthlessWreckin2.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("LoveDays-2v7Oe.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
+
+#sound
+configure_file ("bite.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("collect key.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("door collision.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("door open.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("game music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("gift.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("loss.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("success.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
