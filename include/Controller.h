@@ -26,6 +26,7 @@ private:
 	bool m_to_exit = false;
 	Menu m_menu;
 	static sf::Text m_text;
+	static sf::Sprite m_dataSP[3];
 
 
 	static Level* m_currLevel;

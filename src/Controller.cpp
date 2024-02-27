@@ -10,6 +10,7 @@ Resources Controller::m_resources;
 int Controller::m_score = 0;
 Level* Controller::m_currLevel(nullptr);
 sf::Text Controller::m_text;
+sf::Sprite Controller::m_dataSP[3];
 
 Controller::Controller() :
 	m_menu()
@@ -17,6 +18,14 @@ Controller::Controller() :
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(24);
 	m_text.setFont(*m_resources.getFont());
+
+	for (int i = 0; i < 3; i++)
+	{
+		m_dataSP[i].setTexture(*m_resources.getDataTexure(i));
+		m_dataSP[i].setPosition(sf::Vector2f(10, 50 + 100 * i));
+
+	}
+
 }
 
 Controller::~Controller() {}
@@ -92,13 +101,9 @@ void Controller::draw_data(sf::RenderWindow& wind)
 		a << (m_currLevel->get_keys());
 		m_text.setString(a.str());
 
+		m_text.setPosition(m_dataSP[i].getPosition() + sf::Vector2f(30, 0));
 
-		auto sp = sf::Sprite(*Controller::getTexutre(1));
-		sp.setPosition(sf::Vector2f(10, 50 + 100 * i));
-
-		m_text.setPosition(sp.getPosition() + sf::Vector2f(30, 0));
-
-		wind.draw(sp);
+		wind.draw(m_dataSP[i]);
 		wind.draw(m_text);
 	}
 

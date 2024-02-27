@@ -25,6 +25,7 @@ class Resources
 public:
 	Resources();
 	sf::Texture* getTextureAt(int);
+	sf::Texture* getDataTexure(int);
 	sf::Texture* getBackground(int);
 	sf::Font* getFont();
 	// get sound at
@@ -33,6 +34,7 @@ public:
 
 private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
+	sf::Texture m_data_texures[3];
 	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
 	sf::Font m_font;
 	std::vector<std::string> m_levels_name;

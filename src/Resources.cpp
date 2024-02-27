@@ -36,6 +36,11 @@ sf::Texture* Resources::getTextureAt(int index)
 	return &(m_texures[index]);
 }
 
+sf::Texture* Resources::getDataTexure(int index)
+{
+	return &(m_data_texures[index]);
+}
+
 sf::Texture* Resources::getBackground(int index)
 {
 	return &(m_backgroungs[index]);
