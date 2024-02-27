@@ -18,6 +18,11 @@ Resources::Resources()
 		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
 
+	for (int i = 0; i < NUM_OF_SOUNDES; i++)
+	{
+		m_sound[i].loadFromFile(m_SoundNames[i]);
+	}
+
 	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
 	{
 		m_backgroungs[i].loadFromFile(m_BackgroundsNames[i]);

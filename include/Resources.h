@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-//#include <SFML/Audio.hpp>
+#include <SFML/Audio.hpp>
 #include <fstream>
 #include <string>
  
@@ -8,7 +8,7 @@ const int NUM_OF_TEXTURES = 7;
 const int NUM_OF_BACKGROUNDS = 3;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
-//const int NUM_OF_SOUNDES = 10;
+const int NUM_OF_SOUNDES = 7;
 //const int NUM_OF_FONTS = 10;
 
 
@@ -36,9 +36,9 @@ private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
 	sf::Texture m_data_texures[4];
 	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
+	sf::SoundBuffer m_sound[NUM_OF_SOUNDES];
 	sf::Font m_font;
 	std::vector<std::string> m_levels_name;
-	//sf::SoundBuffer[];
 
 	std::string m_FileNames[NUM_OF_TEXTURES] = {
 	"mouse.png",
@@ -63,4 +63,13 @@ private:
 	"key.png"
 	};
 
+	std::string m_SoundNames[NUM_OF_SOUNDES] = {
+	"loss.ogg",
+	"bite.ogg",
+	"door collision.ogg",
+	"door open.ogg",
+	"gift.ogg",
+	"collect key.ogg",
+	"success.ogg"
+	};
 };
