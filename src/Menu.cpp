@@ -15,10 +15,10 @@ Menu::Menu() : m_data()
 		m_button[i].setPosition(sf::Vector2f(100, 70 + (100*i)));
 	}
 
-	//m_data[0].src = time;
-	m_data[1].src = Controller::get_live();
+	m_data[0].src = Controller::get_score();
+	m_data[1].src = Controller::get_score();
 	m_data[2].src = Controller::get_score();
-	m_data[3].src = ;
+	m_data[3].src = Controller::get_score();
 
 }
 

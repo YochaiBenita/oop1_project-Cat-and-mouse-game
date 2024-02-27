@@ -19,7 +19,7 @@ public:
 	static sf::Font* getFont();
 	static void draw_data(sf::RenderWindow&);
 	int* get_live();
-	int* get_score();
+	static int* get_score();
 
 
 private:
