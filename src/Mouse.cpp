@@ -5,6 +5,7 @@
 #include "Cat.h"
 #include "Cheese.h"
 #include "Controller.h"
+#include "Level.h"
 
 Mouse::Mouse(int col, int row) : Moving_object(mouse_t, col, row) {
 }
@@ -89,10 +90,10 @@ bool Mouse::collision(Cheese& cheese)
 
 bool Mouse::collision(Door& door)
 {
-	if (m_num_of_keys > 0)
+	if (Level::get_keys() > 0)
 	{
 		Controller::add_score(SCORE_OF_DOOR);
-		m_num_of_keys--;
+		Level::use_key();
 		return true;
 	}
 	set_position(get_previous_loc());
@@ -126,7 +127,8 @@ bool Mouse::collision(Gift& gift)
 
 bool Mouse::collision(Key& key)
 {
-	m_num_of_keys++;
+	//m_num_of_keys++;
+	Level::add_key();
 	return true;
 }
 

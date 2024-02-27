@@ -3,7 +3,7 @@
 
 Menu::Menu()
 {
-	m_background.setTexture(*Controller::getBackground(1));
+	m_background.setTexture(*Controller::getBackground(0));
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -34,7 +34,7 @@ void Menu::show_menu()
 
 		m_wind.display();
 
-		if (auto event = sf::Event(); m_wind.pollEvent(event))
+		if (auto event = sf::Event(); m_wind.waitEvent(event))
 		{
 			switch (event.type)
 			{
@@ -49,8 +49,8 @@ void Menu::show_menu()
 				case 0:
 					return;
 				case 1:
-					//show_help
-					//shoe_menu
+					std::cout << "help\n";
+					//show_menu
 					//return;
 					break;
 				case 2:
@@ -58,8 +58,6 @@ void Menu::show_menu()
 				default:
 					break;
 				}
-				/*handle_click(event.mouseButton, window);
-				break;*/
 			}
 		}
 

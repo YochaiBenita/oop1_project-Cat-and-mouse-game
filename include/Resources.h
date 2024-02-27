@@ -3,8 +3,15 @@
 //#include <SFML/Audio.hpp>
 #include <fstream>
 #include <string>
-
+ 
 const int NUM_OF_TEXTURES = 7;
+const int NUM_OF_BACKGROUNDS = 3;
+const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
+const float IMAGESIZE = 30.f;
+//const int NUM_OF_SOUNDES = 10;
+//const int NUM_OF_FONTS = 10;
+
+
 
 enum object_code {
 	mouse_t, cat_t, cheese_t,
@@ -13,24 +20,21 @@ enum object_code {
 };
 
 
-
-//const int NUM_OF_SOUNDES = 10;
-//const int NUM_OF_FONTS = 10;
-
 class Resources
 {
 public:
 	Resources();
 	sf::Texture* getTextureAt(int);
 	sf::Texture* getBackground(int);
+	sf::Font* getFont();
 	// get sound at
 	std::string getLevelNameAt(int) const;
 	int numOfLevels() const;
 
 private:
 	sf::Texture m_texures[NUM_OF_TEXTURES];
-	sf::Texture m_backgroungs[3];
-	//sf::Font m_fonts[NUM_OF_SOUNDES];
+	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
+	sf::Font m_font;
 	std::vector<std::string> m_levels_name;
 	//sf::SoundBuffer[];
 
@@ -42,6 +46,12 @@ private:
 	"gift.png",
 	"key.png",
 	"wall.png"
+	};
+
+	std::string m_BackgroundsNames[NUM_OF_BACKGROUNDS] = {
+	"backgroundmenu.png",
+	"rules.png",
+	"backgroundtile.png",
 	};
 
 };

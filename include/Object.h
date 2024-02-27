@@ -1,9 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-
-const auto TOPLEFT = sf::Vector2f (0.f, 0.f);
-const float IMAGESIZE = 30.f;
+#include "Resources.h"
 
 class Mouse;
 class Cat;
