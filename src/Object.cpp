@@ -6,9 +6,10 @@ Object::Object(const sf::Texture* txtr, int col, int row) :
 	m_sp(*txtr)
 {
 	auto v2p = sf::Vector2f(col, row);
+	v2p *= IMAGESIZE;
 	v2p.x += TOPLEFT.x;
 	v2p.y += TOPLEFT.y;
-	v2p *= IMAGESIZE;
+
 
 	m_sp.setPosition(v2p);
 }

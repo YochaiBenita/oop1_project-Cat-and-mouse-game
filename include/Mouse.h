@@ -32,5 +32,5 @@ public:
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);
 	
-	int m_num_of_keys = 0;
+	//int m_num_of_keys = 0;
 };

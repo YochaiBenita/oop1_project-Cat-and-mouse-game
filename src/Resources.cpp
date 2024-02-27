@@ -8,7 +8,7 @@ Resources::Resources()
 	auto file = std::ifstream("playlist.txt");
 	//int i = 0;
 
-	while (std::getline(file, line)) 
+	while (std::getline(file, line))
 	{
 		m_levels_name.push_back(line);
 	}
@@ -18,12 +18,14 @@ Resources::Resources()
 		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
 	{
-		m_backgroungs[i].loadFromFile("backgroundmenu.png");
+		m_backgroungs[i].loadFromFile(m_BackgroundsNames[i]);
 	}
-	m_backgroungs[2].loadFromFile("icons8-rhombus-80.png");
 	m_backgroungs[2].setRepeated(true);
+
+	m_font.loadFromFile("RuthlessWreckin2.ttf");
+
 	
 	//sound \ font reading loop
 
@@ -37,6 +39,11 @@ sf::Texture* Resources::getTextureAt(int index)
 sf::Texture* Resources::getBackground(int index)
 {
 	return &(m_backgroungs[index]);
+}
+
+sf::Font* Resources::getFont()
+{
+	return &m_font;
 }
 
 std::string Resources::getLevelNameAt(int index) const
