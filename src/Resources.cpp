@@ -26,6 +26,10 @@ Resources::Resources()
 
 	m_font.loadFromFile("RuthlessWreckin2.ttf");
 
+	for (int i = 0; i < 4; i++)
+	{
+		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
+	}
 	
 	//sound \ font reading loop
 

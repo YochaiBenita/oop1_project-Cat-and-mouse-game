@@ -9,22 +9,13 @@
 Resources Controller::m_resources;
 int Controller::m_score = 0;
 Level* Controller::m_currLevel(nullptr);
-sf::Text Controller::m_text;
-sf::Sprite Controller::m_dataSP[3];
+//sf::Text Controller::m_text;
+//sf::Sprite Controller::m_dataSP[3];
+Menu Controller::m_menu;
 
-Controller::Controller() :
-	m_menu()
+Controller::Controller()
 {
-	m_text.setFillColor(sf::Color::Black);
-	m_text.setCharacterSize(24);
-	m_text.setFont(*m_resources.getFont());
 
-	for (int i = 0; i < 3; i++)
-	{
-		m_dataSP[i].setTexture(*m_resources.getDataTexure(i));
-		m_dataSP[i].setPosition(sf::Vector2f(10, 50 + 100 * i));
-
-	}
 
 }
 
@@ -76,40 +67,44 @@ sf::Texture* Controller::getTexutre(int index)
 {
 	return m_resources.getTextureAt(index);
 }
+
 sf::Texture* Controller::getBackground(int index)
 {
 	return m_resources.getBackground(index);
 }
+
+sf::Texture* Controller::getDataTexure(int index)
+{
+	return m_resources.getDataTexure(index);
+}
+
 
 void Controller::add_score(int score)
 {
 	m_score += score;;
 }
 
-//sf::Font* Controller::getFont()
-//{
-//	return m_resources.getFont();
-//}
+sf::Font* Controller::getFont()
+{
+	return m_resources.getFont();
+}
 
 
 void Controller::draw_data(sf::RenderWindow& wind)
 {
-	std::ostringstream a;
-	for (int i = 0; i < 3; i++)
-	{
-		std::ostringstream a;
-		a << (m_currLevel->get_keys());
-		m_text.setString(a.str());
-
-		m_text.setPosition(m_dataSP[i].getPosition() + sf::Vector2f(30, 0));
-
-		wind.draw(m_dataSP[i]);
-		wind.draw(m_text);
-	}
-
+	m_menu.draw_data(wind);
 
 }
 
+int* Controller::get_live()
+{
+	return &m_life;
+}
+
+int* Controller::get_score()
+{
+	return &m_score;
+}
 
 
 

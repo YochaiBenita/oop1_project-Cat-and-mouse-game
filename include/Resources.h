@@ -52,8 +52,15 @@ private:
 
 	std::string m_BackgroundsNames[NUM_OF_BACKGROUNDS] = {
 	"backgroundmenu.png",
-	"rules.png",
+	"help.png",
 	"backgroundtile.png",
+	};
+
+	std::string m_DataTexturesNames[4] = {
+	"clock-60.png",
+	"heart.png",
+	"star.png",
+	"key.png"
 	};
 
 };

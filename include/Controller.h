@@ -14,9 +14,12 @@ public:
 	void run();
 	static sf::Texture* getTexutre(int);
 	static sf::Texture* getBackground(int);
+	static sf::Texture* getDataTexure(int);
 	static void add_score(int);
-	//static sf::Font* getFont();
+	static sf::Font* getFont();
 	static void draw_data(sf::RenderWindow&);
+	int* get_live();
+	int* get_score();
 
 
 private:
@@ -24,9 +27,9 @@ private:
 	static int m_score;
 	int m_levelNumber = 0;
 	bool m_to_exit = false;
-	Menu m_menu;
-	static sf::Text m_text;
-	static sf::Sprite m_dataSP[3];
+	static Menu m_menu;
+	//static sf::Text m_text;
+	//static sf::Sprite m_dataSP[3];
 
 
 	static Level* m_currLevel;
