@@ -154,6 +154,7 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 
 bool Level::handleCollision(Moving_object& obj)
 {
+	check_move(obj);
 	for (int j = 0; j < m_statics.size(); j++)
 	{
 		if (m_statics[j]->checkCollision(obj))
@@ -183,3 +184,15 @@ bool Level::handleCollision(Moving_object& obj)
 	return false;
 }
 
+void Level::check_move(Moving_object & player)
+{
+	sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
+	if (playerBounds.top < 0 || playerBounds.left < 0/*צריך לשנות לפי הגודל של התפריט*/
+		|| playerBounds.left + playerBounds.width > m_width)
+		player.set_position(player.get_previous_loc());
+	/*if (playerBounds.top + playerBounds.height > window.getSize().y)
+		player.setPosition(m_previous_loc);
+	if (playerBounds.left + playerBounds.width > window.getSize().x)
+		player.setPosition(m_previous_loc);*/
+
+}

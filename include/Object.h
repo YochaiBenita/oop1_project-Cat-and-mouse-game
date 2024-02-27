@@ -39,6 +39,7 @@ public:
 	void set_position(sf::Vector2f);
 	sf::Vector2f get_position() const;
 	virtual void move(sf::Vector2f);
+	sf::Sprite get_sprite()const;
 
 private:
 	sf::Sprite m_sp;

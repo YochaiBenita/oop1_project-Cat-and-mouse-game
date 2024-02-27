@@ -43,6 +43,9 @@ sf::Vector2f Moving_object::get_previous_loc() const
 	return m_previous_loc;
 }
 
+
+
+ 
 //bool Moving_object::collision(Wall& wall)
 //{
 //	set_position(m_previous_loc);
