@@ -49,7 +49,7 @@ Level::Level(std::string fileName)
 
 
 	//tipul bezman
-	m_clock = sf::seconds(120);
+	m_clock. = sf::seconds(120);
 
 	m_timer.asSeconds();
 

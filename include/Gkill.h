@@ -6,12 +6,12 @@
 class Gkill :public Gift
 {
 public:
-	Gkill(int col, int row) : Gift (Gkill_t, col, row) {};
+	Gkill(int, int);
 	virtual ~Gkill() = default;
 
-	virtual bool collision(Object& obj) { obj.collision(*this); }
-	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 
 private:
 

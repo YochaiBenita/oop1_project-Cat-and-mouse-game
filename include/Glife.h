@@ -6,12 +6,12 @@
 class Glife :public Gift
 {
 public:
-	Glife(int col, int row) : Gift(Glife_t, col, row) {};
+	Glife(int, int);
 	virtual ~Glife() = default;
 
-	virtual bool collision(Object& obj) { obj.collision(*this); }
-	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 
 private:
 

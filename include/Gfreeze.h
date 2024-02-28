@@ -6,13 +6,12 @@
 class Gfreeze :public Gift
 {
 public:
-	Gfreeze(int col, int row) : Gift (Gfreeze_t, col, row) {};
+	Gfreeze(int, int);
 	virtual ~Gfreeze() = default;
 
-	virtual bool collision(Object& obj) { obj.collision(*this); }
-	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
-
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 private:
 
 };

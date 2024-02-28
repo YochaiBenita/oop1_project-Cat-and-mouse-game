@@ -6,12 +6,12 @@
 class Gtime :public Gift
 {
 public:
-	Gtime(int col, int row) : Gift (time, col, row) {};
+	Gtime(int, int);;
 	virtual ~Gtime() = default;
 
-	virtual bool collision(Object& obj) { obj.collision(*this); }
-	virtual bool collision(Cat& catPlayer) { catPlayer.collision(*this); }
-	virtual bool collision(Mouse& mousePlayer) { mousePlayer.collision(*this); }
+	virtual bool collision(Object&);
+	virtual bool collision(Cat&);
+	virtual bool collision(Mouse&);
 
 private:
 
