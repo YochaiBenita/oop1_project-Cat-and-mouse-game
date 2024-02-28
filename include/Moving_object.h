@@ -29,12 +29,7 @@ public:
 	//virtual bool collision(Gtime&)	{ return false; }
 	//virtual bool collision(Gkill&)	{ return false; }
 	virtual bool collision(Key&)	{ return false; }
-	virtual bool collision(Wall&) 
-	{
-		set_position(get_previous_loc());
-
-		return false;
-	};
+	virtual bool collision(Wall&);
 
 private:
 	sf::Vector2f m_original_loc;
