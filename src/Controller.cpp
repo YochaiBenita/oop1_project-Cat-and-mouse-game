@@ -8,7 +8,8 @@
 
 //Resources Controller::m_resources;
 int Controller::m_score = 0;
-Level* Controller::m_currLevel(nullptr);
+Level* Controller::m_currLevel = nullptr;
+int Controller::m_life = 3;
 //sf::Text Controller::m_text;
 //sf::Sprite Controller::m_dataSP[3];
 //Menu Controller::m_menu;
@@ -124,6 +125,28 @@ void Controller::reset_controller()
 	m_levelNumber = 0;
 	m_to_exit = false;
 	m_currLevel = nullptr;
+}
+
+void Controller::freeze_gift()
+{
+}
+
+void Controller::life_gift()
+{
+	m_life++;
+}
+
+void Controller::kill_gift()
+{
+	if (m_currLevel->num_of_moving() > 1)
+	{
+		m_currLevel->pop_moving();
+	}
+}
+
+void Controller::time_gift()
+{
+	m_currLevel->add_to_time(TIME_GIFT);
 }
 
 

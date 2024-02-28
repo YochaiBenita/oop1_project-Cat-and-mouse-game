@@ -1,7 +1,8 @@
 #include "Gift.h"
+#include "Controller.h"
 
 Gift::Gift(object_code obj, int col, int row)
-	:Static_object(obj,col,row)
+	:Static_object(obj, gift_t, col, row)
 {
 }
 

@@ -7,6 +7,7 @@
 class Static_object :public Object {
 public:
 	Static_object(object_code, int, int);
+	Static_object(object_code, object_code, int, int);
 	Static_object() = default;
 	virtual ~Static_object();
 

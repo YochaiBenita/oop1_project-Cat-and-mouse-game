@@ -107,7 +107,7 @@ bool Mouse::collision(Door& door)
 bool Mouse::collision(Gift& gift)
 {
 	play_sound(gift.get_sound());
-	//gift.open gift();
+	gift.open_gift();
 	Controller::add_score(SCORE_OF_GIFT);
 	return true;
 }

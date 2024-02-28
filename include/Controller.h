@@ -23,10 +23,15 @@ public:
 	int* get_score_ptr();
 	int* get_timer_ptr();
 	void reset_controller();
+
+	static void freeze_gift();
+	static void life_gift();
+	static void kill_gift();
+	static void time_gift();
 	
  
 private:
-	int m_life = 3;
+	static int m_life;
 	static int m_score;
 	int m_levelNumber = 0;
 	bool m_to_exit = false;
@@ -35,9 +40,9 @@ private:
 
 	//static sf::Text m_text;
 	//static sf::Sprite m_dataSP[3];
-
-
 	static Level* m_currLevel;
+
+	//static Level* m_currLevel;
 	//static Resources m_resources;
 
 

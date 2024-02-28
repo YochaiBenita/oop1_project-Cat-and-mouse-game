@@ -9,9 +9,9 @@ public:
 	Glife(int, int);
 	virtual ~Glife() = default;
 
-	virtual bool collision(Object&);
-	virtual bool collision(Cat&);
-	virtual bool collision(Mouse&);
+	//virtual bool collision(Object&);
+	//virtual bool collision(Cat&);
+	//virtual bool collision(Mouse&);
 	virtual void open_gift();
 
 private:

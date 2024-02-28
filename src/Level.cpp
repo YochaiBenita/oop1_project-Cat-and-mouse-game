@@ -38,7 +38,7 @@ Level::Level(std::string fileName)
 			{
 				m_movings.insert(m_movings.begin(), new_moving(c, col, m_hight));
 			}
-			else if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#' )//|| c=='$')
+			else if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#' || c=='$')
 			{
 				m_statics.push_back(new_static(c, col, m_hight));
 			}
@@ -93,7 +93,7 @@ bool Level::play()
 		m_timer -= deltaTime.asSeconds();
 		m_int_timer = m_timer;
 
-		std::cout << m_timer << '\n';
+		//std::cout << m_timer << '\n';
 
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -162,8 +162,18 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 		return std::make_unique<Key>(col, row);
 	case '*':
 		return std::make_unique<Cheese>(col, row);
-	//case '$':
-		//return std::make_unique<Gift>(col, row);
+	case '$':
+		switch (rand() % 4)
+		{
+		case 0:
+			return std::make_unique<Gfreeze>(col, row);
+		case 1:
+			return std::make_unique<Gkill>(col, row);
+		case 2:
+			return std::make_unique<Glife>(col, row);
+		case 3:
+			return std::make_unique<Gtime>(col, row);
+		}
 	case 'D':
 		return std::make_unique<Door>(col, row);
 	}
@@ -231,4 +241,19 @@ void Level::check_move(Moving_object & player)
 int* Level::get_timer_ptr()
 {
 	return &m_int_timer;
+}
+
+void Level::add_to_time(int time)
+{
+	m_timer += time;
+}
+
+int Level::num_of_moving()
+{
+	return m_movings.size();
+}
+
+void Level::pop_moving()
+{
+	m_movings.pop_back();
 }

@@ -4,6 +4,7 @@
 #include "Cat.h"
 #include "Mouse.h"
 
+
 const int SCORE_OF_GIFT = 5;
 
 class Gift : public Static_object
@@ -17,4 +18,6 @@ public:
 	virtual bool collision(Mouse&);
 
 	//virtual void 
+private:
+
 };

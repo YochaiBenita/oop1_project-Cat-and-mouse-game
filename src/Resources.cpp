@@ -9,16 +9,20 @@ Resources::Resources()
 	auto file = std::ifstream("playlist.txt");
 	//int i = 0;
 
+
+	//level names
 	while (std::getline(file, line))
 	{
 		m_levels_name.push_back(line);
 	}
 
+	//texures
 	for (int i = 0; i < NUM_OF_TEXTURES; i++)
 	{
 		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
 
+	//data texures
 	for (int i = 0; i <NUM_OF_DATA_TEXTURES; i++)
 	{
 		if (!m_data_texures[i].loadFromFile(m_DataTexturesNames[i]))
@@ -28,25 +32,28 @@ Resources::Resources()
 		}
 	}
 
+	//backgrounds
 	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
 	{
 		m_backgroungs[i].loadFromFile(m_BackgroundsNames[i]);
 	}
 	m_backgroungs[2].setRepeated(true);
 
+	//button texures
 	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
 		m_buttons_texures[i].loadFromFile(m_Button[i]);
 	}
 
+	//sounds
 	for (int i = 0; i < NUM_OF_SOUNDES; i++)
 	{
 		m_sound_buffer[i].loadFromFile(m_SoundNames[i]);
 	}
 
+	//font
 	m_font.loadFromFile("LoveDays-2v7Oe.ttf");
 	
-	//sound \ font reading loop
 
 }
 

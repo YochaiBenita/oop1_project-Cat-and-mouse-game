@@ -4,13 +4,14 @@
 #include <fstream>
 #include <string>
  
-const int NUM_OF_TEXTURES = 7;
+const int NUM_OF_TEXTURES = 11;
 const int NUM_OF_BACKGROUNDS = 3;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
 const int NUM_OF_DATA_TEXTURES = 4;
 const int NUM_OF_SOUNDES = 7;
 const int NUM_OF_BUTTONS = 3;
+const int TIME_GIFT = 5;
 
 
 
@@ -54,7 +55,11 @@ private:
 	"door.png",
 	"gift.png",
 	"key.png",
-	"wall.png"
+	"wall.png",
+	"freeze.png",
+	"aid.png",
+	"clock-30.png",
+	"gift.png"
 	};
 
 	std::string m_DataTexturesNames[NUM_OF_DATA_TEXTURES] = {

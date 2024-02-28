@@ -10,6 +10,10 @@
 #include "Cheese.h"
 #include "Door.h"
 #include "Gift.h"
+#include "Gfreeze.h"
+#include "Gkill.h"
+#include "Gtime.h"
+#include "Glife.h"
 #include "Key.h"
 #include "Wall.h"
 #include <iostream>
@@ -31,7 +35,9 @@ public:
 	void check_move(Moving_object&);
 	void play_sound(sf::SoundBuffer&);
 	static int* get_timer_ptr();
-
+	void add_to_time(int);
+	int num_of_moving();
+	void pop_moving();
 
 private:
 	static int m_keys;
