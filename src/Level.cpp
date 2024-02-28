@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Resources.h"
 #include "Controller.h"
+#include "Menu.h"
 
 int Level::m_keys =0;
 
@@ -43,7 +44,7 @@ Level::Level(std::string fileName)
 	m_hight = row;
 
 	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
-	m_background.setTexture(Controller::getBackground(2));
+	m_background.setTexture(Resources::getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
 }
@@ -62,7 +63,7 @@ bool Level::play()
 		window.clear(sf::Color::White);
 		window.draw(m_background);
 
-		Controller::draw_data(window);
+		Menu::draw_data(window);
 
 		for (int i = 0; i < m_statics.size(); i++)
 		{

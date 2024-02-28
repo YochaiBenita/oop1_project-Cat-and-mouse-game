@@ -3,7 +3,7 @@
 
 
 Static_object::Static_object(object_code obj, int col, int row)
-	: Object(Controller::getTexutre(obj), col, row)
+	: Object(Resources::getTextureAt(obj), Resources::getSoundBuffer(obj), col, row)
 {
 }
 

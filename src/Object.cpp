@@ -2,8 +2,8 @@
 #include <iostream>
 #include "Controller.h"
 
-Object::Object(const sf::Texture* txtr, int col, int row) :
-	m_sp(*txtr)
+Object::Object(const sf::Texture* txtr, const sf::SoundBuffer* snd, int col, int row) :
+	m_sp(*txtr), m_sound(*snd)
 {
 	auto v2p = sf::Vector2f(col, row);
 	v2p *= IMAGESIZE;
@@ -61,4 +61,9 @@ void Object::move(sf::Vector2f v2d)
 sf::Sprite Object::get_sprite() const
 {
 	return m_sp;
+}
+
+void Object::play_sound() 
+{ 
+	m_sound.play();
 }

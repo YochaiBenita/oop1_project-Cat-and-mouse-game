@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Resources.h"
 
 class Mouse;
@@ -17,7 +18,7 @@ class Wall;
 class Object 
 {
 public:
-	Object(const sf::Texture*, int, int);
+	Object(const sf::Texture*, const sf::SoundBuffer*, int, int);
 	virtual ~Object();
 
 	bool checkCollision(Object& obj) const;
@@ -40,7 +41,7 @@ public:
 	sf::Vector2f get_position() const;
 	virtual void move(sf::Vector2f);
 	sf::Sprite get_sprite()const;
-
+	void play_sound();
 private:
 	sf::Sprite m_sp;
 	sf::Sound m_sound;

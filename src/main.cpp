@@ -1,7 +1,10 @@
-#include "Controller.h"
+#include "Menu.h"
+#include "Resources.h"
 
 int main()
 {
-	Controller game;
-	game.run();
+	auto rsrcs = Resources();
+	Menu menu;
+	menu.show_menu();
+
 }

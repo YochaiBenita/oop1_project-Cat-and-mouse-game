@@ -2,6 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+sf::Texture Resources::m_texures[NUM_OF_TEXTURES];
+sf::Texture Resources::m_data_texures[4];
+sf::Texture Resources::m_backgroungs[NUM_OF_BACKGROUNDS];
+sf::SoundBuffer Resources::m_sound_buffer[NUM_OF_SOUNDES];
+sf::Font Resources::m_font;
+std::vector<std::string> Resources::m_levels_name;
+
+
 Resources::Resources()
 {
 	auto line = std::string();
@@ -65,12 +73,12 @@ sf::Font* Resources::getFont()
 	return &m_font;
 }
 
-std::string Resources::getLevelNameAt(int index) const
+std::string Resources::getLevelNameAt(int index)
 {
 	return m_levels_name[index];
 }
 
-int Resources::numOfLevels() const
+int Resources::numOfLevels()
 {
 	return (int)m_levels_name.size();
 }

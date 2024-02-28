@@ -5,7 +5,7 @@
 
 
 Moving_object::Moving_object(object_code obj, int col, int row) 
-	: Object(Controller::getTexutre(obj), col, row)
+	: Object(Resources::getTextureAt(obj), Resources::getSoundBuffer(obj), col, row)
 {
 	m_original_loc = get_position();
 	m_previous_loc = m_original_loc;
@@ -32,14 +32,16 @@ void Moving_object::set_prev_loc(sf::Vector2f data)
 	m_previous_loc = data;
 }
 
-bool Moving_object::collision(Door&)
+bool Moving_object::collision(Door& obj)
 {
-	set_position(m_previous_loc);
-	return false;
+	return ((Wall*)&obj)->collision(*this);
+	//set_position(m_previous_loc);
+	//return false;
 }
 
-bool Moving_object::collision(Wall&)
+bool Moving_object::collision(Wall& obj)
 {
+	
 	set_position(get_previous_loc());
 
 	return false;

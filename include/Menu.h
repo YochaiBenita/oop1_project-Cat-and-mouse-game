@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <sstream>
 #include "Resources.h"
+#include "Controller.h"
 
 struct Data {
 	Data();
@@ -19,16 +21,17 @@ public:
 	Menu();
 	void show_menu(); 
 	void show_help();
-	void draw_data(sf::RenderWindow&);
+	static void draw_data(sf::RenderWindow&);
 	int handle_click(sf::Vector2f);
 
 private:
 	 
-	//sf::Text m_text;
 	sf::RectangleShape m_button[3];
 	sf::Sprite m_background;
 	sf::RenderWindow m_wind;
+	sf::Music m_music;
+	Controller m_controller;
 
-	Data m_data[4];
+	static Data m_data[4];
 	
 };

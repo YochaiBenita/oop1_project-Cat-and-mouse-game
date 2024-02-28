@@ -2,11 +2,12 @@
 #include "Controller.h"
 
 int Data::num_of_data = 0;
+Data Menu::m_data[];
 
 
-Menu::Menu() : m_data()
+Menu::Menu()
 {
-	m_background.setTexture(*Controller::getBackground(0));
+	m_background.setTexture(*Resources::getBackground(0));
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -15,10 +16,14 @@ Menu::Menu() : m_data()
 		m_button[i].setPosition(sf::Vector2f(100, 70 + (100*i)));
 	}
 
-	m_data[0].src = Controller::get_score(); //time
-	m_data[1].src = Controller::get_score(); //life
-	m_data[2].src = Controller::get_score();
-	m_data[3].src = Controller::get_score(); //keys
+	m_data[0].src = m_controller.get_life_ptr(); //time
+	m_data[1].src = m_controller.get_life_ptr(); //life
+	m_data[2].src = m_controller.get_score_ptr();
+	m_data[3].src = m_controller.get_score_ptr(); //keys
+
+	m_music.openFromFile("game music.ogg");
+	m_music.setVolume(50);
+	m_music.setLoop(true);
 
 }
 
@@ -28,26 +33,30 @@ void Menu::show_menu()
 	sf::RenderWindow m_wind(sf::VideoMode(900, 500), "menu");
 	m_wind.clear(sf::Color::White);
 
+	m_music.play();
+
 	while (m_wind.isOpen())
 	{
 		m_wind.draw(m_background);
 
+		//func draw button
 		for (int i = 0; i < 3; i++)
 		{
 			m_wind.draw(m_button[i]);
 		}
-
+		//end func
 
 		m_wind.display();
 
-		if (auto event = sf::Event(); m_wind.waitEvent(event))
+		if (auto event = sf::Event(); m_wind.pollEvent(event))
 		{
 			switch (event.type)
 			{
 			case sf::Event::Closed:
 				m_wind.close();
-				exit(EXIT_SUCCESS);
+				//exit(EXIT_SUCCESS);
 				break;
+
 			case sf::Event::MouseButtonReleased:
 			{
 				int option = handle_click(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
@@ -55,12 +64,14 @@ void Menu::show_menu()
 				switch (option)
 				{
 				case 0:
+					m_controller.run();
 					return;
 				case 1:
 					show_help();
 					break;
 				case 2:
-					exit(EXIT_SUCCESS);
+					m_wind.close();
+					//exit(EXIT_SUCCESS);
 				default:
 					break;
 				}
@@ -77,9 +88,9 @@ void Menu::show_help()
 	m_wind.clear(sf::Color::White);
 
 	m_wind.clear();
-	m_background.setTexture(*Controller::getBackground(1));
+	m_background.setTexture(*Resources::getBackground(1));
 	m_wind.draw(m_background);
-	m_background.setTexture(*Controller::getBackground(0));
+	m_background.setTexture(*Resources::getBackground(0));
 	m_wind.display();
 
 	while (true)
@@ -134,9 +145,9 @@ Data::Data()
 {
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(30);
-	m_text.setFont(*Controller::getFont());
+	m_text.setFont(*Resources::getFont());
 
-	m_data.setTexture(*Controller::getDataTexure(num_of_data));
+	m_data.setTexture(*Resources::getDataTexure(num_of_data));
 	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
 
 	m_text.setPosition(m_data.getPosition());
