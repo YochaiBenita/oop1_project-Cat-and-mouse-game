@@ -48,7 +48,7 @@ Level::Level(std::string fileName)
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
 	m_clock.restart();
-	m_timerString = "01:00"
+	m_timerString = "01:00";
 }
 
 

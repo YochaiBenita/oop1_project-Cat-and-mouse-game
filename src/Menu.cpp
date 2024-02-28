@@ -50,6 +50,7 @@ void Menu::show_menu()
 
 		if (auto event = sf::Event(); m_wind.pollEvent(event))
 		{
+			std::cout << "qqq/n";
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -58,6 +59,7 @@ void Menu::show_menu()
 
 			case sf::Event::MouseButtonReleased:
 			{
+				std::cout << "mouse/n";
 				int option = handle_click(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
 
 				switch (option)
@@ -71,6 +73,8 @@ void Menu::show_menu()
 					break;
 				case 2:
 					m_wind.close();
+				default:
+					break;
 				}
 			}
 			}
