@@ -27,6 +27,7 @@ public:
 	static void use_key();
 	static int get_keys();
 	void check_move(Moving_object&);
+	void play_sound(sf::SoundBuffer&);
 
 
 private:

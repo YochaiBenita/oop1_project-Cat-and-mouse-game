@@ -42,6 +42,9 @@ public:
 	virtual void move(sf::Vector2f);
 	sf::Sprite get_sprite()const;
 	void play_sound();
+	const sf::SoundBuffer* get_sound();
+	
+
 private:
 	sf::Sprite m_sp;
 	sf::Sound m_sound;

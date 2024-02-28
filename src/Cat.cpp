@@ -34,12 +34,12 @@ void Cat::move(float seconds, Moving_object* mouse)
 bool Cat::collision(Object& obj)
 {
 	return obj.collision(*this);
-	std::cout << "obj\n";
-	return false;
+	
 }
 
 bool Cat::collision(Mouse&)
 {
+	play_sound();
 	///איזה לוזר
 	return true;
 }

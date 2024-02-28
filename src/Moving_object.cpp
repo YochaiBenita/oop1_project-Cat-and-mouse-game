@@ -41,7 +41,7 @@ bool Moving_object::collision(Door& obj)
 
 bool Moving_object::collision(Wall& obj)
 {
-	
+	//obj.play_sound();
 	set_position(get_previous_loc());
 
 	return false;
