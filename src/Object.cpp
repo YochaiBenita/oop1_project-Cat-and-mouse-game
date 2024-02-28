@@ -13,7 +13,7 @@ Object::Object(const sf::Texture* txtr, const sf::SoundBuffer* snd, int col, int
 
 	m_sp.setPosition(v2p);
 
-	m_sound.setVolume(50);
+	m_sound.setVolume(15);
 }
 
 Object::~Object() {

@@ -38,6 +38,7 @@ Resources::Resources()
 		m_backgroungs[i].loadFromFile(m_BackgroundsNames[i]);
 	}
 	m_backgroungs[2].setRepeated(true);
+	m_backgroungs[3].setRepeated(true);
 
 	//button texures
 	for (int i = 0; i < NUM_OF_BUTTONS; i++)

@@ -51,6 +51,7 @@ public:
 	void pop_moving();
 	int original_cats();
 	void draw_data(sf::RenderWindow&);
+	void freeze_gift( bool);
 
 private:
 	static int m_keys;
@@ -61,12 +62,15 @@ private:
 	int m_time = 0;
 	int m_cats = 0;
 	sf::RectangleShape m_background;
+	sf::RectangleShape m_background_data;
 	sf::Clock m_clock;
 	///sf::Time m_timer;
 	float m_timer;
+	float m_freezing_timer;
 	static int m_int_timer;
 	std::string m_timerString;
 	static Data m_data[NUM_OF_DATA_TEXTURES];
+
 
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;

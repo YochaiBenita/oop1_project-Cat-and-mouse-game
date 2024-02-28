@@ -7,7 +7,7 @@
 Moving_object::Moving_object(object_code obj, int col, int row) 
 	: Object(Resources::getInstance().getTextureAt(obj), Resources::getInstance().getSoundBuffer(obj), col, row)
 {
-	m_original_loc = get_position();
+	m_original_loc = get_sprite().getPosition();
 	m_previous_loc = m_original_loc;
 }
 
@@ -50,6 +50,17 @@ bool Moving_object::collision(Wall& obj)
 sf::Vector2f Moving_object::get_previous_loc() const
 {
 	return m_previous_loc;
+}
+
+bool Moving_object::freeze_status() const
+{
+	return m_freeze;
+}
+
+void Moving_object::set_freeze(bool status)
+{
+	m_freeze = status;
+	//optional chachge of sprite color
 }
 
 

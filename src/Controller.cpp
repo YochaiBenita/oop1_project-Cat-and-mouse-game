@@ -102,6 +102,7 @@ void Controller::reset_controller()
 
 void Controller::freeze_gift()
 {
+	m_currLevel->freeze_gift(true);
 }
 
 void Controller::life_gift()

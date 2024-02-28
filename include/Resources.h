@@ -5,7 +5,7 @@
 #include <string>
  
 const int NUM_OF_TEXTURES = 11;
-const int NUM_OF_BACKGROUNDS = 3;
+const int NUM_OF_BACKGROUNDS = 4;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
 const int NUM_OF_DATA_TEXTURES = 4;
@@ -17,7 +17,7 @@ const int SCORE_OF_CHEESE = 10;
 const int SCORE_OF_DOOR = 2;
 const int SCORE_OF_SUCCESS_LEVEL = 25;
 const int SCORE_PER_CAT = 5;
-
+const int FREEZING_TIME = 5;
 
 enum object_code {
 	mouse_t, cat_t, cheese_t,
@@ -70,13 +70,14 @@ private:
 	"clock-60.png",
 	"heart.png",
 	"star.png",
-	"key.png"
+	"key-60.png"
 	};
 
 	std::string m_BackgroundsNames[NUM_OF_BACKGROUNDS] = {
 	"backgroundmenu.png",
 	"help.png",
 	"backgroundtile.png",
+	"backgrounddata.png"
 	};
 
 	std::string m_Button[NUM_OF_BUTTONS] = {
