@@ -11,7 +11,6 @@ configure_file ("mouse.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("newfile.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
-#configure_file ("backgroundgame.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundmenu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundtile.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("aid.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -21,7 +20,9 @@ configure_file ("freeze.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("heart.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("help.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("star.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("play button.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("help button.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("exit button.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 #text
 configure_file ("playlist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
