@@ -26,12 +26,12 @@ public:
 
 private:
 	 
-	sf::RectangleShape m_button[3];
+	sf::Sprite m_button[NUM_OF_BUTTONS];
 	sf::Sprite m_background;
 	sf::RenderWindow m_wind;
 	sf::Music m_music;
 	Controller m_controller;
 
-	static Data m_data[4];
+	static Data m_data[NUM_OF_DATA_TEXTURES];
 	
 };

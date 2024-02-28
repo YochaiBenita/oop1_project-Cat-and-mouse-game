@@ -8,8 +8,9 @@ const int NUM_OF_TEXTURES = 7;
 const int NUM_OF_BACKGROUNDS = 3;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
+const int NUM_OF_DATA_TEXTURES = 4;
 const int NUM_OF_SOUNDES = 7;
-//const int NUM_OF_FONTS = 10;
+const int NUM_OF_BUTTONS = 3;
 
 
 
@@ -28,7 +29,7 @@ public:
 	static sf::Texture* getDataTexure(int);
 	static sf::Texture* getBackground(int);
 	static sf::SoundBuffer* getSoundBuffer(int);
-
+	static sf::Texture* getTextureButtons(int);
 	static sf::Font* getFont();
 	// get sound at
 	static std::string getLevelNameAt(int);
@@ -36,8 +37,9 @@ public:
 
 private:
 	static sf::Texture m_texures[NUM_OF_TEXTURES];
-	static sf::Texture m_data_texures[4];
+	static sf::Texture m_data_texures[NUM_OF_DATA_TEXTURES];
 	static sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
+	static sf::Texture m_buttons_texures[NUM_OF_BACKGROUNDS];
 	static sf::SoundBuffer m_sound_buffer[NUM_OF_SOUNDES];
 	static sf::Font m_font;
 	static std::vector<std::string> m_levels_name;
@@ -52,17 +54,23 @@ private:
 	"wall.png"
 	};
 
+	std::string m_DataTexturesNames[NUM_OF_DATA_TEXTURES] = {
+	"clock-60.png",
+	"heart.png",
+	"star.png",
+	"key.png"
+	};
+
 	std::string m_BackgroundsNames[NUM_OF_BACKGROUNDS] = {
 	"backgroundmenu.png",
 	"help.png",
 	"backgroundtile.png",
 	};
 
-	std::string m_DataTexturesNames[4] = {
-	"clock-60.png",
-	"heart.png",
-	"star.png",
-	"key.png"
+	std::string m_Button[NUM_OF_BUTTONS] = {
+	"play button.png",
+	"help button.png",
+	"exit button.png",
 	};
 
 	std::string m_SoundNames[NUM_OF_SOUNDES] = {

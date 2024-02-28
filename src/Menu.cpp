@@ -9,11 +9,10 @@ Menu::Menu()
 {
 	m_background.setTexture(*Resources::getBackground(0));
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
-		m_button[i].setSize(sf::Vector2f(250, 70));
-		m_button[i].setFillColor(sf::Color(160, 10, 10, 255));
-		m_button[i].setPosition(sf::Vector2f(100, 70 + (100*i)));
+		m_button[i].setTexture(*Resources::getTextureButtons(i));
+		m_button[i].setPosition(sf::Vector2f(250, 100 * (i+1)));
 	}
 
 	m_data[0].src = m_controller.get_life_ptr(); //time
@@ -40,7 +39,7 @@ void Menu::show_menu()
 		m_wind.draw(m_background);
 
 		//func draw button
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < NUM_OF_BUTTONS; i++)
 		{
 			m_wind.draw(m_button[i]);
 		}
@@ -121,7 +120,7 @@ void Menu::draw_data(sf::RenderWindow& wind)
 
 int Menu::handle_click(sf::Vector2f v2f)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
 		if (m_button[i].getGlobalBounds().contains(v2f))
 		{

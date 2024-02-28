@@ -3,11 +3,13 @@
 #include <iostream>
 
 sf::Texture Resources::m_texures[NUM_OF_TEXTURES];
-sf::Texture Resources::m_data_texures[4];
+sf::Texture Resources::m_data_texures[NUM_OF_DATA_TEXTURES];
 sf::Texture Resources::m_backgroungs[NUM_OF_BACKGROUNDS];
 sf::SoundBuffer Resources::m_sound_buffer[NUM_OF_SOUNDES];
 sf::Font Resources::m_font;
 std::vector<std::string> Resources::m_levels_name;
+sf::Texture Resources::m_buttons_texures[NUM_OF_BUTTONS];
+
 
 
 Resources::Resources()
@@ -26,9 +28,9 @@ Resources::Resources()
 		m_texures[i].loadFromFile(m_FileNames[i]);
 	}
 
-	for (int i = 0; i < NUM_OF_SOUNDES; i++)
+	for (int i = 0; i <NUM_OF_DATA_TEXTURES; i++)
 	{
-		m_sound_buffer[i].loadFromFile(m_SoundNames[i]);
+		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
 	}
 
 	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
@@ -37,12 +39,17 @@ Resources::Resources()
 	}
 	m_backgroungs[2].setRepeated(true);
 
-	m_font.loadFromFile("LoveDays-2v7Oe.ttf");
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
-		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
+		m_buttons_texures[i].loadFromFile(m_Button[i]);
 	}
+
+	for (int i = 0; i < NUM_OF_SOUNDES; i++)
+	{
+		m_sound_buffer[i].loadFromFile(m_SoundNames[i]);
+	}
+
+	m_font.loadFromFile("LoveDays-2v7Oe.ttf");
 	
 	//sound \ font reading loop
 
@@ -66,6 +73,11 @@ sf::Texture* Resources::getBackground(int index)
 sf::SoundBuffer* Resources::getSoundBuffer(int index)
 {
 	return &(m_sound_buffer[index]);
+}
+
+sf::Texture* Resources::getTextureButtons(int index)
+{
+	return &(m_buttons_texures[index]);;
 }
 
 sf::Font* Resources::getFont()
