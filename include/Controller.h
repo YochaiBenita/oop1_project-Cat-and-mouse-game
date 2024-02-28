@@ -19,9 +19,9 @@ public:
 	static void add_score(int);
 	//static sf::Font* getFont();
 	//static void draw_data(sf::RenderWindow&);
-	int* get_life_ptr();
-	int* get_score_ptr();
-	int* get_timer_ptr();
+	static int get_life();
+	static int get_score();
+	//int* get_timer_ptr();
 	void reset_controller();
 
 	static void freeze_gift();
