@@ -7,11 +7,11 @@ Data Menu::m_data[];
 
 Menu::Menu()
 {
-	m_background.setTexture(*Resources::getBackground(0));
+	m_background.setTexture(*Resources::getInstance().getBackground(0));
 
 	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
-		m_button[i].setTexture(*Resources::getTextureButtons(i));
+		m_button[i].setTexture(*Resources::getInstance().getTextureButtons(i));
 		m_button[i].setPosition(sf::Vector2f(250, 100 * (i+1)));
 	}
 
@@ -87,9 +87,9 @@ void Menu::show_help()
 	m_wind.clear(sf::Color::White);
 
 	m_wind.clear();
-	m_background.setTexture(*Resources::getBackground(1));
+	m_background.setTexture(*Resources::getInstance().getBackground(1));
 	m_wind.draw(m_background);
-	m_background.setTexture(*Resources::getBackground(0));
+	m_background.setTexture(*Resources::getInstance().getBackground(0));
 	m_wind.display();
 
 	while (true)
@@ -134,9 +134,9 @@ int Menu::handle_click(sf::Vector2f v2f)
 
 void Data::update_data()
 {
-	std::ostringstream a;
-	a << *src;
-	m_text.setString(a.str());
+	//std::ostringstream a;
+	//a << *src;
+	m_text.setString(std::to_string(*src));
 }
 
 
@@ -144,12 +144,16 @@ Data::Data()
 {
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(30);
-	m_text.setFont(*Resources::getFont());
+	m_text.setFont(*Resources::getInstance().getFont());
 
-	m_data.setTexture(*Resources::getDataTexure(num_of_data));
+	m_data.setTexture(*Resources::getInstance().getDataTexure(num_of_data));
+	//m_data.setColor(sf::Color::Black);
 	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
 
 	m_text.setPosition(m_data.getPosition());
 
 	num_of_data++;
+
+	src = nullptr;
+
 }

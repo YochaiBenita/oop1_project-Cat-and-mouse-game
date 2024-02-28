@@ -25,10 +25,10 @@ void Controller::run()
 	//m_music.play();
 	while (!m_to_exit) 
 	{
-		while (m_life > 0 && m_levelNumber < Resources::numOfLevels() )
+		while (m_life > 0 && m_levelNumber < Resources::getInstance().numOfLevels() )
 		{
 			if (m_currLevel == nullptr) {
-				m_currLevel = new Level(Resources::getLevelNameAt(m_levelNumber));
+				m_currLevel = new Level(Resources::getInstance().getLevelNameAt(m_levelNumber));
 			}
 
 			if (m_currLevel->play())
@@ -91,7 +91,7 @@ void Controller::add_score(int score)
 //
 //sf::Font* Controller::getFont()
 //{
-//	return Resources::getFont();
+//	return Resources::getInstance().getFont();
 //}
 
 //

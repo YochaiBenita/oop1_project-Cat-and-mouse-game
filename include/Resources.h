@@ -24,25 +24,28 @@ enum object_code {
 class Resources
 {
 public:
-	Resources();
-	static sf::Texture* getTextureAt(int);
-	static sf::Texture* getDataTexure(int);
-	static sf::Texture* getBackground(int);
-	static sf::SoundBuffer* getSoundBuffer(int);
-	static sf::Texture* getTextureButtons(int);
-	static sf::Font* getFont();
+	static Resources& getInstance();
+	sf::Texture* getTextureAt(int);
+	sf::Texture* getDataTexure(int);
+	sf::Texture* getBackground(int);
+	sf::SoundBuffer* getSoundBuffer(int);
+	sf::Texture* getTextureButtons(int);
+	sf::Font* getFont();
 	// get sound at
-	static std::string getLevelNameAt(int);
-	static int numOfLevels();
+	std::string getLevelNameAt(int);
+	int numOfLevels();
 
 private:
-	static sf::Texture m_texures[NUM_OF_TEXTURES];
-	static sf::Texture m_data_texures[NUM_OF_DATA_TEXTURES];
-	static sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
-	static sf::Texture m_buttons_texures[NUM_OF_BACKGROUNDS];
-	static sf::SoundBuffer m_sound_buffer[NUM_OF_SOUNDES];
-	static sf::Font m_font;
-	static std::vector<std::string> m_levels_name;
+	Resources();
+	Resources(const Resources&) = delete;
+	Resources& operator=(const Resources&) = delete;
+	sf::Texture m_texures[NUM_OF_TEXTURES];
+	sf::Texture m_data_texures[NUM_OF_DATA_TEXTURES];
+	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
+	sf::Texture m_buttons_texures[NUM_OF_BACKGROUNDS];
+	sf::SoundBuffer m_sound_buffer[NUM_OF_SOUNDES];
+	sf::Font m_font;
+	std::vector<std::string> m_levels_name;
 
 	std::string m_FileNames[NUM_OF_TEXTURES] = {
 	"mouse.png",

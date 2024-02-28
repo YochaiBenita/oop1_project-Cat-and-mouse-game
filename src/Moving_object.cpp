@@ -5,7 +5,7 @@
 
 
 Moving_object::Moving_object(object_code obj, int col, int row) 
-	: Object(Resources::getTextureAt(obj), Resources::getSoundBuffer(obj), col, row)
+	: Object(Resources::getInstance().getTextureAt(obj), Resources::getInstance().getSoundBuffer(obj), col, row)
 {
 	m_original_loc = get_position();
 	m_previous_loc = m_original_loc;

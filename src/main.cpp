@@ -3,7 +3,6 @@
 
 int main()
 {
-	auto rsrcs = Resources();
 	Menu menu;
 	menu.show_menu();
 

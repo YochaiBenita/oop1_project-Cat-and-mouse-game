@@ -100,7 +100,7 @@ bool Mouse::collision(Door& door)
 
 		return true;
 	}
-
+	set_position(get_previous_loc());
 	return false;
 }
 

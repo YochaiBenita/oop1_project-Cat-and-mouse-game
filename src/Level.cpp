@@ -44,7 +44,7 @@ Level::Level(std::string fileName)
 	m_hight = row;
 
 	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
-	m_background.setTexture(Resources::getBackground(2));
+	m_background.setTexture(Resources::getInstance().getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
 }

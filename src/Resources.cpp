@@ -1,16 +1,7 @@
 #include "Resources.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
-sf::Texture Resources::m_texures[NUM_OF_TEXTURES];
-sf::Texture Resources::m_data_texures[NUM_OF_DATA_TEXTURES];
-sf::Texture Resources::m_backgroungs[NUM_OF_BACKGROUNDS];
-sf::SoundBuffer Resources::m_sound_buffer[NUM_OF_SOUNDES];
-sf::Font Resources::m_font;
-std::vector<std::string> Resources::m_levels_name;
-sf::Texture Resources::m_buttons_texures[NUM_OF_BUTTONS];
-
-
+#include <format>
 
 Resources::Resources()
 {
@@ -30,7 +21,11 @@ Resources::Resources()
 
 	for (int i = 0; i <NUM_OF_DATA_TEXTURES; i++)
 	{
-		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
+		if (!m_data_texures[i].loadFromFile(m_DataTexturesNames[i]))
+		{
+			std::cerr << std::format("Couldn't load file {}\n", m_DataTexturesNames[i]);
+			exit(1);
+		}
 	}
 
 	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
@@ -53,6 +48,12 @@ Resources::Resources()
 	
 	//sound \ font reading loop
 
+}
+
+Resources& Resources::getInstance()
+{
+	static Resources instance;
+	return instance;
 }
 
 sf::Texture* Resources::getTextureAt(int index)
