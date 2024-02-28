@@ -33,6 +33,7 @@ Level::Level(std::string fileName)
 			if (c == '^')
 			{
 				m_movings.push_back(new_moving(c, col, m_hight));
+				m_cats++;
 			}
 			else if(c=='%')
 			{
@@ -256,4 +257,9 @@ int Level::num_of_moving()
 void Level::pop_moving()
 {
 	m_movings.pop_back();
+}
+
+int Level::origin_cats()
+{
+	return m_cats;
 }

@@ -33,8 +33,12 @@ void Controller::run()
 
 			if (m_currLevel->play()) //fhinished the level seccessfully
 			{
+				add_score(SCORE_OF_SUCCESS_LEVEL);
+				add_score(SCORE_PER_CAT * (m_currLevel->origin_cats()));
+
 				m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
+
 				if (m_to_exit) {
 					break;
 				}

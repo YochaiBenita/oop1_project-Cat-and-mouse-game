@@ -38,6 +38,8 @@ public:
 	void add_to_time(int);
 	int num_of_moving();
 	void pop_moving();
+	int origin_cats();
+
 
 private:
 	static int m_keys;
@@ -46,7 +48,7 @@ private:
 	int m_hight = 0;
 	int m_width = 0;
 	int m_time = 0;
-	
+	int m_cats = 0;
 	sf::RectangleShape m_background;
 	sf::Clock m_clock;
 	///sf::Time m_timer;

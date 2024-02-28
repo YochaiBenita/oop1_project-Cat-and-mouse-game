@@ -15,8 +15,8 @@ const int TIME_GIFT = 5;
 const int SCORE_OF_GIFT = 5;
 const int SCORE_OF_CHEESE = 10;
 const int SCORE_OF_DOOR = 2;
-
-
+const int SCORE_OF_SUCCESS_LEVEL = 25;
+const int SCORE_PER_CAT = 5;
 
 
 enum object_code {
