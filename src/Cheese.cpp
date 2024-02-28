@@ -17,6 +17,10 @@ int Cheese::get_cheese_num()
 {
 	return m_count;
 }
+void Cheese::reset_cheese_counter()
+{
+	m_count = 0;
+}
 ;
 
 bool Cheese::collision(Object& obj)

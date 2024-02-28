@@ -11,6 +11,7 @@ public:
 	Cheese(int, int);
 	virtual ~Cheese();
 	static int get_cheese_num();
+	static void reset_cheese_counter();
 
 	virtual bool collision(Object&);
 	virtual bool collision(Cat& cat);

@@ -96,6 +96,7 @@ void Controller::reset_controller()
 	m_levelNumber = 0;
 	m_to_exit = false;
 	m_currLevel = nullptr;
+	Cheese::reset_cheese_counter();
 }
 
 void Controller::freeze_gift()

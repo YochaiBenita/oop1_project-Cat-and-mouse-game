@@ -63,13 +63,8 @@ void Menu::show_menu()
 				switch (option)
 				{
 				case 0:
-					//m_wind.close();
 					m_controller.run();
 					m_controller.reset_controller();
-					m_wind.create(sf::VideoMode(900, 500), "menu");
-					m_wind.clear(sf::Color::White);
-					m_wind.display();
-
 					break;
 				case 1:
 					show_help();
