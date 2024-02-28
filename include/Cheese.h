@@ -3,7 +3,7 @@
 #include "Static_object.h"
 //#include "Resources.h"
 
-const int SCORE_OF_CHEESE = 10;
+
 
 class Cheese :public Static_object
 {

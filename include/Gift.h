@@ -5,7 +5,6 @@
 #include "Mouse.h"
 
 
-const int SCORE_OF_GIFT = 5;
 
 class Gift : public Static_object
 {

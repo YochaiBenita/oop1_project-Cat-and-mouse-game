@@ -3,7 +3,7 @@
 #include "Static_object.h"
 //#include "Resources.h"
 
-const int SCORE_OF_DOOR = 2;
+
 
 class Door :public Static_object
 {

@@ -23,7 +23,6 @@ Controller::~Controller() {}
 
 void Controller::run()
 {
-	//m_music.play();
 	while (!m_to_exit) 
 	{
 		while (m_life > 0 && m_levelNumber < Resources::getInstance().numOfLevels() )
@@ -32,7 +31,7 @@ void Controller::run()
 				m_currLevel = new Level(Resources::getInstance().getLevelNameAt(m_levelNumber));
 			}
 
-			if (m_currLevel->play())
+			if (m_currLevel->play()) //fhinished the level seccessfully
 			{
 				m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
@@ -61,47 +60,14 @@ void Controller::run()
 			//m_menu losser
 		}
 	}
-	//m_music.stop();
-	//m_music.~Music();
 }
-//
-//sf::Texture* Controller::getTexutre(int index)
-//{
-//	return m_resources.getTextureAt(index);
-//}
-//
-//sf::Texture* Controller::getBackground(int index)
-//{
-//	return m_resources.getBackground(index);
-//}
-//
-//sf::Texture* Controller::getDataTexure(int index)
-//{
-//	return m_resources.getDataTexure(index);
-//}
-//
-//sf::SoundBuffer* Controller::getSoundBuffer(int index)
-//{
-//	return m_resources.getSoundBuffer(index);
-//}
+
 
 
 void Controller::add_score(int score)
 {
 	m_score += score;;
 }
-//
-//sf::Font* Controller::getFont()
-//{
-//	return Resources::getInstance().getFont();
-//}
-
-//
-//void Controller::draw_data(sf::RenderWindow& wind)
-//{
-//	m_menu.draw_data(wind);
-//
-//}
 
 int* Controller::get_life_ptr()
 {

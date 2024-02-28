@@ -12,6 +12,10 @@ const int NUM_OF_DATA_TEXTURES = 4;
 const int NUM_OF_SOUNDES = 7;
 const int NUM_OF_BUTTONS = 3;
 const int TIME_GIFT = 5;
+const int SCORE_OF_GIFT = 5;
+const int SCORE_OF_CHEESE = 10;
+const int SCORE_OF_DOOR = 2;
+
 
 
 
