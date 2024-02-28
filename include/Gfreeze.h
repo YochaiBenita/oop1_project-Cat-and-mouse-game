@@ -12,6 +12,8 @@ public:
 	virtual bool collision(Object&);
 	virtual bool collision(Cat&);
 	virtual bool collision(Mouse&);
+	virtual void open_gift();
+
 private:
 
 };

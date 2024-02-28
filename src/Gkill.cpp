@@ -16,3 +16,8 @@ bool Gkill::collision(Mouse& mousePlayer)
 {
 	return mousePlayer.collision(*this);
 }
+
+void Gkill::open_gift()
+{
+	
+}
