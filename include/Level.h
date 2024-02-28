@@ -23,13 +23,14 @@ class Level{
 public:
 	Level(std::string fileName);
 	bool play();
-	void reset_locations();
+	void reset_level();
 	bool to_exit() const;
 	static void add_key();
 	static void use_key();
 	static int get_keys();
 	void check_move(Moving_object&);
 	void play_sound(sf::SoundBuffer&);
+	static int* get_timer_ptr();
 
 
 private:
@@ -37,10 +38,14 @@ private:
 	int m_num_of_cheeses = 0; //check
 	bool m_exit = false;
 	int m_hight = 0;
-	int m_width = 0; 
+	int m_width = 0;
+	int m_time = 0;
+	
 	sf::RectangleShape m_background;
 	sf::Clock m_clock;
-	sf::Time m_timer;
+	///sf::Time m_timer;
+	float m_timer;
+	static int m_int_timer;
 	std::string m_timerString;
 
 
@@ -51,7 +56,7 @@ private:
 	std::unique_ptr <Static_object> new_static(char, int, int);
 	
 	bool handleCollision(Moving_object& obj);
-	void timer();
+	//void timer();
 };
 
 

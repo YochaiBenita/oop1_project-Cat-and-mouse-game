@@ -21,10 +21,10 @@ public:
 	//static void draw_data(sf::RenderWindow&);
 	int* get_life_ptr();
 	int* get_score_ptr();
+	int* get_timer_ptr();
 	void reset_controller();
 	
-
-
+ 
 private:
 	int m_life = 3;
 	static int m_score;

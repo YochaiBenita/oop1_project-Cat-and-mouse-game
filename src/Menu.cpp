@@ -15,7 +15,7 @@ Menu::Menu()
 		m_button[i].setPosition(sf::Vector2f(250, 100 * (i+1)));
 	}
 
-	m_data[0].src = m_controller.get_life_ptr(); //time
+	m_data[0].src = m_controller.get_timer_ptr(); //time
 	m_data[1].src = m_controller.get_life_ptr(); //life
 	m_data[2].src = m_controller.get_score_ptr();
 	m_data[3].src = m_controller.get_score_ptr(); //keys
@@ -132,8 +132,6 @@ int Menu::handle_click(sf::Vector2f v2f)
 
 void Data::update_data()
 {
-	//std::ostringstream a;
-	//a << *src;
 	m_text.setString(std::to_string(*src));
 }
 

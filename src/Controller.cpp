@@ -46,7 +46,8 @@ void Controller::run()
 			else
 			{
 				m_life--;
-				m_currLevel->reset_locations();
+				m_currLevel->reset_level();
+				
 			}
 		}
 		if (m_life > 0)
@@ -109,6 +110,11 @@ int* Controller::get_life_ptr()
 int* Controller::get_score_ptr()
 {
 	return &m_score;
+}
+
+int* Controller::get_timer_ptr()
+{
+	return m_currLevel->get_timer_ptr();
 }
 
 void Controller::reset_controller()

@@ -6,13 +6,17 @@
 #include "Menu.h"
 
 int Level::m_keys =0;
+int Level::m_int_timer = 0;
 
 Level::Level(std::string fileName)
 {
 	char c;
 	auto file = std::ifstream(fileName);
-	int row = 0;
+	//int row = 0;
 	int col = 0;
+
+	file >> m_time;
+	file.get(c);
 
 	while (file.get(c))
 	{
@@ -20,7 +24,7 @@ Level::Level(std::string fileName)
 		{
 			m_width = col;
 			col = 0;
-			row++;
+			m_hight++;
 			continue;
 		}
 		
@@ -28,33 +32,27 @@ Level::Level(std::string fileName)
 		{
 			if (c == '^')
 			{
-				m_movings.push_back(new_moving(c, col, row));
+				m_movings.push_back(new_moving(c, col, m_hight));
 			}
 			else if(c=='%')
 			{
-				m_movings.insert(m_movings.begin(), new_moving(c, col, row));
+				m_movings.insert(m_movings.begin(), new_moving(c, col, m_hight));
 			}
 			else if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#' )//|| c=='$')
 			{
-				m_statics.push_back(new_static(c, col, row));
+				m_statics.push_back(new_static(c, col, m_hight));
 			}
 		}
-		col++;		
+		col++;
 	}
-	m_hight = row;
+	
 
 	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 	m_background.setTexture(Resources::getInstance().getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
+	m_timer = m_time;
 
-	//tipul bezman
-	m_clock = sf::seconds(120);
-
-	m_timer.asSeconds();
-
-	m_timerString = "01:00";
-	// chara alinu
 }
 
 
@@ -65,7 +63,9 @@ bool Level::play()
 	
 	//sf::Clock clock;
 
-	while (window.isOpen() && Cheese::get_cheese_num()>0)
+	while (window.isOpen() &&
+		Cheese::get_cheese_num()>0 &&
+		m_timer > 0)
 	{
 		
 		window.clear(sf::Color::White);
@@ -87,10 +87,13 @@ bool Level::play()
 				break;
 			}
 		}
-		timer();
-		const auto deltaTime = m_clock.restart();
+		//timer();
+		auto deltaTime = m_clock.restart();
 
-		//timer-deltatime
+		m_timer -= deltaTime.asSeconds();
+		m_int_timer = m_timer;
+
+		std::cout << m_timer << '\n';
 
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -107,15 +110,17 @@ bool Level::play()
 		
 		window.display();
 	}
-	return true;
+	return (m_timer >= 0) ? true : false;
+
 }
 
-void Level::reset_locations()
+void Level::reset_level()
 {
 	for (int i = 0; i < m_movings.size(); i++)
 	{
 		m_movings[i]->reset_location();
 	}
+	m_timer = m_time;
 }
 
 bool Level::to_exit() const
@@ -195,22 +200,22 @@ bool Level::handleCollision(Moving_object& obj)
 	}
 	return false;
 }
-
-void Level::timer()
-{
-	sf::Time elapsed = m_clock.getElapsedTime();
-	int remainingSeconds = 120 - static_cast<int>(elapsed.asSeconds());
-	if (remainingSeconds <= 0)
-	{
-		return;
-	}
-
-	int minutes = remainingSeconds / 60;
-	int seconds = remainingSeconds % 60;
-
-	m_timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
-	//timerText.setString(timerString);
-}
+//
+//void Level::timer()
+//{
+//	sf::Time elapsed = m_clock.getElapsedTime();
+//	int remainingSeconds = 120 - static_cast<int>(elapsed.asSeconds());
+//	if (remainingSeconds <= 0)
+//	{
+//		return;
+//	}
+//
+//	int minutes = remainingSeconds / 60;
+//	int seconds = remainingSeconds % 60;
+//
+//	m_timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
+//	//timerText.setString(timerString);
+//}
 
 void Level::check_move(Moving_object & player)
 {
@@ -223,3 +228,7 @@ void Level::check_move(Moving_object & player)
 	}
 }
 
+int* Level::get_timer_ptr()
+{
+	return &m_int_timer;
+}
