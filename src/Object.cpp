@@ -74,3 +74,8 @@ const sf::SoundBuffer* Object::get_sound()
 {
 	return m_sound.getBuffer();
 }
+
+void Object::set_color(sf::Color color)
+{
+	m_sp.setColor(color);
+}

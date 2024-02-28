@@ -2,8 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "Moving_object.h"
 
-const float speedForSeconds = 500;
-
 class Cat :public Moving_object {
 public:
 	using Moving_object::collision;

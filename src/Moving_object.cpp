@@ -34,9 +34,8 @@ void Moving_object::set_prev_loc(sf::Vector2f data)
 
 bool Moving_object::collision(Door& obj)
 {
-	return ((Wall*)&obj)->collision(*this);
-	//set_position(m_previous_loc);
-	//return false;
+	set_position(m_previous_loc);
+	return false;
 }
 
 bool Moving_object::collision(Wall& obj)
@@ -60,6 +59,7 @@ bool Moving_object::freeze_status() const
 void Moving_object::set_freeze(bool status)
 {
 	m_freeze = status;
+	set_color((status) ? sf::Color::Color(40, 200, 245, 100) : sf::Color::Transparent);
 	//optional chachge of sprite color
 }
 

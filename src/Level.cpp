@@ -6,7 +6,7 @@
 #include "Menu.h"
 
 int Level::m_keys =0;
-int Level::m_int_timer = 0;
+//int Level::m_int_timer = 0;
 Data Level::m_data[];
 int Data::num_of_data = 0;
 
@@ -59,9 +59,9 @@ Level::Level(std::string fileName)
 	m_background_data.setTexture(Resources::getInstance().getBackground(3));
 	m_background_data.setTextureRect(sf::IntRect(0, 0,TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
-	m_timer = m_time;
+	m_timer = (int)m_time;
 
-	
+	m_keys = 0;
 
 }
 
@@ -108,6 +108,7 @@ bool Level::play()
 			freeze_gift(false);
 		}
 
+		std::cout << "move\n";
 
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -134,7 +135,6 @@ void Level::reset_level()
 	{
 		m_movings[i]->reset_location();
 	}
-	m_timer = m_time;
 }
 
 bool Level::to_exit() const
@@ -236,11 +236,6 @@ void Level::check_move(Moving_object & player)
 	}
 }
 
-int* Level::get_timer_ptr()
-{
-	return &m_int_timer;
-}
-
 void Level::add_to_time(int time)
 {
 	m_timer += time;
@@ -248,7 +243,7 @@ void Level::add_to_time(int time)
 
 int Level::num_of_moving()
 {
-	return m_movings.size();
+	return (int)m_movings.size();
 }
 
 void Level::pop_moving()
@@ -289,6 +284,21 @@ void Level::freeze_gift(bool data)
 		m_movings[i]->set_freeze(data);
 	}
 	m_freezing_timer = FREEZING_TIME;
+}
+
+float Level::get_timer()
+{
+	return m_timer;
+}
+
+void Level::add_to_score(int points)
+{
+	m_level_score += points;
+}
+
+int Level::get_level_score() const
+{
+	return m_level_score;
 }
 
 

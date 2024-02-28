@@ -43,7 +43,7 @@ public:
 	sf::Sprite get_sprite()const;
 	void play_sound();
 	const sf::SoundBuffer* get_sound();
-	
+	void set_color(sf::Color);
 
 private:
 	sf::Sprite m_sp;

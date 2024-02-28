@@ -44,23 +44,33 @@ void Controller::run()
 				}
 				m_currLevel = nullptr;
 				m_levelNumber++;
-				//add_score();
 
 			}
 			else
 			{
-				m_life--;
-				m_currLevel->reset_level();
-				
+				if (m_currLevel->get_timer() > 0) //eaten by a cat
+				{
+					m_life--;
+					m_currLevel->reset_level();
+				}
+				else //end of time
+				{
+					m_life--;
+					add_score(-m_currLevel->get_level_score());
+					delete m_currLevel;
+					m_currLevel = nullptr;
+				}
 			}
 		}
 		if (m_life > 0)
 		{
+			std::cout << "you won yhe game\n";
 			//m_menu winner
 		}
 		else
 		{
 			delete m_currLevel;
+			std::cout << "losserrrrrr\n";
 			//new game?
 			//m_menu losser
 		}
@@ -71,7 +81,8 @@ void Controller::run()
 
 void Controller::add_score(int score)
 {
-	m_score += score;;
+	m_score += score;
+	m_currLevel->add_to_score(score);
 }
 
 int Controller::get_life()

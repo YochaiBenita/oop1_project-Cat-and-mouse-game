@@ -3,7 +3,6 @@
 #include "Moving_object.h"
 //#include "Controller.h";
 
-const float speedForSecondsM = 1000;
 
 class Mouse:public Moving_object {
 public:

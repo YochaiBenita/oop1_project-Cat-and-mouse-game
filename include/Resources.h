@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string>
  
+const float speedForSecondsM = 400;
+const float speedForSeconds = 200;
 const int NUM_OF_TEXTURES = 11;
 const int NUM_OF_BACKGROUNDS = 4;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
