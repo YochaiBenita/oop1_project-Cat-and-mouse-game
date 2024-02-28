@@ -20,7 +20,7 @@ Resources::Resources()
 
 	for (int i = 0; i < NUM_OF_SOUNDES; i++)
 	{
-		m_sound[i].loadFromFile(m_SoundNames[i]);
+		m_sound_buffer[i].loadFromFile(m_SoundNames[i]);
 	}
 
 	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
@@ -53,6 +53,11 @@ sf::Texture* Resources::getDataTexure(int index)
 sf::Texture* Resources::getBackground(int index)
 {
 	return &(m_backgroungs[index]);
+}
+
+sf::SoundBuffer* Resources::getSoundBuffer(int index)
+{
+	return &(m_sound_buffer[index]);
 }
 
 sf::Font* Resources::getFont()

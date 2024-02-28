@@ -40,7 +40,7 @@ bool Cat::collision(Object& obj)
 
 bool Cat::collision(Mouse&)
 {
-	///std::cout << "kill the mouse\n";
+	///איזה לוזר
 	return true;
 }
 

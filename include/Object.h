@@ -43,4 +43,5 @@ public:
 
 private:
 	sf::Sprite m_sp;
+	sf::Sound m_sound;
 };
