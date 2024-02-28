@@ -47,8 +47,14 @@ Level::Level(std::string fileName)
 	m_background.setTexture(Resources::getInstance().getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
-	m_clock.restart();
+
+	//tipul bezman
+	m_clock = sf::seconds(120);
+
+	m_timer.asSeconds();
+
 	m_timerString = "01:00";
+	// chara alinu
 }
 
 
@@ -57,7 +63,7 @@ bool Level::play()
 {
 	sf::RenderWindow window(sf::VideoMode(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y), "mouse and cat");
 	
-	sf::Clock clock;
+	//sf::Clock clock;
 
 	while (window.isOpen() && Cheese::get_cheese_num()>0)
 	{
@@ -82,7 +88,10 @@ bool Level::play()
 			}
 		}
 		timer();
-		const auto deltaTime = clock.restart();
+		const auto deltaTime = m_clock.restart();
+
+		//timer-deltatime
+
 		for (int i = 0; i < m_movings.size(); i++)
 		{
 			m_movings[i]->move(deltaTime.asSeconds(), m_movings[0].get());
