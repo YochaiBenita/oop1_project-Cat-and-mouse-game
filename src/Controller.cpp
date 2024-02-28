@@ -26,7 +26,7 @@ Controller::~Controller() {}
 
 void Controller::run()
 {
-	m_music.play();
+	//m_music.play();
 	while (!m_to_exit) 
 	{
 		m_menu.show_menu();
