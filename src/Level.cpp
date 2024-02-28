@@ -10,6 +10,7 @@ int Level::m_int_timer = 0;
 
 Level::Level(std::string fileName)
 {
+	m_cats = 0;
 	char c;
 	auto file = std::ifstream(fileName);
 	//int row = 0;

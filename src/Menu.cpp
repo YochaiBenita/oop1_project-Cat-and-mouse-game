@@ -29,10 +29,10 @@ Menu::Menu()
 void Menu::show_menu()
 {
 
-	sf::RenderWindow m_wind(sf::VideoMode(900, 500), "menu");
+	auto m_wind = sf::RenderWindow(sf::VideoMode(900, 500), "menu");
 	m_wind.clear(sf::Color::White);
 
-	//m_music.play();
+	m_music.play();
 
 	while (m_wind.isOpen())
 	{
@@ -50,7 +50,6 @@ void Menu::show_menu()
 
 		if (auto event = sf::Event(); m_wind.pollEvent(event))
 		{
-			std::cout << "qqq/n";
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -59,21 +58,24 @@ void Menu::show_menu()
 
 			case sf::Event::MouseButtonReleased:
 			{
-				std::cout << "mouse/n";
 				int option = handle_click(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
 
 				switch (option)
 				{
 				case 0:
+					//m_wind.close();
 					m_controller.run();
 					m_controller.reset_controller();
+					m_wind.create(sf::VideoMode(900, 500), "menu");
+					m_wind.clear(sf::Color::White);
+					m_wind.display();
+
 					break;
 				case 1:
 					show_help();
 					break;
 				case 2:
 					m_wind.close();
-				default:
 					break;
 				}
 			}
