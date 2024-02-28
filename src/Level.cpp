@@ -55,6 +55,10 @@ Level::Level(std::string fileName)
 	m_background.setTexture(Resources::getInstance().getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
+	m_background_data = sf::RectangleShape(sf::Vector2f(TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
+	m_background_data.setTexture(Resources::getInstance().getBackground(3));
+	m_background_data.setTextureRect(sf::IntRect(0, 0,TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
+
 	m_timer = m_time;
 
 	
@@ -93,13 +97,17 @@ bool Level::play()
 				break;
 			}
 		}
-		//timer();
+
 		auto deltaTime = m_clock.restart();
 
 		m_timer -= deltaTime.asSeconds();
-		m_int_timer = m_timer;
+		m_freezing_timer -= deltaTime.asSeconds();
 
-		//std::cout << m_timer << '\n';
+		if (m_movings[0]->freeze_status() && m_freezing_timer < 0)
+		{
+			freeze_gift(false);
+		}
+
 
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -260,12 +268,12 @@ void Level::draw_data(sf::RenderWindow& wind)
 //m_data[1].src = m_controller.get_life_ptr(); //life
 //m_data[2].src = m_controller.get_score_ptr();
 //m_data[3].src = m_controller.get_score_ptr(); //keys
-	m_data[0].m_text.setString(std::to_string(m_timer));
+	m_data[0].m_text.setString(std::to_string((int)m_timer));
 	m_data[1].m_text.setString(std::to_string(Controller::get_life()));
 	m_data[2].m_text.setString(std::to_string(Controller::get_score()));
 	m_data[3].m_text.setString(std::to_string(m_keys));
 
-
+	wind.draw(m_background_data);
 
 	for (int i = 0; i < NUM_OF_DATA_TEXTURES; i++)
 	{
@@ -274,25 +282,29 @@ void Level::draw_data(sf::RenderWindow& wind)
 	}
 }
 
+void Level::freeze_gift(bool data)
+{
+	for (int i = 0; i < m_movings.size(); i++)
+	{
+		m_movings[i]->set_freeze(data);
+	}
+	m_freezing_timer = FREEZING_TIME;
+}
+
 
 Data::Data()
 {
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(40);
 	m_text.setFont(*Resources::getInstance().getFont());
+	m_text.setOrigin(sf::Vector2f(m_text.getGlobalBounds().width / 2, m_text.getGlobalBounds().height / 2));
 
 	m_data.setTexture(*Resources::getInstance().getDataTexure(num_of_data));
-	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
+	m_data.setPosition(sf::Vector2f(10, 20 + 100 * num_of_data));
 
-	m_text.setPosition(m_data.getPosition() + sf::Vector2f(10,10));
+	m_text.setPosition(m_data.getPosition() + sf::Vector2f(IMAGESIZE,IMAGESIZE));
 
 	num_of_data++;
 
-	//src = nullptr;
-
 }
 
-//void Data::update_data()
-//{
-//	m_text.setString(std::to_string(*src));
-//}

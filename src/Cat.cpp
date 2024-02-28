@@ -11,24 +11,27 @@ Cat::~Cat() {}
 
 void Cat::move(float seconds, Moving_object* mouse)
 {
-	auto catloc = this->get_position();
-	auto mouseloc = mouse->get_position();
-
-	float Dx = (mouseloc.x - catloc.x);
-	float Dy = (mouseloc.y - catloc.y);
-
-	if (abs(Dx) > abs(Dy))
+	if (!freeze_status())
 	{
-		m_diraction = (Dx > 0) ? sf::Vector2f(1, 0) : sf::Vector2f(-1, 0);
-	}
-	else
-	{
-		m_diraction = (Dy > 0) ? sf::Vector2f(0, 1) : sf::Vector2f(0, -1);
-	}
+		auto catloc = this->get_position();
+		auto mouseloc = mouse->get_position();
 
-	//m_diraction = choose_diraction();
-	set_prev_loc(get_position());
-	Object::move(m_diraction * speedForSeconds * seconds);
+		float Dx = (mouseloc.x - catloc.x);
+		float Dy = (mouseloc.y - catloc.y);
+
+		if (abs(Dx) > abs(Dy))
+		{
+			m_diraction = (Dx > 0) ? sf::Vector2f(1, 0) : sf::Vector2f(-1, 0);
+		}
+		else
+		{
+			m_diraction = (Dy > 0) ? sf::Vector2f(0, 1) : sf::Vector2f(0, -1);
+		}
+
+		//m_diraction = choose_diraction();
+		set_prev_loc(get_position());
+		Object::move(m_diraction * speedForSeconds * seconds);
+	}
 }
 
 bool Cat::collision(Object& obj)

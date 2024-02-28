@@ -21,4 +21,5 @@ Gfreeze::Gfreeze(int col, int row) : Gift(Gfreeze_t, col, row) {};
 void Gfreeze::open_gift()
 {
 	std::cout << "freeze\n";
+	Controller::freeze_gift();
 }
