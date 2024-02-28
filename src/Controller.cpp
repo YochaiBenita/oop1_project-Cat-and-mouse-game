@@ -60,6 +60,7 @@ void Controller::run()
 		}
 		else
 		{
+			delete m_currLevel;
 			//new game?
 			//m_menu losser
 		}
