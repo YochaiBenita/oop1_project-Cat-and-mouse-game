@@ -47,6 +47,12 @@ Level::Level(std::string fileName)
 	m_background.setTexture(Resources::getBackground(2));
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
+	m_clock.restart();
+	m_timerText.setFont();
+	m_timerText.setCharacterSize(24);
+	m_timerText.setFillColor(sf::Color::Black);
+	m_timerText.setPosition(10, 10);
+
 }
 
 
@@ -79,7 +85,7 @@ bool Level::play()
 				break;
 			}
 		}
-
+		timer();
 		const auto deltaTime = clock.restart();
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -93,7 +99,7 @@ bool Level::play()
 
 			m_movings[i]->draw(window);
 		}
-
+		
 		window.display();
 	}
 	return true;
@@ -183,6 +189,22 @@ bool Level::handleCollision(Moving_object& obj)
 		}
 	}
 	return false;
+}
+
+void Level::timer()
+{
+	sf::Time elapsed = m_clock.getElapsedTime();
+	int remainingSeconds = 120 - static_cast<int>(elapsed.asSeconds());
+	if (remainingSeconds <= 0)
+	{
+		return;
+	}
+
+	int minutes = remainingSeconds / 60;
+	int seconds = remainingSeconds % 60;
+
+	std::string timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
+	//timerText.setString(timerString);
 }
 
 void Level::check_move(Moving_object & player)
