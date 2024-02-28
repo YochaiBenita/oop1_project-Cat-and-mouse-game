@@ -12,6 +12,8 @@ Object::Object(const sf::Texture* txtr, const sf::SoundBuffer* snd, int col, int
 
 
 	m_sp.setPosition(v2p);
+
+	m_sound.setVolume(50);
 }
 
 Object::~Object() {
@@ -66,4 +68,9 @@ sf::Sprite Object::get_sprite() const
 void Object::play_sound() 
 { 
 	m_sound.play();
+}
+
+const sf::SoundBuffer* Object::get_sound() 
+{
+	return m_sound.getBuffer();
 }

@@ -195,3 +195,4 @@ void Level::check_move(Moving_object & player)
 		player.set_position(player.get_previous_loc());
 	}
 }
+

@@ -21,7 +21,7 @@ Menu::Menu()
 	m_data[3].src = m_controller.get_score_ptr(); //keys
 
 	m_music.openFromFile("game music.ogg");
-	m_music.setVolume(50);
+	m_music.setVolume(5);
 	m_music.setLoop(true);
 
 }
@@ -32,7 +32,7 @@ void Menu::show_menu()
 	sf::RenderWindow m_wind(sf::VideoMode(900, 500), "menu");
 	m_wind.clear(sf::Color::White);
 
-	m_music.play();
+	//m_music.play();
 
 	while (m_wind.isOpen())
 	{

@@ -28,9 +28,10 @@ public:
 	//virtual bool collision(Gtime&);
 	virtual bool collision(Key&)	override;
 	//virtual bool collision(Wall&);
+	void play_sound(const sf::SoundBuffer*);
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);
-	
+	sf::Sound m_currSound;
 	//int m_num_of_keys = 0;
 };
