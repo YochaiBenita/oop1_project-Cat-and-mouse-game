@@ -40,6 +40,7 @@ private:
 	int m_width = 0; 
 	sf::RectangleShape m_background;
 	sf::Clock m_clock;
+	sf::Time m_timer;
 	std::string m_timerString;
 
 
