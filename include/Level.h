@@ -13,6 +13,8 @@
 #include "Key.h"
 #include "Wall.h"
 #include <iostream>
+#include <string>
+
 //#include "Controller.h"//מייצר אינקלוד מעגלי
 
 class Static_object;
@@ -38,7 +40,7 @@ private:
 	int m_width = 0; 
 	sf::RectangleShape m_background;
 	sf::Clock m_clock;
-	sf::Text m_timerText;
+	std::string m_timerString;
 
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;

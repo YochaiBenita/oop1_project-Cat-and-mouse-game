@@ -48,11 +48,7 @@ Level::Level(std::string fileName)
 	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
 	m_clock.restart();
-	m_timerText.setFont();
-	m_timerText.setCharacterSize(24);
-	m_timerText.setFillColor(sf::Color::Black);
-	m_timerText.setPosition(10, 10);
-
+	m_timerString = "01:00"
 }
 
 
@@ -203,7 +199,7 @@ void Level::timer()
 	int minutes = remainingSeconds / 60;
 	int seconds = remainingSeconds % 60;
 
-	std::string timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
+	m_timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
 	//timerText.setString(timerString);
 }
 
