@@ -1,8 +1,8 @@
 #include "Menu.h"
 #include "Controller.h"
 
-int Data::num_of_data = 0;
-Data Menu::m_data[];
+//int Data::num_of_data = 0;
+//Data Menu::m_data[];
 
 
 Menu::Menu()
@@ -15,14 +15,9 @@ Menu::Menu()
 		m_button[i].setPosition(sf::Vector2f(250, 100 * (i+1)));
 	}
 
-	m_data[0].src = m_controller.get_timer_ptr(); //time
-	m_data[1].src = m_controller.get_life_ptr(); //life
-	m_data[2].src = m_controller.get_score_ptr();
-	m_data[3].src = m_controller.get_score_ptr(); //keys
-
 	m_music.openFromFile("game music.ogg");
 	m_music.setVolume(5);
-	m_music.setLoop(true);
+	m_music.setLoop(true);	
 
 }
 
@@ -107,15 +102,6 @@ void Menu::show_help()
 
 }
 
-void Menu::draw_data(sf::RenderWindow& wind)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		m_data[i].update_data();
-		wind.draw(m_data[i].m_data);
-		wind.draw(m_data[i].m_text);
-	}
-}
 
 int Menu::handle_click(sf::Vector2f v2f)
 {
@@ -131,26 +117,5 @@ int Menu::handle_click(sf::Vector2f v2f)
 
 
 
-void Data::update_data()
-{
-	m_text.setString(std::to_string(*src));
-}
 
 
-Data::Data()
-{
-	m_text.setFillColor(sf::Color::Black);
-	m_text.setCharacterSize(30);
-	m_text.setFont(*Resources::getInstance().getFont());
-
-	m_data.setTexture(*Resources::getInstance().getDataTexure(num_of_data));
-	//m_data.setColor(sf::Color::Black);
-	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
-
-	m_text.setPosition(m_data.getPosition());
-
-	num_of_data++;
-
-	src = nullptr;
-
-}

@@ -34,7 +34,7 @@ void Controller::run()
 			if (m_currLevel->play()) //fhinished the level seccessfully
 			{
 				add_score(SCORE_OF_SUCCESS_LEVEL);
-				add_score(SCORE_PER_CAT * (m_currLevel->origin_cats()));
+				add_score(SCORE_PER_CAT * (m_currLevel->original_cats()));
 
 				m_to_exit = m_currLevel->to_exit();
 				delete m_currLevel;
@@ -74,20 +74,20 @@ void Controller::add_score(int score)
 	m_score += score;;
 }
 
-int* Controller::get_life_ptr()
+int Controller::get_life()
 {
-	return &m_life;
+	return m_life;
 }
 
-int* Controller::get_score_ptr()
+int Controller::get_score()
 {
-	return &m_score;
+	return m_score;
 }
 
-int* Controller::get_timer_ptr()
-{
-	return m_currLevel->get_timer_ptr();
-}
+//int* Controller::get_timer_ptr()
+//{
+//	return m_currLevel->get_timer_ptr();
+//}
 
 void Controller::reset_controller()
 {

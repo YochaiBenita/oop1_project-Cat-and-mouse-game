@@ -138,6 +138,7 @@ bool Mouse::collision(Key& key)
 	return true;
 }
 
+
 void Mouse::play_sound(const sf::SoundBuffer* sndBF)
 {
 	m_currSound.setBuffer(*sndBF);

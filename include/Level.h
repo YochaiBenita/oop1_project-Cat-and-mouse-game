@@ -23,6 +23,17 @@
 
 class Static_object;
 
+struct Data {
+	Data();
+	sf::Sprite m_data;
+	sf::Text m_text;
+	//int* src;
+	static int num_of_data;
+
+	//void update_data();
+};
+
+
 class Level{
 public:
 	Level(std::string fileName);
@@ -38,8 +49,8 @@ public:
 	void add_to_time(int);
 	int num_of_moving();
 	void pop_moving();
-	int origin_cats();
-
+	int original_cats();
+	void draw_data(sf::RenderWindow&);
 
 private:
 	static int m_keys;
@@ -55,6 +66,7 @@ private:
 	float m_timer;
 	static int m_int_timer;
 	std::string m_timerString;
+	static Data m_data[NUM_OF_DATA_TEXTURES];
 
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;

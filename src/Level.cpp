@@ -7,6 +7,8 @@
 
 int Level::m_keys =0;
 int Level::m_int_timer = 0;
+Data Level::m_data[];
+int Data::num_of_data = 0;
 
 Level::Level(std::string fileName)
 {
@@ -55,6 +57,8 @@ Level::Level(std::string fileName)
 
 	m_timer = m_time;
 
+	
+
 }
 
 
@@ -73,7 +77,7 @@ bool Level::play()
 		window.clear(sf::Color::White);
 		window.draw(m_background);
 
-		Menu::draw_data(window);
+		draw_data(window);
 
 		for (int i = 0; i < m_statics.size(); i++)
 		{
@@ -212,22 +216,6 @@ bool Level::handleCollision(Moving_object& obj)
 	}
 	return false;
 }
-//
-//void Level::timer()
-//{
-//	sf::Time elapsed = m_clock.getElapsedTime();
-//	int remainingSeconds = 120 - static_cast<int>(elapsed.asSeconds());
-//	if (remainingSeconds <= 0)
-//	{
-//		return;
-//	}
-//
-//	int minutes = remainingSeconds / 60;
-//	int seconds = remainingSeconds % 60;
-//
-//	m_timerString = std::to_string(minutes) + ":" + std::to_string(seconds);
-//	//timerText.setString(timerString);
-//}
 
 void Level::check_move(Moving_object & player)
 {
@@ -260,7 +248,51 @@ void Level::pop_moving()
 	m_movings.pop_back();
 }
 
-int Level::origin_cats()
+int Level::original_cats()
 {
 	return m_cats;
 }
+
+//---------------------------------------------
+void Level::draw_data(sf::RenderWindow& wind)
+{
+	//m_data[0].src = m_controller.get_timer_ptr(); //time
+//m_data[1].src = m_controller.get_life_ptr(); //life
+//m_data[2].src = m_controller.get_score_ptr();
+//m_data[3].src = m_controller.get_score_ptr(); //keys
+	m_data[0].m_text.setString(std::to_string(m_timer));
+	m_data[1].m_text.setString(std::to_string(Controller::get_life()));
+	m_data[2].m_text.setString(std::to_string(Controller::get_score()));
+	m_data[3].m_text.setString(std::to_string(m_keys));
+
+
+
+	for (int i = 0; i < NUM_OF_DATA_TEXTURES; i++)
+	{
+		wind.draw(m_data[i].m_data);
+		wind.draw(m_data[i].m_text);
+	}
+}
+
+
+Data::Data()
+{
+	m_text.setFillColor(sf::Color::Black);
+	m_text.setCharacterSize(40);
+	m_text.setFont(*Resources::getInstance().getFont());
+
+	m_data.setTexture(*Resources::getInstance().getDataTexure(num_of_data));
+	m_data.setPosition(sf::Vector2f(10, 50 + 100 * num_of_data));
+
+	m_text.setPosition(m_data.getPosition() + sf::Vector2f(10,10));
+
+	num_of_data++;
+
+	//src = nullptr;
+
+}
+
+//void Data::update_data()
+//{
+//	m_text.setString(std::to_string(*src));
+//}
