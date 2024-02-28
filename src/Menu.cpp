@@ -36,6 +36,7 @@ void Menu::show_menu()
 
 	while (m_wind.isOpen())
 	{
+		m_wind.clear();
 		m_wind.draw(m_background);
 
 		//func draw button
@@ -53,7 +54,6 @@ void Menu::show_menu()
 			{
 			case sf::Event::Closed:
 				m_wind.close();
-				//exit(EXIT_SUCCESS);
 				break;
 
 			case sf::Event::MouseButtonReleased:
@@ -64,15 +64,13 @@ void Menu::show_menu()
 				{
 				case 0:
 					m_controller.run();
-					return;
+					m_controller.reset_controller();
+					break;
 				case 1:
 					show_help();
 					break;
 				case 2:
 					m_wind.close();
-					//exit(EXIT_SUCCESS);
-				default:
-					break;
 				}
 			}
 			}

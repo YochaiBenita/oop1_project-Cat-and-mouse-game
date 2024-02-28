@@ -21,6 +21,8 @@ public:
 	//static void draw_data(sf::RenderWindow&);
 	int* get_life_ptr();
 	int* get_score_ptr();
+	void reset_controller();
+	
 
 
 private:

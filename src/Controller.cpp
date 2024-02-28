@@ -111,6 +111,15 @@ int* Controller::get_score_ptr()
 	return &m_score;
 }
 
+void Controller::reset_controller()
+{
+	m_life = 3;
+	m_score = 0;
+	m_levelNumber = 0;
+	m_to_exit = false;
+	m_currLevel = nullptr;
+}
+
 
 
 
