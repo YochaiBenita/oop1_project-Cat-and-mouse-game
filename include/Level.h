@@ -37,7 +37,9 @@ private:
 	int m_hight = 0;
 	int m_width = 0; 
 	sf::RectangleShape m_background;
-	//sf::Text m_text;
+	sf::Clock m_clock;
+	sf::Text m_timerText;
+
 
 	std::vector <std::unique_ptr<Moving_object>> m_movings;
 	std::vector <std::unique_ptr<Static_object>> m_statics;
@@ -46,7 +48,7 @@ private:
 	std::unique_ptr <Static_object> new_static(char, int, int);
 	
 	bool handleCollision(Moving_object& obj);
-	//void draw_data(sf::RenderWindow&);
+	void timer();
 };
 
 
