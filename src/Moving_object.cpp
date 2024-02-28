@@ -38,6 +38,13 @@ bool Moving_object::collision(Door&)
 	return false;
 }
 
+bool Moving_object::collision(Wall&)
+{
+	set_position(get_previous_loc());
+
+	return false;
+};
+
 sf::Vector2f Moving_object::get_previous_loc() const
 {
 	return m_previous_loc;
