@@ -1,7 +1,7 @@
 #include "Resources.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <format>
+
 
 Resources::Resources()
 {
@@ -25,11 +25,7 @@ Resources::Resources()
 	//data texures
 	for (int i = 0; i <NUM_OF_DATA_TEXTURES; i++)
 	{
-		if (!m_data_texures[i].loadFromFile(m_DataTexturesNames[i]))
-		{
-			std::cerr << std::format("Couldn't load file {}\n", m_DataTexturesNames[i]);
-			exit(1);
-		}
+		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
 	}
 
 	//backgrounds

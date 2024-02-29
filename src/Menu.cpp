@@ -24,7 +24,7 @@ Menu::Menu()
 void Menu::show_menu()
 {
 
-	auto m_wind = sf::RenderWindow(sf::VideoMode(900, 500), "menu");
+	m_wind.create(sf::VideoMode(900, 500), "menu");
 	m_wind.clear(sf::Color::White);
 
 	m_music.play();
@@ -77,7 +77,7 @@ void Menu::show_menu()
 
 void Menu::show_help()
 {
-	sf::RenderWindow m_wind(sf::VideoMode(900, 500), "help");
+	//sf::RenderWindow m_wind(sf::VideoMode(900, 500), "help");
 	m_wind.clear(sf::Color::White);
 
 	m_wind.clear();
@@ -95,7 +95,10 @@ void Menu::show_help()
 			case sf::Event::Closed:
 				m_wind.close();
 				return;
+			case sf::Event::MouseButtonReleased:
+				return;
 			}
+			
 		}
 	}
 	

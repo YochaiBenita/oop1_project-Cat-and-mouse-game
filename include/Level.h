@@ -44,14 +44,17 @@ public:
 	static void use_key();
 	static int get_keys();
 	void check_move(Moving_object&);
-	void play_sound(sf::SoundBuffer&);
-	static int* get_timer_ptr();
+	//void play_sound(sf::SoundBuffer&);
+	//static int* get_timer_ptr();
 	void add_to_time(int);
 	int num_of_moving();
 	void pop_moving();
 	int original_cats();
 	void draw_data(sf::RenderWindow&);
 	void freeze_gift( bool);
+	float get_timer();
+	void add_to_score(int);
+	int get_level_score() const;
 
 private:
 	static int m_keys;
@@ -61,13 +64,14 @@ private:
 	int m_width = 0;
 	int m_time = 0;
 	int m_cats = 0;
+	int m_level_score = 0;
 	sf::RectangleShape m_background;
 	sf::RectangleShape m_background_data;
 	sf::Clock m_clock;
-	///sf::Time m_timer;
+	///sf::Time m_timer; 
 	float m_timer;
 	float m_freezing_timer;
-	static int m_int_timer;
+	//static int m_int_timer;
 	std::string m_timerString;
 	static Data m_data[NUM_OF_DATA_TEXTURES];
 
