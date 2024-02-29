@@ -10,7 +10,7 @@ const int NUM_OF_TEXTURES = 11;
 const int NUM_OF_BACKGROUNDS = 4;
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
-const int NUM_OF_DATA_TEXTURES = 4;
+const int NUM_OF_DATA_TEXTURES = 5;
 const int NUM_OF_SOUNDES = 7;
 const int NUM_OF_BUTTONS = 3;
 const int TIME_GIFT = 5;
@@ -69,6 +69,7 @@ private:
 	};
 
 	std::string m_DataTexturesNames[NUM_OF_DATA_TEXTURES] = {
+	"level.png",
 	"clock-60.png",
 	"heart.png",
 	"star.png",
