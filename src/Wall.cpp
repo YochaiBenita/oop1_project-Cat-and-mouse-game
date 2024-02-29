@@ -25,9 +25,3 @@ bool Wall::collision(Mouse& mousePlayer)
 	return mousePlayer.collision(*this);
 }
 
-
-
-//bool Wall::collision(Moving_object& catPlayer)
-//{
-//	return catPlayer.collision(*this);
-//}

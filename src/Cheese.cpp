@@ -37,8 +37,3 @@ bool Cheese::collision(Mouse& mousePlayer)
 {
 	return mousePlayer.collision(*this);
 }
-
-//void Cheese::to_delete()
-//{
-//	m_to_delete = true;
-//}

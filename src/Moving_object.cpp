@@ -22,11 +22,6 @@ void Moving_object::reset_location()
 	set_position(m_original_loc);
 }
 
-//void Moving_object::move(sf::Vector2f v2d)
-//{
-//	Object::move(v2d);
-//}
-
 void Moving_object::set_prev_loc(sf::Vector2f data)
 {
 	m_previous_loc = data;
@@ -40,7 +35,6 @@ bool Moving_object::collision(Door& obj)
 
 bool Moving_object::collision(Wall& obj)
 {
-	//obj.play_sound();
 	set_position(get_previous_loc());
 
 	return false;
@@ -60,18 +54,6 @@ void Moving_object::set_freeze(bool status)
 {
 	m_freeze = status;
 
-	//this row makes the moving objecs transparent after  the time ends
 	set_color((status) ? sf::Color::Color(40, 200, 245, 100) : sf::Color::White);
-	
-	//optional chachge of sprite color
 }
 
-
-
- 
-//bool Moving_object::collision(Wall& wall)
-//{
-//	set_position(m_previous_loc);
-//
-//	return false;
-//}

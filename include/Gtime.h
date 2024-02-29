@@ -7,11 +7,7 @@ class Gtime :public Gift
 {
 public:
 	Gtime(int, int);;
-	virtual ~Gtime() = default;
 
-	//virtual bool collision(Object&);
-	//virtual bool collision(Cat&);
-	//virtual bool collision(Mouse&);
 	virtual void open_gift();
 
 private:

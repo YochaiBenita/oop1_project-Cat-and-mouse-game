@@ -40,7 +40,7 @@ bool Object::checkCollision(Object& obj) const
 	return false;
 }
 
-void Object::draw(sf::RenderWindow& window)
+void Object::draw(sf::RenderWindow& window)const
 {
 	window.draw(m_sp);
 }
@@ -70,7 +70,7 @@ void Object::play_sound()
 	m_sound.play();
 }
 
-const sf::SoundBuffer* Object::get_sound() 
+const sf::SoundBuffer* Object::get_sound()const
 {
 	return m_sound.getBuffer();
 }

@@ -28,7 +28,6 @@ void Cat::move(float seconds, Moving_object* mouse)
 			m_diraction = (Dy > 0) ? sf::Vector2f(0, 1) : sf::Vector2f(0, -1);
 		}
 
-		//m_diraction = choose_diraction();
 		set_prev_loc(get_position());
 		Object::move(m_diraction * speedForSeconds * seconds);
 	}
@@ -43,7 +42,6 @@ bool Cat::collision(Object& obj)
 bool Cat::collision(Mouse&)
 {
 	play_sound();
-	///איזה לוזר
 	return true;
 }
 
@@ -53,13 +51,6 @@ bool Cat::collision(Cat&)
 
 	return false;
 }
-
-//bool Cat::collision(Wall&)
-//{
-//	set_position(get_previous_loc());
-//
-//	return false;
-//}
 
 sf::Vector2f Cat::choose_diraction()
 {
@@ -73,7 +64,6 @@ sf::Vector2f Cat::choose_diraction()
 	case 3:
 		return sf::Vector2f(0.f, 1.f);
 	}
-	return sf::Vector2f(0.f, 1.f);//stam
 }
 
 
