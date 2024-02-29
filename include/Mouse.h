@@ -28,6 +28,7 @@ public:
 	virtual bool collision(Key&)	override;
 	//virtual bool collision(Wall&);
 	void play_sound(const sf::SoundBuffer*);
+	//void set_freeze(bool status) override { };
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);

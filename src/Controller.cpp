@@ -102,7 +102,7 @@ int Controller::get_score()
 
 void Controller::reset_controller()
 {
-	std::cout << "hi\n";
+	//std::cout << "hi\n";
 	m_life = 3;
 	m_score = 0;
 	m_levelNumber = 0;

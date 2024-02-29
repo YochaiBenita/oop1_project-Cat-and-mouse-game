@@ -103,12 +103,11 @@ bool Level::play()
 		m_timer -= deltaTime.asSeconds();
 		m_freezing_timer -= deltaTime.asSeconds();
 
-		if (m_movings[0]->freeze_status() && m_freezing_timer < 0)
+		if (m_movings.size() > 1 && m_movings[1]->freeze_status() && m_freezing_timer < 0)
 		{
 			freeze_gift(false);
 		}
 
-		std::cout << "move\n";
 
 		for (int i = 0; i < m_movings.size(); i++)
 		{
@@ -226,14 +225,23 @@ bool Level::handleCollision(Moving_object& obj)
 
 void Level::check_move(Moving_object & player)
 {
-	
-	sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
-	if (playerBounds.top < 0 || playerBounds.left < TOPLEFT.x
-		|| ((playerBounds.left) - TOPLEFT.x) / IMAGESIZE +1 > m_width
-		|| (playerBounds.top) / IMAGESIZE +1 > m_hight)
+	sf::FloatRect overlap;
+
+	m_background.getGlobalBounds().intersects(player.get_sprite().getGlobalBounds(), overlap);
+
+	if (overlap.height < IMAGESIZE || overlap.width < IMAGESIZE)
 	{
 		player.set_position(player.get_previous_loc());
 	}
+
+	//
+	//sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
+	//if (playerBounds.top < 0 || playerBounds.left < TOPLEFT.x
+	//	|| ((playerBounds.left) - TOPLEFT.x) / IMAGESIZE +1 > m_width
+	//	|| (playerBounds.top) / IMAGESIZE +1 > m_hight)
+	//{
+	//	player.set_position(player.get_previous_loc());
+	//}
 }
 
 void Level::add_to_time(int time)
@@ -279,7 +287,7 @@ void Level::draw_data(sf::RenderWindow& wind)
 
 void Level::freeze_gift(bool data)
 {
-	for (int i = 0; i < m_movings.size(); i++)
+	for (int i = 1; i < m_movings.size(); i++)
 	{
 		m_movings[i]->set_freeze(data);
 	}

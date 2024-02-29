@@ -17,7 +17,7 @@ public:
 	void set_prev_loc(sf::Vector2f);
 	sf::Vector2f get_previous_loc()const;
 	bool freeze_status() const;
-	void set_freeze(bool);
+	virtual void set_freeze(bool);
 
 
 	virtual bool collision(Object&) =0;// { return false; }
