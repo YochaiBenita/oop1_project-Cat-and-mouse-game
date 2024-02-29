@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
  
-const float SPEED_FOR_SEC_MOUSE = 200;
+const float SPEED_FOR_SEC_MOUSE = 150;
 const float SPEED_FOR_SEC_CAT = 100;
 const int APPROVED_OVERLAP = 7;
 

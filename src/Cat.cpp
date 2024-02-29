@@ -53,18 +53,4 @@ bool Cat::collision(Cat&)
 }
 
 
-sf::Vector2f Cat::choose_diraction()
-{
-	switch (rand() % 4) {
-	case 0:
-		return sf::Vector2f(-1.f, 0.f);
-	case 1:
-		return sf::Vector2f(1.f, 0.f);
-	case 2:
-		return sf::Vector2f(0.f, -1.f);
-	case 3:
-		return sf::Vector2f(0.f, 1.f);
-	}
-}
-
 
