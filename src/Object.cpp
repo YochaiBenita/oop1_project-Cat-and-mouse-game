@@ -31,7 +31,7 @@ bool Object::checkCollision(Object& obj) const
 
 	if (m_sp.getGlobalBounds().intersects(obj.m_sp.getGlobalBounds(), overlapRect))
 	{
-		if (overlapRect.height > 3 && overlapRect.width > 3 )
+		if (overlapRect.height > 3 && overlapRect.width > 3 )//черси!!!!
 		{
 			return true;
 		}
