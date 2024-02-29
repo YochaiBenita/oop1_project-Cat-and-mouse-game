@@ -34,6 +34,7 @@ class Resources
 public:
 	static Resources& getInstance();
 	sf::Texture* getTextureAt(int);
+	sf::Texture* getTextureMs(int);
 	sf::Texture* getDataTexure(int);
 	sf::Texture* getBackground(int);
 	sf::SoundBuffer* getSoundBuffer(int);

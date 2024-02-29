@@ -70,6 +70,11 @@ sf::Texture* Resources::getTextureAt(int index)
 	return &(m_texures[index]);
 }
 
+sf::Texture* Resources::getTextureMs(int index)
+{
+	return &(m_messages_texures[index]);
+}
+
 sf::Texture* Resources::getDataTexure(int index)
 {
 	return &(m_data_texures[index]);
