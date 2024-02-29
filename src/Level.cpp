@@ -6,7 +6,6 @@
 #include "Menu.h"
 
 int Level::m_keys =0;
-//int Level::m_int_timer = 0;
 Data Level::m_data[];
 int Data::num_of_data = 0;
 
@@ -51,9 +50,10 @@ Level::Level(std::string fileName)
 	}
 	
 
-	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
+	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE /* + TOPLEFT.x*/, m_hight * IMAGESIZE /* + TOPLEFT.y*/));
 	m_background.setTexture(Resources::getInstance().getBackground(2));
-	m_background.setTextureRect(sf::IntRect(0, 0, m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
+	m_background.setTextureRect(sf::IntRect(TOPLEFT.x, TOPLEFT.y, m_width * IMAGESIZE /* + TOPLEFT.x*/, m_hight * IMAGESIZE /* + TOPLEFT.y*/));
+	m_background.setPosition(TOPLEFT);
 
 	m_background_data = sf::RectangleShape(sf::Vector2f(TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 	m_background_data.setTexture(Resources::getInstance().getBackground(3));
@@ -116,7 +116,6 @@ bool Level::play()
 
 			if (handleCollision(*m_movings[i])) //if the mouse has died
 			{
-				//std::cout << "colli\n";
 				return false;
 			}
 
@@ -227,6 +226,7 @@ bool Level::handleCollision(Moving_object& obj)
 
 void Level::check_move(Moving_object & player)
 {
+	
 	sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
 	if (playerBounds.top < 0 || playerBounds.left < TOPLEFT.x
 		|| ((playerBounds.left) - TOPLEFT.x) / IMAGESIZE +1 > m_width

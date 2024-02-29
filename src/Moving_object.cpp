@@ -59,7 +59,10 @@ bool Moving_object::freeze_status() const
 void Moving_object::set_freeze(bool status)
 {
 	m_freeze = status;
-	set_color((status) ? sf::Color::Color(40, 200, 245, 100) : sf::Color::Transparent);
+
+	//this row makes the moving objecs transparent after  the time ends
+	set_color((status) ? sf::Color::Color(40, 200, 245, 100) : sf::Color::White);
+	
 	//optional chachge of sprite color
 }
 
