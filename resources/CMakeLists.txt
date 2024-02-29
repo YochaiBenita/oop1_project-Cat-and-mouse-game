@@ -1,17 +1,13 @@
-﻿#configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+﻿
 #pics
 configure_file ("cat.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("cheese.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("delete.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("door.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("key.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("key-60.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("mouse.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("newfile.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("save.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundmenu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("backgroundtile.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -34,7 +30,6 @@ configure_file ("Level001.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level002.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level003.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
-configure_file ("RuthlessWreckin2.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LoveDays-2v7Oe.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 
 #sound
