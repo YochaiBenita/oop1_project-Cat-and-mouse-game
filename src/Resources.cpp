@@ -42,6 +42,11 @@ Resources::Resources()
 		m_buttons_texures[i].loadFromFile(m_Button[i]);
 	}
 
+	for (int i = 0; i < NUM_OF_MESSAGES; i++)
+	{
+		m_messages_texures[i].loadFromFile(m_WinLoss[i]);
+	}
+
 	//sounds
 	for (int i = 0; i < NUM_OF_SOUNDES; i++)
 	{

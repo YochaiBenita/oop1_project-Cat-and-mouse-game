@@ -20,6 +20,7 @@ const int SCORE_OF_DOOR = 2;
 const int SCORE_OF_SUCCESS_LEVEL = 25;
 const int SCORE_PER_CAT = 5;
 const int FREEZING_TIME = 5;
+const int NUM_OF_MESSAGES = 2;
 
 enum object_code {
 	mouse_t, cat_t, cheese_t,
@@ -50,6 +51,8 @@ private:
 	sf::Texture m_data_texures[NUM_OF_DATA_TEXTURES];
 	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
 	sf::Texture m_buttons_texures[NUM_OF_BACKGROUNDS];
+	sf::Texture m_messages_texures[NUM_OF_MESSAGES];
+
 	sf::SoundBuffer m_sound_buffer[NUM_OF_SOUNDES];
 	sf::Font m_font;
 	std::vector<std::string> m_levels_name;
@@ -98,4 +101,9 @@ private:
 	"collect key.ogg",
 	"door collision.ogg"	
 	};
+
+	std::string m_WinLoss[NUM_OF_MESSAGES] = {
+		"winner.png",
+		"game over.png"
+	}
 };
