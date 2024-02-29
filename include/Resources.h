@@ -6,21 +6,27 @@
  
 const float speedForSecondsM = 400;
 const float speedForSeconds = 200;
+
 const int NUM_OF_TEXTURES = 11;
 const int NUM_OF_BACKGROUNDS = 4;
-const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
-const float IMAGESIZE = 30.f;
+const int NUM_OF_MESSAGES = 2;
 const int NUM_OF_DATA_TEXTURES = 5;
 const int NUM_OF_SOUNDES = 7;
 const int NUM_OF_BUTTONS = 3;
-const int TIME_GIFT = 5;
+
+const int MUSIC_VOLUME = 5;
+
+const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
+const float IMAGESIZE = 30.f;
+
 const int SCORE_OF_GIFT = 5;
 const int SCORE_OF_CHEESE = 10;
 const int SCORE_OF_DOOR = 2;
 const int SCORE_OF_SUCCESS_LEVEL = 25;
 const int SCORE_PER_CAT = 5;
+
 const int FREEZING_TIME = 5;
-const int NUM_OF_MESSAGES = 2;
+const int TIME_GIFT = 5;
 
 enum object_code {
 	mouse_t, cat_t, cheese_t,
@@ -28,19 +34,18 @@ enum object_code {
 	Gfreeze_t, Glife_t, Gtime_t, Gkill_t
 };
 
-
 class Resources
 {
 public:
 	static Resources& getInstance();
+
 	sf::Texture* getTextureAt(int);
 	sf::Texture* getTextureMs(int);
 	sf::Texture* getDataTexure(int);
 	sf::Texture* getBackground(int);
-	sf::SoundBuffer* getSoundBuffer(int);
 	sf::Texture* getTextureButtons(int);
+	sf::SoundBuffer* getSoundBuffer(int);
 	sf::Font* getFont();
-	// get sound at
 	std::string getLevelNameAt(int);
 	int numOfLevels();
 
@@ -48,6 +53,9 @@ private:
 	Resources();
 	Resources(const Resources&) = delete;
 	Resources& operator=(const Resources&) = delete;
+
+	void readData(sf::Texture[], std::string[], int);
+
 	sf::Texture m_texures[NUM_OF_TEXTURES];
 	sf::Texture m_data_texures[NUM_OF_DATA_TEXTURES];
 	sf::Texture m_backgroungs[NUM_OF_BACKGROUNDS];
@@ -107,4 +115,6 @@ private:
 		"game over.png",
 		"winner.png"
 	};
+
+	std::string m_font_name = "LoveDays-2v7Oe.ttf";
 };

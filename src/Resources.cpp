@@ -17,35 +17,14 @@ Resources::Resources()
 	}
 
 	//texures
-	for (int i = 0; i < NUM_OF_TEXTURES; i++)
-	{
-		m_texures[i].loadFromFile(m_FileNames[i]);
-	}
+	readData(m_texures, m_FileNames, NUM_OF_TEXTURES);
+	readData(m_data_texures, m_DataTexturesNames, NUM_OF_DATA_TEXTURES);
+	readData(m_backgroungs, m_BackgroundsNames, NUM_OF_BACKGROUNDS);
+	readData(m_buttons_texures, m_Button, NUM_OF_BUTTONS);
+	readData(m_messages_texures, m_WinLoss, NUM_OF_MESSAGES);
 
-	//data texures
-	for (int i = 0; i <NUM_OF_DATA_TEXTURES; i++)
-	{
-		m_data_texures[i].loadFromFile(m_DataTexturesNames[i]);
-	}
-
-	//backgrounds
-	for (int i = 0; i < NUM_OF_BACKGROUNDS; i++)
-	{
-		m_backgroungs[i].loadFromFile(m_BackgroundsNames[i]);
-	}
 	m_backgroungs[2].setRepeated(true);
 	m_backgroungs[3].setRepeated(true);
-
-	//button texures
-	for (int i = 0; i < NUM_OF_BUTTONS; i++)
-	{
-		m_buttons_texures[i].loadFromFile(m_Button[i]);
-	}
-
-	for (int i = 0; i < NUM_OF_MESSAGES; i++)
-	{
-		m_messages_texures[i].loadFromFile(m_WinLoss[i]);
-	}
 
 	//sounds
 	for (int i = 0; i < NUM_OF_SOUNDES; i++)
@@ -54,9 +33,16 @@ Resources::Resources()
 	}
 
 	//font
-	m_font.loadFromFile("LoveDays-2v7Oe.ttf");
+	m_font.loadFromFile(m_font_name);
 	
+}
 
+void Resources::readData(sf::Texture arr[], std::string names[], int num_of_objects)
+{
+	for (int i = 0; i < num_of_objects; i++)
+	{
+		arr[i].loadFromFile(names[i]);
+	}
 }
 
 Resources& Resources::getInstance()
@@ -109,34 +95,3 @@ int Resources::numOfLevels()
 {
 	return (int)m_levels_name.size();
 }
-
-
-
-//
-////global func
-//const std::vector <std::string> readLevelNames()
-//{
-//	std::vector<std::string> levelsName;
-//	std::string line;
-//	auto playList = std::ifstream("playlist.txt");
-//
-//	while (playList >> line)
-//	{
-//		levelsName.push_back(line);
-//	}
-//
-//	return levelsName;
-//}
-
-
-//
-//sf::Texture* readTextures()
-//{
-//	sf::Texture* texures = new sf::Texture[NUM_OF_TXTR];
-//
-//	for (int i = 0; i < NUM_OF_TXTR; i++)
-//	{
-//		texures[i].loadFromFile(FileNames[i]);
-//	}
-//	return texures;
-//}

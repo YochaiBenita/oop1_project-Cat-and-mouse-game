@@ -1,10 +1,6 @@
 #include "Menu.h"
 #include "Controller.h"
 
-//int Data::num_of_data = 0;
-//Data Menu::m_data[];
-
-
 Menu::Menu()
 {
 	m_background.setTexture(*Resources::getInstance().getBackground(0));
@@ -16,7 +12,7 @@ Menu::Menu()
 	}
 
 	m_music.openFromFile("game music.ogg");
-	m_music.setVolume(5);
+	m_music.setVolume(MUSIC_VOLUME);
 	m_music.setLoop(true);	
 
 }
@@ -34,12 +30,7 @@ void Menu::show_menu()
 		m_wind.clear();
 		m_wind.draw(m_background);
 
-		//func draw button
-		for (int i = 0; i < NUM_OF_BUTTONS; i++)
-		{
-			m_wind.draw(m_button[i]);
-		}
-		//end func
+		draw_buttons(m_wind);
 
 		m_wind.display();
 
@@ -77,7 +68,6 @@ void Menu::show_menu()
 
 void Menu::show_help()
 {
-	//sf::RenderWindow m_wind(sf::VideoMode(900, 500), "help");
 	m_wind.clear(sf::Color::White);
 
 	m_wind.clear();
@@ -101,12 +91,9 @@ void Menu::show_help()
 			
 		}
 	}
-	
-
 }
 
-
-int Menu::handle_click(sf::Vector2f v2f)
+int Menu::handle_click(sf::Vector2f v2f) const
 {
 	for (int i = 0; i < NUM_OF_BUTTONS; i++)
 	{
@@ -116,6 +103,14 @@ int Menu::handle_click(sf::Vector2f v2f)
 		}
 	}
 	return -1;
+}
+
+void Menu::draw_buttons(sf::RenderWindow& wind) const
+{
+	for (int i = 0; i < NUM_OF_BUTTONS; i++)
+	{
+		wind.draw(m_button[i]);
+	}
 }
 
 

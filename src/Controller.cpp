@@ -2,85 +2,68 @@
 #include "Controller.h"
 #include "Menu.h"
 #include <SFML/Graphics.hpp>
-#include "Menu.h"
-#include <sstream>
-#include <thread>
 
-
-//Resources Controller::m_resources;
 int Controller::m_score = 0;
 Level* Controller::m_currLevel = nullptr;
 int Controller::m_life = 3;
 int Controller::m_levelNumber = 0;
-//sf::Text Controller::m_text;
-//sf::Sprite Controller::m_dataSP[3];
-//Menu Controller::m_menu;
 
-Controller::Controller()
+
+Controller::Controller() {}
+
+Controller::~Controller() 
 {
-
+	if (m_currLevel != nullptr)
+		delete m_currLevel;
 }
-
-Controller::~Controller() {}
 
 void Controller::run(sf::RenderWindow& m_wind)
 {
-	//while (!m_to_exit) 
+	while (m_life > 0 && m_levelNumber < Resources::getInstance().numOfLevels() )
 	{
-		while (m_life > 0 && m_levelNumber < Resources::getInstance().numOfLevels() )
+		if (m_currLevel == nullptr)
 		{
-			if (m_currLevel == nullptr) {
-				m_currLevel = new Level(Resources::getInstance().getLevelNameAt(m_levelNumber));
-			}
-
-			if (m_currLevel->play()) //fhinished the level seccessfully
-			{
-				add_score(SCORE_OF_SUCCESS_LEVEL);
-				add_score(SCORE_PER_CAT * (m_currLevel->original_cats()));
-
-				m_to_exit = m_currLevel->to_exit();
-				delete m_currLevel;
-
-				if (m_to_exit) {
-					break;
-				}
-				m_currLevel = nullptr;
-				m_levelNumber++;
-
-			}
-			else
-			{
-				if (m_currLevel->get_timer() > 0) //eaten by a cat
-				{
-					m_life--;
-					m_currLevel->reset_level();
-				}
-				else //end of time
-				{
-					m_life--;
-					add_score(-m_currLevel->get_level_score());
-					delete m_currLevel;
-					m_currLevel = nullptr;
-				}
-			}
+			m_currLevel = new Level(Resources::getInstance().getLevelNameAt(m_levelNumber));
 		}
-		if (m_life > 0)
+
+		if (m_currLevel->play()) // if fhinished the level seccessfully
 		{
-			std::cout << "you won yhe game\n";
-			summerry_print(m_wind, true);
-			//m_menu winner
+			add_score(SCORE_OF_SUCCESS_LEVEL);
+			add_score(SCORE_PER_CAT * (m_currLevel->original_cats()));
+
+			m_to_exit = m_currLevel->to_exit();
+			delete m_currLevel;
+			m_currLevel = nullptr;
+
+			if (m_to_exit)
+			{
+				return;
+			}
+
+			m_levelNumber++;
 		}
+
 		else
 		{
-			delete m_currLevel;
-			std::cout << "losserrrrrr\n";
-			summerry_print(m_wind, false);
-			//new game?
-			//m_menu losser
+			m_life--;
+
+			if (m_currLevel->get_timer() > 0) //eaten by a cat
+			{
+				m_currLevel->reset_level();
+			}
+
+			else //end of time
+			{
+				add_score(-m_currLevel->get_level_score());
+				delete m_currLevel;
+				m_currLevel = nullptr;
+			}
 		}
 	}
-}
 
+	summerry_print(m_wind, (m_life > 0));
+
+}
 
 
 void Controller::add_score(int score)
@@ -99,14 +82,13 @@ int Controller::get_score()
 	return m_score;
 }
 
-//int* Controller::get_timer_ptr()
-//{
-//	return m_currLevel->get_timer_ptr();
-//}
+int Controller::get_level_num()
+{
+	return m_levelNumber;
+}
 
 void Controller::reset_controller()
 {
-	//std::cout << "hi\n";
 	m_life = 3;
 	m_score = 0;
 	m_levelNumber = 0;
@@ -127,7 +109,6 @@ void Controller::summerry_print(sf::RenderWindow& m_wind, bool win)
 	sp1.setOrigin(sp1.getLocalBounds().width / 2, sp1.getLocalBounds().height / 2);
 	sp1.setPosition(sf::Vector2f(m_wind.getSize().x / 2, m_wind.getSize().y / 2));
 
-	// Draw sp1
 	m_wind.draw(sp1);
 	
 	std::string str = "score: " + std::to_string(m_score) +
@@ -167,13 +148,5 @@ void Controller::time_gift()
 {
 	m_currLevel->add_to_time(TIME_GIFT);
 }
-
-int Controller::get_level_num()
-{
-	return m_levelNumber;
-}
-
-
-
 
 	

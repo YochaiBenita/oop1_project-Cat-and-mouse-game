@@ -3,22 +3,21 @@
 #include <iostream>
 #include "Resources.h"
 #include "Controller.h"
-#include "Menu.h"
+
 
 int Level::m_keys =0;
 Data Level::m_data[];
+
 int Data::num_of_data = 0;
 
 Level::Level(std::string fileName)
 {
-	m_cats = 0;
 	char c;
 	auto file = std::ifstream(fileName);
-	//int row = 0;
 	int col = 0;
 
-	file >> m_time;
-	file.get(c);
+	file >> m_timer;
+	file.get(c);		//skip the white space
 
 	while (file.get(c))
 	{
@@ -41,43 +40,36 @@ Level::Level(std::string fileName)
 			{
 				m_movings.insert(m_movings.begin(), new_moving(c, col, m_hight));
 			}
-			else if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#' || c=='$')
+			else// if (c=='*' || c=='D' || c=='F' || c=='D' || c=='#' || c=='$')
 			{
 				m_statics.push_back(new_static(c, col, m_hight));
 			}
 		}
 		col++;
+		m_cats = 0;
 	}
 	
 
-	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE /* + TOPLEFT.x*/, m_hight * IMAGESIZE /* + TOPLEFT.y*/));
+	m_background = sf::RectangleShape(sf::Vector2f(m_width * IMAGESIZE, m_hight * IMAGESIZE));
 	m_background.setTexture(Resources::getInstance().getBackground(2));
-	m_background.setTextureRect(sf::IntRect(TOPLEFT.x, TOPLEFT.y, m_width * IMAGESIZE /* + TOPLEFT.x*/, m_hight * IMAGESIZE /* + TOPLEFT.y*/));
+	m_background.setTextureRect(sf::IntRect(TOPLEFT.x, TOPLEFT.y, m_width * IMAGESIZE, m_hight * IMAGESIZE));
 	m_background.setPosition(TOPLEFT);
 
 	m_background_data = sf::RectangleShape(sf::Vector2f(TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 	m_background_data.setTexture(Resources::getInstance().getBackground(3));
 	m_background_data.setTextureRect(sf::IntRect(0, 0,TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
-	m_timer = (int)m_time;
-
 	m_keys = 0;
-
 }
-
-
 
 bool Level::play()
 {
 	sf::RenderWindow window(sf::VideoMode(m_width * IMAGESIZE + TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y), "mouse and cat");
 	
-	//sf::Clock clock;
-
 	while (window.isOpen() &&
-		Cheese::get_cheese_num()>0 &&
+		Cheese::get_cheese_num() > 0 &&
 		m_timer > 0)
 	{
-		
 		window.clear(sf::Color::White);
 		window.draw(m_background);
 
@@ -113,6 +105,8 @@ bool Level::play()
 		{
 			m_movings[i]->move(deltaTime.asSeconds(), m_movings[0].get());
 
+			check_move(*m_movings[i]);			//checks for going out of screen
+
 			if (handleCollision(*m_movings[i])) //if the mouse has died
 			{
 				return false;
@@ -123,8 +117,7 @@ bool Level::play()
 		
 		window.display();
 	}
-	return (m_timer >= 0) ? true : false;
-
+	return (m_timer >= 0) ? true : false;		//finished succesfully?
 }
 
 void Level::reset_level()
@@ -193,29 +186,29 @@ std::unique_ptr<Static_object> Level::new_static(char c, int col, int row)
 
 bool Level::handleCollision(Moving_object& obj)
 {
-	check_move(obj);
-	for (int j = 0; j < m_statics.size(); j++)
+	//checking fo collision with statics
+	for (int i = 0; i < m_statics.size(); i++)
 	{
-		if (m_statics[j]->checkCollision(obj))
+		if (m_statics[i]->checkCollision(obj))
 		{
-			bool to_delete = m_statics[j]->collision(obj);
+			bool to_delete = m_statics[i]->collision(obj);
 			if (to_delete)
 			{
-				m_statics.erase(m_statics.begin() + j);
+				m_statics.erase(m_statics.begin() + i);
 			}
 			break;
 		}
 	}
 
-	for (int j = 0; j < m_movings.size(); j++)
+	//checking fo collision with movings
+	for (int i = 0; i < m_movings.size(); i++)
 	{
-		if (m_movings[j]->checkCollision(obj))
+		if (m_movings[i]->checkCollision(obj))
 		{
-			bool kill = m_movings[j]->collision(obj);
+			bool kill = m_movings[i]->collision(obj);
 			if (kill)
 			{
-				return true;
-				//kill mouse
+				return true;		//kill mouse
 			}
 			break;
 		}
@@ -233,15 +226,6 @@ void Level::check_move(Moving_object & player)
 	{
 		player.set_position(player.get_previous_loc());
 	}
-
-	//
-	//sf::FloatRect playerBounds = player.get_sprite().getGlobalBounds();
-	//if (playerBounds.top < 0 || playerBounds.left < TOPLEFT.x
-	//	|| ((playerBounds.left) - TOPLEFT.x) / IMAGESIZE +1 > m_width
-	//	|| (playerBounds.top) / IMAGESIZE +1 > m_hight)
-	//{
-	//	player.set_position(player.get_previous_loc());
-	//}
 }
 
 void Level::add_to_time(int time)
@@ -264,7 +248,6 @@ int Level::original_cats()
 	return m_cats;
 }
 
-//---------------------------------------------
 void Level::draw_data(sf::RenderWindow& wind)
 {
 	m_data[0].m_text.setString(std::to_string(Controller::get_level_num()+1));
@@ -284,14 +267,14 @@ void Level::draw_data(sf::RenderWindow& wind)
 
 void Level::freeze_gift(bool data)
 {
-	for (int i = 1; i < m_movings.size(); i++)
+	for (int i = 1; i < m_movings.size(); i++) //skips mouse
 	{
 		m_movings[i]->set_freeze(data);
 	}
 	m_freezing_timer = FREEZING_TIME;
 }
 
-float Level::get_timer()
+float Level::get_timer() const
 {
 	return m_timer;
 }
