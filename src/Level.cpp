@@ -60,6 +60,7 @@ Level::Level(std::string fileName)
 	m_background_data.setTextureRect(sf::IntRect(0, 0,TOPLEFT.x, m_hight * IMAGESIZE + TOPLEFT.y));
 
 	m_keys = 0;
+	m_freezing_timer = 0;
 }
 
 bool Level::play()

@@ -15,4 +15,10 @@ public:
 	virtual bool collision(Mouse&) = 0;
 	virtual bool collision(Cat&) = 0;
 
+	const sf::SoundBuffer* get_sound()const;
+
+private:
+	sf::Sound m_sound;
+
+
 };

@@ -5,7 +5,7 @@
 
 
 Moving_object::Moving_object(object_code obj, int col, int row) 
-	: Object(Resources::getInstance().getTextureAt(obj), Resources::getInstance().getSoundBuffer(obj), col, row)
+	: Object(Resources::getInstance().getTextureAt(obj), col, row)
 {
 	m_original_loc = get_sprite().getPosition();
 	m_previous_loc = m_original_loc;
@@ -13,9 +13,7 @@ Moving_object::Moving_object(object_code obj, int col, int row)
 
 
 Moving_object::~Moving_object()
-{
-}
-
+{}
 
 void Moving_object::reset_location()
 {
@@ -54,6 +52,6 @@ void Moving_object::set_freeze(bool status)
 {
 	m_freeze = status;
 
-	set_color((status) ? sf::Color::Color(40, 200, 245, 100) : sf::Color::White);
+	set_color((status) ? sf::Color(40, 200, 245, 100) : sf::Color::White);
 }
 

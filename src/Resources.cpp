@@ -7,8 +7,6 @@ Resources::Resources()
 {
 	auto line = std::string();
 	auto file = std::ifstream("playlist.txt");
-	//int i = 0;
-
 
 	//level names
 	while (std::getline(file, line))

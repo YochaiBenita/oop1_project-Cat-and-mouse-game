@@ -1,6 +1,7 @@
 #pragma once
 #include "Cat.h"
 #include <iostream>
+#include "Controller.h"
 #include <cmath>
 
 Cat::Cat(int col, int row) : Moving_object (cat_t, col, row) 
@@ -41,7 +42,6 @@ bool Cat::collision(Object& obj)
 
 bool Cat::collision(Mouse&)
 {
-	play_sound();
 	return true;
 }
 

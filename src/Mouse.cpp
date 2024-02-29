@@ -60,7 +60,7 @@ bool Mouse::collision(Cat& cat)
 
 bool Mouse::collision(Cheese& cheese)
 {
-	play_sound(cheese.get_sound());
+	Controller::play_sound(cheese.get_sound());
 	Controller::add_score(SCORE_OF_CHEESE);
 	return true;
 }
@@ -69,7 +69,7 @@ bool Mouse::collision(Door& door)
 {
 	if (Level::get_keys() > 0)
 	{
-		play_sound(door.get_sound());
+		Controller::play_sound(door.get_sound());
 		Controller::add_score(SCORE_OF_DOOR);
 		Level::use_key();
 
@@ -81,7 +81,7 @@ bool Mouse::collision(Door& door)
 
 bool Mouse::collision(Gift& gift)
 {
-	play_sound(gift.get_sound());
+	Controller::play_sound(gift.get_sound());
 	gift.open_gift();
 	Controller::add_score(SCORE_OF_GIFT);
 	return true;
@@ -90,15 +90,9 @@ bool Mouse::collision(Gift& gift)
 
 bool Mouse::collision(Key& key)
 {
-	play_sound(key.get_sound());
+	Controller::play_sound(key.get_sound());
 	Level::add_key();
 	return true;
-}
-
-void Mouse::play_sound(const sf::SoundBuffer* sndBF)
-{
-	m_currSound.setBuffer(*sndBF);
-	m_currSound.play();
 }
 
 

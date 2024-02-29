@@ -16,6 +16,7 @@ public:
 	static int get_life();
 	static int get_score();
 	static int get_level_num();
+	static void play_sound(const sf::SoundBuffer*);
 	void reset_controller();
 	void summerry_print(sf::RenderWindow&, bool);
 
@@ -23,7 +24,7 @@ public:
 	static void life_gift();
 	static void kill_gift();
 	static void time_gift();
-	void play_sound(sf::SoundBuffer*);
+
 	
  
 private:
@@ -34,5 +35,5 @@ private:
 
 	static Level* m_currLevel;
 
-	sf::Sound m_curr_sound;
+	static sf::Sound m_curr_sound;
 };

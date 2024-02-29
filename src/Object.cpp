@@ -2,18 +2,16 @@
 #include <iostream>
 #include "Controller.h"
 
-Object::Object(const sf::Texture* txtr, const sf::SoundBuffer* snd, int col, int row) :
-	m_sp(*txtr), m_sound(*snd)
+Object::Object(const sf::Texture* txtr, int col, int row) :
+	m_sp(*txtr)
 {
 	auto v2p = sf::Vector2f(col, row);
 	v2p *= IMAGESIZE;
 	v2p.x += TOPLEFT.x;
 	v2p.y += TOPLEFT.y;
 
-
 	m_sp.setPosition(v2p);
 
-	m_sound.setVolume(SOUND_VOLUME);
 }
 
 Object::~Object() {
@@ -63,16 +61,6 @@ void Object::move(sf::Vector2f v2d)
 sf::Sprite Object::get_sprite() const
 {
 	return m_sp;
-}
-
-void Object::play_sound() 
-{ 
-	m_sound.play();
-}
-
-const sf::SoundBuffer* Object::get_sound()const
-{
-	return m_sound.getBuffer();
 }
 
 void Object::set_color(sf::Color color)

@@ -18,7 +18,7 @@ class Wall;
 class Object 
 {
 public:
-	Object(const sf::Texture*, const sf::SoundBuffer*, int, int);
+	Object(const sf::Texture*, int, int);
 	virtual ~Object();
 
 	bool checkCollision(Object& obj) const;
@@ -32,11 +32,9 @@ public:
 	sf::Vector2f get_position() const;
 	virtual void move(sf::Vector2f);
 	sf::Sprite get_sprite()const;
-	void play_sound();
-	const sf::SoundBuffer* get_sound()const;
 	void set_color(sf::Color);
 
 private:
 	sf::Sprite m_sp;
-	sf::Sound m_sound;
+
 };

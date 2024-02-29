@@ -7,6 +7,7 @@ int Controller::m_score = 0;
 Level* Controller::m_currLevel = nullptr;
 int Controller::m_life = 3;
 int Controller::m_levelNumber = 0;
+sf::Sound Controller::m_curr_sound;
 
 
 Controller::Controller() {}
@@ -28,7 +29,6 @@ void Controller::run(sf::RenderWindow& m_wind)
 
 		if (m_currLevel->play()) // if fhinished the level seccessfully
 		{
-			play_sound(Resources::getInstance().getSoundBuffer(0));
 			add_score(SCORE_OF_SUCCESS_LEVEL);
 			add_score(SCORE_PER_CAT * (m_currLevel->original_cats()));
 
@@ -57,6 +57,8 @@ void Controller::run(sf::RenderWindow& m_wind)
 			else //end of time
 			{
 				add_score(-m_currLevel->get_level_score());
+				delete m_currLevel;
+				m_currLevel = nullptr;
 			}
 		}
 	}
@@ -150,7 +152,7 @@ void Controller::time_gift()
 	m_currLevel->add_to_time(TIME_GIFT);
 }
 
-void Controller::play_sound(sf::SoundBuffer* sound)
+void Controller::play_sound(const sf::SoundBuffer* sound)
 {
 	m_curr_sound.setBuffer(*sound);
 	m_curr_sound.play();

@@ -21,8 +21,5 @@ public:
 
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);
-	sf::Sound m_currSound;
-
-	void play_sound(const sf::SoundBuffer*);
 
 };
