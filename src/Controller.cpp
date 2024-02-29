@@ -55,14 +55,13 @@ void Controller::run(sf::RenderWindow& m_wind)
 			else //end of time
 			{
 				add_score(-m_currLevel->get_level_score());
-				delete m_currLevel;
-				m_currLevel = nullptr;
 			}
 		}
 	}
 
 	summerry_print(m_wind, (m_life > 0));
-
+	delete m_currLevel;
+	m_currLevel = nullptr;
 }
 
 
@@ -116,7 +115,7 @@ void Controller::summerry_print(sf::RenderWindow& m_wind, bool win)
 
 	auto text = sf::Text(str, *Resources::getInstance().getFont(), 40);
 	text.setOrigin(sf::Vector2f(text.getGlobalBounds().width / 2, text.getGlobalBounds().height / 2));
-	text.setPosition(sp1.getPosition() + sf::Vector2f(0,100));
+	text.setPosition(sp1.getPosition() + sf::Vector2f(0,130));
 	text.setFillColor(sf::Color::Black);
 
 	m_wind.draw(text);

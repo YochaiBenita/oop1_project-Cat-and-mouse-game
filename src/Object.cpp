@@ -13,7 +13,7 @@ Object::Object(const sf::Texture* txtr, const sf::SoundBuffer* snd, int col, int
 
 	m_sp.setPosition(v2p);
 
-	m_sound.setVolume(15);
+	m_sound.setVolume(SOUND_VOLUME);
 }
 
 Object::~Object() {
@@ -31,7 +31,7 @@ bool Object::checkCollision(Object& obj) const
 
 	if (m_sp.getGlobalBounds().intersects(obj.m_sp.getGlobalBounds(), overlapRect))
 	{
-		if (overlapRect.height > 3 && overlapRect.width > 3 )//черси!!!!
+		if (overlapRect.height > APPROVED_OVERLAP && overlapRect.width > APPROVED_OVERLAP)//черси!!!!
 		{
 			return true;
 		}
