@@ -10,6 +10,7 @@
 int Controller::m_score = 0;
 Level* Controller::m_currLevel = nullptr;
 int Controller::m_life = 3;
+int Controller::m_levelNumber = 0;
 //sf::Text Controller::m_text;
 //sf::Sprite Controller::m_dataSP[3];
 //Menu Controller::m_menu;
@@ -21,7 +22,7 @@ Controller::Controller()
 
 Controller::~Controller() {}
 
-void Controller::run()
+void Controller::run(sf::RenderWindow& m_wind)
 {
 	//while (!m_to_exit) 
 	{
@@ -111,6 +112,19 @@ void Controller::reset_controller()
 	Cheese::reset_cheese_counter();
 }
 
+void Controller::summerry_print(sf::RenderWindow& m_wind, bool win)
+{
+	m_wind.clear();
+
+	auto sp = sf::Sprite(*Resources::getInstance().getBackground(0));
+	m_wind.draw(sp);
+
+	sp.setPosition(sp.getGlobalBounds().width / 2, sp.getGlobalBounds().height / 2);
+	sp.setTexture(Resources::getInstance().getTextureMs(win));
+	sp.setOrigin(sp.getGlobalBounds().width / 2, sp.getGlobalBounds().height / 2);
+
+}
+
 void Controller::freeze_gift()
 {
 	m_currLevel->freeze_gift(true);
@@ -132,6 +146,11 @@ void Controller::kill_gift()
 void Controller::time_gift()
 {
 	m_currLevel->add_to_time(TIME_GIFT);
+}
+
+int Controller::get_level_num()
+{
+	return m_levelNumber;
 }
 
 

@@ -11,7 +11,7 @@ class Controller {
 public:
 	Controller();
 	~Controller();
-	void run();
+	void run(sf::RenderWindow&);
 	//static sf::Texture* getTexutre(int);
 	//static sf::Texture* getBackground(int);
 	//static sf::Texture* getDataTexure(int);
@@ -23,17 +23,19 @@ public:
 	static int get_score();
 	//int* get_timer_ptr();
 	void reset_controller();
+	void summerry_print(sf::RenderWindow&, bool);
 
 	static void freeze_gift();
 	static void life_gift();
 	static void kill_gift();
 	static void time_gift();
+	static int get_level_num();
 	
  
 private:
 	static int m_life;
 	static int m_score;
-	int m_levelNumber = 0;
+	static int m_levelNumber;
 	bool m_to_exit = false;
 	//static Menu m_menu;
 	
