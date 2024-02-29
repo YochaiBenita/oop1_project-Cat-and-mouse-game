@@ -39,7 +39,7 @@ void Mouse::move(float seconds, Moving_object* mouse)
 	
 	set_prev_loc(get_position());
 	
-	Object::move(m_diraction * seconds * speedForSecondsM);
+	Object::move(m_diraction * seconds * SPEED_FOR_SEC_MOUSE);
 }
 
 bool Mouse::collision(Object& object)

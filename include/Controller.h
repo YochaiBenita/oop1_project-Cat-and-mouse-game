@@ -23,7 +23,7 @@ public:
 	static void life_gift();
 	static void kill_gift();
 	static void time_gift();
-
+	void play_sound(sf::SoundBuffer*);
 	
  
 private:
@@ -34,4 +34,5 @@ private:
 
 	static Level* m_currLevel;
 
+	sf::Sound m_curr_sound;
 };

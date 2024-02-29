@@ -23,7 +23,8 @@ void Menu::show_menu()
 	m_wind.create(sf::VideoMode(900, 500), "menu");
 	m_wind.clear(sf::Color::White);
 
-	m_music.play();
+	//m_music.play();
+
 
 	while (m_wind.isOpen())
 	{

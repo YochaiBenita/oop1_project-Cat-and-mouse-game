@@ -28,6 +28,7 @@ void Controller::run(sf::RenderWindow& m_wind)
 
 		if (m_currLevel->play()) // if fhinished the level seccessfully
 		{
+			play_sound(Resources::getInstance().getSoundBuffer(0));
 			add_score(SCORE_OF_SUCCESS_LEVEL);
 			add_score(SCORE_PER_CAT * (m_currLevel->original_cats()));
 
@@ -39,13 +40,14 @@ void Controller::run(sf::RenderWindow& m_wind)
 			{
 				return;
 			}
-
+			play_sound(Resources::getInstance().getSoundBuffer(0));
 			m_levelNumber++;
 		}
 
 		else
 		{
 			m_life--;
+			play_sound(Resources::getInstance().getSoundBuffer(1));
 
 			if (m_currLevel->get_timer() > 0) //eaten by a cat
 			{
@@ -147,5 +149,12 @@ void Controller::time_gift()
 {
 	m_currLevel->add_to_time(TIME_GIFT);
 }
+
+void Controller::play_sound(sf::SoundBuffer* sound)
+{
+	m_curr_sound.setBuffer(*sound);
+	m_curr_sound.play();
+}
+
 
 	

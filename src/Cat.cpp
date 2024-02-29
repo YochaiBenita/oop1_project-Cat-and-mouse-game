@@ -29,7 +29,7 @@ void Cat::move(float seconds, Moving_object* mouse)
 		}
 
 		set_prev_loc(get_position());
-		Object::move(m_diraction * speedForSeconds * seconds);
+		Object::move(m_diraction * SPEED_FOR_SEC_CAT * seconds);
 	}
 }
 

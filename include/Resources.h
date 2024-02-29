@@ -4,9 +4,9 @@
 #include <fstream>
 #include <string>
  
-const float speedForSecondsM = 400;
-const float speedForSeconds = 200;
-const int APPROVED_OVERLAP = 10;
+const float SPEED_FOR_SEC_MOUSE = 200;
+const float SPEED_FOR_SEC_CAT = 100;
+const int APPROVED_OVERLAP = 7;
 
 const int NUM_OF_TEXTURES = 11;
 const int NUM_OF_BACKGROUNDS = 4;
@@ -16,7 +16,7 @@ const int NUM_OF_SOUNDES = 7;
 const int NUM_OF_BUTTONS = 3;
 
 const int MUSIC_VOLUME = 5;
-const int SOUND_VOLUME = 10;
+const int SOUND_VOLUME = 5;
 
 const auto TOPLEFT = sf::Vector2f(100.f, 0.f);
 const float IMAGESIZE = 30.f;
