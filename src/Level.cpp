@@ -267,11 +267,7 @@ int Level::original_cats()
 //---------------------------------------------
 void Level::draw_data(sf::RenderWindow& wind)
 {
-	//m_data[0].src = m_controller.get_timer_ptr(); //time
-//m_data[1].src = m_controller.get_life_ptr(); //life
-//m_data[2].src = m_controller.get_score_ptr();
-//m_data[3].src = m_controller.get_score_ptr(); //keys
-	m_data[0].m_text.setString(std::to_string((int)m_timer));//num of level
+	m_data[0].m_text.setString(std::to_string(Controller::get_level_num()+1));
 	m_data[1].m_text.setString(std::to_string((int)m_timer));
 	m_data[2].m_text.setString(std::to_string(Controller::get_life()));
 	m_data[3].m_text.setString(std::to_string(Controller::get_score()));

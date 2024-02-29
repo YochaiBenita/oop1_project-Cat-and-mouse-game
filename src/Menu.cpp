@@ -58,7 +58,7 @@ void Menu::show_menu()
 				switch (option)
 				{
 				case 0:
-					m_controller.run();
+					m_controller.run(m_wind);
 					m_controller.reset_controller();
 					break;
 				case 1:

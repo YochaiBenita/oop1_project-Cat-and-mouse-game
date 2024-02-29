@@ -26,7 +26,8 @@ configure_file ("star.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("play button.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("help button.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("exit button.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("winner.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("game over.png" ${CMAKE_BINARY_DIR} COPYONLY)
 #text
 configure_file ("playlist.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Level001.txt" ${CMAKE_BINARY_DIR} COPYONLY)
