@@ -104,7 +104,7 @@ private:
 	};
 
 	std::string m_WinLoss[NUM_OF_MESSAGES] = {
-		"winner.png",
-		"game over.png"
-	}
+		"game over.png",
+		"winner.png"
+	};
 };

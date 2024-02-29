@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Menu.h"
 #include <sstream>
+#include <thread>
 
 
 //Resources Controller::m_resources;
@@ -66,12 +67,14 @@ void Controller::run(sf::RenderWindow& m_wind)
 		if (m_life > 0)
 		{
 			std::cout << "you won yhe game\n";
+			summerry_print(m_wind, true);
 			//m_menu winner
 		}
 		else
 		{
 			delete m_currLevel;
 			std::cout << "losserrrrrr\n";
+			summerry_print(m_wind, false);
 			//new game?
 			//m_menu losser
 		}
@@ -119,10 +122,27 @@ void Controller::summerry_print(sf::RenderWindow& m_wind, bool win)
 	auto sp = sf::Sprite(*Resources::getInstance().getBackground(0));
 	m_wind.draw(sp);
 
-	sp.setPosition(sp.getGlobalBounds().width / 2, sp.getGlobalBounds().height / 2);
-	sp.setTexture(Resources::getInstance().getTextureMs(win));
-	sp.setOrigin(sp.getGlobalBounds().width / 2, sp.getGlobalBounds().height / 2);
+	auto sp1 = sf::Sprite(*Resources::getInstance().getTextureMs(win));
 
+	sp1.setOrigin(sp1.getLocalBounds().width / 2, sp1.getLocalBounds().height / 2);
+	sp1.setPosition(sf::Vector2f(m_wind.getSize().x / 2, m_wind.getSize().y / 2));
+
+	// Draw sp1
+	m_wind.draw(sp1);
+	
+	std::string str = "score: " + std::to_string(m_score) +
+		" num of levels:" + std::to_string(m_levelNumber);
+
+	auto text = sf::Text(str, *Resources::getInstance().getFont(), 40);
+	text.setOrigin(sf::Vector2f(text.getGlobalBounds().width / 2, text.getGlobalBounds().height / 2));
+	text.setPosition(sp1.getPosition() + sf::Vector2f(0,100));
+	text.setFillColor(sf::Color::Black);
+
+	m_wind.draw(text);
+
+	m_wind.display();
+
+	sf::sleep(sf::seconds(3));
 }
 
 void Controller::freeze_gift()
