@@ -26,23 +26,14 @@ public:
 	virtual bool collision(Object&) = 0;
 	virtual bool collision(Mouse&) = 0;
 	virtual bool collision(Cat&) = 0;
-	//virtual bool collision(Cheese&) = 0;
-	//virtual bool collision(Door&) = 0;
-	//virtual bool collision(Gfreeze&) = 0;
-	//virtual bool collision(Gift&) = 0;
-	//virtual bool collision(Glife&) = 0;
-	//virtual bool collision(Gkill&) = 0;
-	//virtual bool collision(Gtime&) = 0;
-	//virtual bool collision(Key&) = 0;
-	//virtual bool collision(Wall&) = 0;
 
-	virtual void draw(sf::RenderWindow&);
+	virtual void draw(sf::RenderWindow&)const;
 	void set_position(sf::Vector2f);
 	sf::Vector2f get_position() const;
 	virtual void move(sf::Vector2f);
 	sf::Sprite get_sprite()const;
 	void play_sound();
-	const sf::SoundBuffer* get_sound();
+	const sf::SoundBuffer* get_sound()const;
 	void set_color(sf::Color);
 
 private:

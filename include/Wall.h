@@ -7,15 +7,10 @@ class Moving_object;
 class Wall :public Static_object
 {
 public:
-	Wall(int col, int row);
-	//virtual ~Wall() = default;
+	Wall(int, int);
 
 	virtual bool collision(Object& obj);
-	//virtual bool collision(Moving_object& obj);
-
-	virtual bool collision(Cat& catPlayer);// { return false; };
-	virtual bool collision(Mouse& mousePlayer);// { return false; };
-
-private:
+	virtual bool collision(Cat& catPlayer);
+	virtual bool collision(Mouse& mousePlayer);
 
 };

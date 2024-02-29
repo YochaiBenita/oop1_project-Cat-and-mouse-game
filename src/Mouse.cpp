@@ -32,7 +32,7 @@ void Mouse::move(float seconds, Moving_object* mouse)
 	{
 		m_diraction = sf::Vector2f(0.f, 1.f);
 	}
-	else //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	else 
 	{
 		m_diraction = sf::Vector2f(0.f, 0.f);
 	}
@@ -42,31 +42,6 @@ void Mouse::move(float seconds, Moving_object* mouse)
 	Object::move(m_diraction * seconds * speedForSecondsM);
 }
 
-//void Mouse::set_direction()
-//{
-//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-//	{
-//		m_diraction = sf::Vector2f(-1.f, 0.f);
-//	}
-//	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-//	{
-//		m_diraction = sf::Vector2f(1.f, 0.f);
-//	}
-//	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-//	{
-//		m_diraction = sf::Vector2f(0.f, -1.f);
-//	}
-//	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-//	{
-//		m_diraction = sf::Vector2f(0.f, 1.f);
-//	}
-//	else //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-//	{
-//		m_diraction = sf::Vector2f(0.f, 0.f);
-//	}
-//}
-
-//--------------------------------------------------------------------------
 bool Mouse::collision(Object& object)
 {
 	return object.collision(*this);
@@ -85,7 +60,6 @@ bool Mouse::collision(Cat& cat)
 bool Mouse::collision(Cheese& cheese)
 {
 	play_sound(cheese.get_sound());
-	//cheese.play_sound();
 	Controller::add_score(SCORE_OF_CHEESE);
 	return true;
 }
@@ -112,24 +86,6 @@ bool Mouse::collision(Gift& gift)
 	return true;
 }
 
-//bool Mouse::collision(Gfreeze& gift)
-//{
-//	gift.collision(*this);
-//}
-//bool Mouse::collision(Glife& gift)
-//{
-//	gift.collision(*this);
-//}
-//
-//bool Mouse::collision(Gkill& gift)
-//{
-//	gift.collision(*this);
-//}
-//
-//bool Mouse::collision(Gtime& gift)
-//{
-//	gift.collision(*this);
-//}
 
 bool Mouse::collision(Key& key)
 {
@@ -138,17 +94,10 @@ bool Mouse::collision(Key& key)
 	return true;
 }
 
-
 void Mouse::play_sound(const sf::SoundBuffer* sndBF)
 {
 	m_currSound.setBuffer(*sndBF);
 	m_currSound.play();
 }
 
-//bool Mouse::collision(Wall&)
-//{
-//	set_position(get_previous_loc());
-//
-//	return false;
-//}
 
