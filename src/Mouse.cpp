@@ -57,6 +57,7 @@ bool Mouse::collision(Cat& cat)
 	return cat.collision(*this);
 }
 
+
 bool Mouse::collision(Cheese& cheese)
 {
 	play_sound(cheese.get_sound());

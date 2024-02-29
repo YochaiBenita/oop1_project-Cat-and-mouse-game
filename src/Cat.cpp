@@ -52,6 +52,7 @@ bool Cat::collision(Cat&)
 	return false;
 }
 
+
 sf::Vector2f Cat::choose_diraction()
 {
 	switch (rand() % 4) {

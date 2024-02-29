@@ -18,7 +18,7 @@ public:
 	virtual bool collision(Door&)	override;
 	virtual bool collision(Gift&)	override;
 	virtual bool collision(Key&)	override;
-	
+
 private:
 	sf::Vector2f m_diraction = sf::Vector2f(0.f,0.f);
 	sf::Sound m_currSound;
