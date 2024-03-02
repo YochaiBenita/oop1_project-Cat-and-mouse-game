@@ -7,6 +7,5 @@ int main()
 
 	Menu menu;
 	menu.show_menu();
-	 
 
 }
